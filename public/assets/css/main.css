@@ -1,0 +1,21 @@
+#bodybackground {
+    background-image: url("../images/sadface.jpeg");
+    background-size: cover;
+    background-position: 512px 0px;
+    background-color: black;
+}
+
+#firstbox {
+    margin-top: 120px;
+}
+
+.footer {
+    position: fixed;
+    height: 10vh;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
