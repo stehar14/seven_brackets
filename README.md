@@ -36,7 +36,7 @@ who want to help.
 4. API routes
 5. Database Models
 6. Database ORM (sequelize)
-7. 
+
 
 ## Responsibilities
 Chris - Database models
