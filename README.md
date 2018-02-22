@@ -25,9 +25,22 @@ who want to help.
 5. MVC (handle bars)
 6. Chat Box (after thought)
 
+
+## Worked needed to be done
+1. HTML pages
+  1. Landing / Login (login modal?)
+  2. Account Page
+  3. Forum (new post?)
+2. Front end ajax
+3. HTML routes
+4. API routes
+5. Database Models
+6. Database ORM (sequelize)
+7. 
+
 ## Responsibilities
 Chris - Database models
 Ben - Front Page UI
 Andrew - Files and structure
 Jeff - Authentication / Chatbox
-Steve - 
+Steve - Front end
