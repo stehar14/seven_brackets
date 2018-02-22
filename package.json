@@ -1,0 +1,33 @@
+{
+  "name": "seven_brackets",
+  "version": "1.0.0",
+  "description": "<!-- Ionic Chat Technology ?  --> # Life Overflow Crowd sourced advice / help forum connecting people in need with people who want to help.",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.10",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.2",
+    "path": "^0.12.7",
+    "sequelize": "^4.33.4",
+    "sequelize-cli": "^4.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Afellman/seven_brackets.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Afellman/seven_brackets/issues"
+  },
+  "homepage": "https://github.com/Afellman/seven_brackets#readme"
+}
