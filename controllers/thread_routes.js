@@ -1,7 +1,6 @@
 var db = require('../models');
 module.exports = function (app) {
-
-
+  
   // Thread routes  
   // Get all threads - Get / findAll
   app.get('/api/threads', function (req, res) {
