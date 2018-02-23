@@ -9,17 +9,29 @@ module.exports = function (sequelize, DataTypes) {
      userName : {
      type : DataTypes.STRING,
      allowNull : false, 
-     
     },
-     rating : DataTypes.DECIMAL(3, 2)      
-
-     
+    rating : { 
+        type: DataTypes.DECIMAL(3, 2),
+        default : null,   
+     },
+     fbtoken : {
+      type : DataTypes.INTEGER,
+      allowNull: false
+     },
+     img_url: {
+      type: DataTypes.STRING,
+      allowNull: true
+     }
  })
 
  User.associate = function(models) {
   // Associating User with Replys
   // When an User is deleted, also delete any associated Replys
   User.hasMany(models.Reply, {
+    onDelete: "cascade"
+  });
+
+  User.hasMany(models.Thread, {
     onDelete: "cascade"
   });
 };
