@@ -38,7 +38,7 @@ module.exports = function (app) {
     })
   })
   // Confimed solved - Put / update
-  app.update('/api/threads', function (req, res) {
+  app.put('/api/threads', function (req, res) {
     db.Thread.update(
       req.body,
       {
