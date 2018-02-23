@@ -8,12 +8,10 @@ module.exports = function(app) {
 //  Add new user - Post / create
    app.post("api/newUser", function(req,res){
      db.User.create({
-      
       userName : req.body.userName,
       rating : null,
-      img : fbImg
-      
-     
+      img_url : req.body.img_url,
+      fbtoken: req.body.fbtoken
   }).then(function(userTable){
     res.json(userTable)
   
