@@ -11,7 +11,13 @@ module.exports = function (sequelize, DataTypes) {
      allowNull : false, 
      
     },
-     rating : DataTypes.DECIMAL(3, 2)      
+     rating : { 
+         type: DataTypes.DECIMAL(3, 2),
+         default : null,
+        
+        
+     }
+
 
      
  })
@@ -20,6 +26,10 @@ module.exports = function (sequelize, DataTypes) {
   // Associating User with Replys
   // When an User is deleted, also delete any associated Replys
   User.hasMany(models.Reply, {
+    onDelete: "cascade"
+  });
+
+  User.hasMany(models.Thread, {
     onDelete: "cascade"
   });
 };
