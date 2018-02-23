@@ -1,13 +1,8 @@
 #bodybackground {
-    background-image: url("../images/sadface.jpeg");
+    background-image: url("../images/sadface.jpg");
     background-size: cover;
-    background-position: 512px 0px;
-    background-color: black;
 }
 
-#firstbox {
-    margin-top: 120px;
-}
 
 .footer {
     position: fixed;
@@ -19,3 +14,27 @@
     color: white;
     text-align: center;
 }
+
+
+.card{
+    margin-left: 5px;
+}
+
+#actuallogo{
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-bottom: 40px;
+    width: 400px;
+    height: 100px;
+
+
+}
+
+#bottombox{
+    margin-bottom: 50px;
+}
+
+#cardsection{
+    margin-top: -30px;
+}
+
