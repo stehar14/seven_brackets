@@ -37,7 +37,6 @@ module.exports = function(app) {
   });
 //  update rating - Put / update
    app.put("api/rating", function(req,res){
-     
      db.User.update({
        rating : req.body.rating
      },
