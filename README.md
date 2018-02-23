@@ -31,7 +31,7 @@ who want to help.
   1. Landing / Login (login modal?)
   2. Account Page
   3. Forum (new post?)
-2. Front end ajax
+2. Front end ajax - 
 3. HTML routes
 4. API routes
 5. Database Models
