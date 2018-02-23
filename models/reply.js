@@ -2,17 +2,10 @@
 module.exports = function (sequelize, DataTypes) {
   
     var Reply = sequelize.define("Reply", {
-      title: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [10]
-        }
-      },
-      body: {
+        body: {
         type: DataTypes.TEXT,
         allowNull: false,
-        len: [20]
+        len: [10]
       }
     });   
    
