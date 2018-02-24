@@ -8,12 +8,10 @@ module.exports = function(app) {
 //  Add new user - Post / create
    app.post("api/newUser", function(req,res){
      db.User.create({
-      
       userName : req.body.userName,
       rating : null,
-      img : fbImg
-      
-     
+      img_url : req.body.img_url,
+      fbtoken: req.body.fbtoken
   }).then(function(userTable){
     res.json(userTable)
   
@@ -39,7 +37,6 @@ module.exports = function(app) {
   });
 //  update rating - Put / update
    app.put("api/rating", function(req,res){
-     
      db.User.update({
        rating : req.body.rating
      },
@@ -53,7 +50,7 @@ module.exports = function(app) {
   });
 //  change pic? - Put / update
 app.put("api/updateImg", function(req,res){
-     
+     // THIS CODE STIL NEEDS TO BE MODIFIED
   db.User.update({
     img : img 
   },
