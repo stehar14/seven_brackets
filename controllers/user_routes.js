@@ -50,7 +50,7 @@ module.exports = function(app) {
   });
 //  change pic? - Put / update
 app.put("api/updateImg", function(req,res){
-     
+     // THIS CODE STIL NEEDS TO BE MODIFIED
   db.User.update({
     img : img 
   },
