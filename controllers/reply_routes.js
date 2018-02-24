@@ -8,8 +8,8 @@ module.exports = function(app) {
     app.get("api/showReplies", function(req,res){
         db.Reply.findAll({
             include : [db.User]
-        }).then(function(dbReplies){
-            res.json(dbAuthor);
+        }).then(function(dbReply){
+            res.json(dbReply);
         })
     });
     
@@ -31,12 +31,12 @@ module.exports = function(app) {
 
 
     // edit a reply on a thread
-     app.put("/api/editReply", function(req, res){
+     app.put("/api/editReply/:id", function(req, res){
          db.Reply.update(
              req.body.body,
              {
              where : {
-                 id : req.body.id
+                 id : req.params.id
              }
              }).then(function(dbReply){
                  res.json(dbReply)
@@ -50,7 +50,7 @@ module.exports = function(app) {
         db.Reply.destroy({
             where : {
                 id : req.body.id
-                // or params?
+                
             }
         }).then(function(dbReply){
             res.json(dbReply);

@@ -58,7 +58,7 @@ router.put("/api/eaten/:id" , function(req, res) {
 
 
 
-  / *********************************************************************************
+  // *********************************************************************************
 // api-routes.js - this file offers a set of routes for displaying and saving data to the db
 // *********************************************************************************
 
@@ -138,3 +138,46 @@ module.exports = function(app) {
 
 
 
+// FRONT END LOGIC FOR STUF
+// That's right stuf
+
+
+
+$("#submit").on("click", function(event) {
+  event.preventDefault();
+  
+  var newBurger = {
+      burger_name : $("#burg").val().trim()
+     
+  }
+
+  $.ajax({
+   method : "POST",
+    url : "/api/burgers",
+    data : newBurger
+   }).then(
+       function() {
+      location.reload();
+       }
+   )
+
+  });    
+
+
+  $(".devour").on("click" , function(event){
+  event.preventDefault();
+   
+     var id  = this.id;
+     console.log("id" , id)
+     $.ajax({
+         method : "PUT",
+         url : "api/eaten/" + id 
+         
+     }).then(
+         function() {
+          location.reload()
+         }
+     )
+
+
+  });
