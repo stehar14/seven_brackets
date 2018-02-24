@@ -5,9 +5,9 @@ module.exports = function(app) {
  
     
     // Show the replies on a thread
-    app.get("api/showReplies", function(req,res){
+    app.get("/api/showReplies", function(req,res){
         db.Reply.findAll({
-            include : [db.User]
+            include : [db.User, db.Thread]
         }).then(function(dbReply){
             res.json(dbReply);
         })
