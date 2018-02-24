@@ -1,6 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var method = require('method-override');
+var path = require('path')
 
 var PORT = process.env.PORT || 3000;
 
@@ -27,8 +28,12 @@ app.set("view engine", "handlebars");
 // Import routes and give the server access to them.
 require("./controllers/user_routes.js")(app);
 require("./controllers/thread_routes.js")(app);
+<<<<<<< HEAD
 require("./controllers/reply_routes.js")(app);
 //app.use(routes);
+=======
+require("./controllers/html_routes.js")(app, path)
+>>>>>>> master
 
 
 
