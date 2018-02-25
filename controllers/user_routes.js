@@ -6,7 +6,7 @@ module.exports = function(app) {
 //  Login - Get / findAll // get req from fb possibly and render info
   
 //  Add new user - Post / create
-   app.post("api/newUser", function(req,res){
+   app.post("/api/newUser", function(req,res){
      db.User.create({
       userName : req.body.userName,
       rating : null,
@@ -19,7 +19,7 @@ module.exports = function(app) {
   });
    
 //  Search user - Get / findAll
-  app.get("api/findUser/:id", function(req,res){
+  app.get("/api/findUser/:id", function(req,res){
       db.User.findOne({
         where : {
           id : req.params.id
@@ -29,15 +29,18 @@ module.exports = function(app) {
       })
   })
 //  search all users? Get / findAll
-   app.get("api/findAllUsers", function(req,res){
+   app.get("/api/findAllUsers", function(req,res){
      db.User.findAll({
+      include : [db.Reply, db.Thread]
    }).then(function(dbUser){
+   //  res.render("userpage", {user : dbUser} )
      res.json(dbUser);
    })
   });
 //  update rating - Put / update
-   app.put("api/rating", function(req,res){
+   app.put("/api/rating", function(req,res){
      db.User.update({
+       totalRatings : req.body.totalRatings,
        rating : req.body.rating
      },
      {
@@ -49,7 +52,7 @@ module.exports = function(app) {
    })
   });
 //  change pic? - Put / update
-app.put("api/updateImg", function(req,res){
+app.put("/api/updateImg", function(req,res){
      // THIS CODE STIL NEEDS TO BE MODIFIED
   db.User.update({
     img : img 
