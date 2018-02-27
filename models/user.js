@@ -15,14 +15,15 @@ module.exports = function (sequelize, DataTypes) {
         default : null,   
      },
 
- totalRatings : {
-      type : DataTypes.INTEGER,
-      
- },
+//  totalRatings : {
+//       type : DataTypes.INTEGER,
+//       default : 0,
+
+//  },
 
      fbtoken : {
-      type : DataTypes.INTEGER,
-      allowNull: false
+      type : DataTypes.STRING,
+      allowNull: true
      },
      img_url: {
       type: DataTypes.STRING,

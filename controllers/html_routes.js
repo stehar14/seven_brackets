@@ -12,6 +12,27 @@ module.exports = function(app, path) {
     }
   })
 
+
+
+
+  app.get("/api/findAllUsers", function(req,res){
+    db.User.findAll({
+     include : [db.Reply, db.Thread]
+  }).then(function(dbUser){
+    res.render("userpage", {user : dbUser} )
+   
+  })
+  });
+  
+  
+  app.get("/api/showReplies", function(req,res){
+    db.Reply.findAll({
+        include : [db.User, db.Thread]
+    }).then(function(dbReply){
+       res.render("replies", {replies : dbReply})
+    })
+  });
+
 }
 
 
@@ -23,20 +44,3 @@ module.exports = function(app, path) {
 
 
 
-app.get("/api/findAllUsers", function(req,res){
-  db.User.findAll({
-   include : [db.Reply, db.Thread]
-}).then(function(dbUser){
-  res.render("userpage", {user : dbUser} )
- 
-})
-});
-
-
-app.get("/api/showReplies", function(req,res){
-  db.Reply.findAll({
-      include : [db.User, db.Thread]
-  }).then(function(dbReply){
-     res.render("replies", {replies : dbReply})
-  })
-});
