@@ -6,8 +6,7 @@
     <title>Life Overflow</title>
 
 <link href="https://fonts.googleapis.com/css?family=Merienda+One" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
 
@@ -17,15 +16,17 @@
 <!-- Popper JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/main.css"/>
+<link rel="stylesheet" type="text/css" href="./assets/css/main.css"/>
 </head>
 <body id="bodybackground">
 
 
 <div id="logo">
-    <img id="actuallogo" src="/assets/images/logo2.PNG"/>
+    <img id="actuallogo" src="./assets/images/logo2.PNG"/>
 </div>
-
+<div id="happy">
+    <img id="face" src="./assets/images/happyface.png">
+</div>
 <div id="cardsection">
 <div id="firstbox" class="card text-white bg-warning mb-3" style="max-width: 32rem;">
     <div class="card-body">
@@ -53,11 +54,32 @@
     </div>
 </div>
 </div>
+<div class="rainy"></div>
+<div class="rainy2"></div>
+<div class="rainy3"></div>
+<div class="sunny"></div>
+<div class="rainbow"></div>
+
 
 <!-- <div class="footer">
     <p>Footer</p>
 </div> -->
+<script>
+    $( document ).ready(function(){
+        $(".sunny").hide();
+        $(".rainbow").hide();
+        $("#happy").hide();
+        setTimeout(function(){ 
+            $(".sunny").fadeIn(2000);
+            $(".rainbow").fadeIn(2000);
+            $("#happy").fadeIn(2000);
+            $(".rainy").fadeOut(2000);
+            $(".rainy2").fadeOut(2000);
+            $(".rainy3").fadeOut(2000);
 
+        }, 7000);
+    })
+</script>
 
 
 </body>
