@@ -28,6 +28,15 @@ module.exports = function(app) {
         res.json(dbUser);
       })
   })
+  app.get("/api/checkUser/:id", function(req,res){
+      db.User.findOne({
+        where : {
+          fbtoken : req.params.id
+        },
+      }).then(function(dbUser){
+        res.json(dbUser);
+      })
+  })
 //  search all users? Get / findAll
    app.get("/api/findAllUsers", function(req,res){
      db.User.findAll({

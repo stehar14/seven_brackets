@@ -28,7 +28,7 @@
         var fbID = res.id;
         console.log(res);
         console.log(fbID);
-        $.get("/api/findUser/" + fbID, function(data){
+        $.get("/api/checkUser/" + fbID, function(data){
          // if user exist then redirect to profile page
          console.log(data);
         if (data) {
