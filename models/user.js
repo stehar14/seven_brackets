@@ -14,9 +14,18 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.DECIMAL(3, 2),
         default : null,   
      },
+
+//  totalRatings : {
+//       type : DataTypes.INTEGER,
+//       default : 0,
+
+//  },
+
      fbtoken : {
       type : DataTypes.STRING,
+
       allowNull: false
+
      },
      img_url: {
       type: DataTypes.STRING,

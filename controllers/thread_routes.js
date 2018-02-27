@@ -4,13 +4,17 @@ module.exports = function (app) {
   // Thread routes  
   // Get all threads - Get / findAll
   app.get('/api/threads', function (req, res) {
+    
     console.log('/api/threads get request received')
-    db.Thread.findAll({})
+    db.Thread.findAll({
+      include : [db.User , db.Reply]
+    })
       .then(function (dbThread) {
-        res.json(dbThread)
-        
-        console.log(dbThread[0].dataValues.id)
-        // res.render('index', dbThread)
+
+       // res.json(dbThread)
+       // console.log(dbThread[0].dataValues.id)
+         res.render('index', {dbThread : dbThread})
+
       })
   })
   // Get Thread by id
