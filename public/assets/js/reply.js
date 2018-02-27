@@ -49,7 +49,7 @@ function postReply(newReply) {
 
 
   function handleDelete(event, userId) {
-     // event.preventDefault();
+      event.preventDefault();
       var replyId = 
            
           // Condiational to make sure the post with a a corresponding thread and 
@@ -65,7 +65,7 @@ function postReply(newReply) {
  function deleteReply(replyId){
   $.ajax({
     method: "DELETE",
-   // url : "api/deleteReply/" + replyId,
+    url : "api/deleteReply/" + replyId,
     
 }).then(
     function() {
@@ -78,7 +78,7 @@ function postReply(newReply) {
 
 
 function  handleEdit(event, bodyInput, userId){
-   // event.preventDefault();
+    event.preventDefault();
     var id = $(this.id)
     var editedReply = {
         body: bodyInput

@@ -59,6 +59,22 @@ module.exports = function (app) {
         res.json(dbThread)
       })
   })
+
+
+  app.get('/api/threadJSON', function (req, res) {
+    
+    console.log('/api/threads get request received')
+    db.Thread.findAll({
+      include : [db.User , db.Reply]
+    })
+      .then(function (dbThread) {
+        res.json(dbThread)
+       // console.log(dbThread[0].dataValues.id)
+        
+      })
+  })
+
+
 }
 
 
