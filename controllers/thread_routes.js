@@ -4,7 +4,9 @@ module.exports = function (app) {
   // Thread routes  
   // Get all threads - Get / findAll
   app.get('/api/threads', function (req, res) {
-    db.Thread.findAll({})
+    db.Thread.findAll({
+      include : [db.User , db.Reply]
+    })
       .then(function (dbThread) {
         res.json(dbThread)
       })
