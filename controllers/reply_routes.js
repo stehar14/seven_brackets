@@ -46,10 +46,10 @@ module.exports = function(app) {
 
     // delete reply
 
-    app.delete("/api/deleteReply", function(req,res){
+    app.delete("/api/deleteReply/:id", function(req,res){
         db.Reply.destroy({
             where : {
-                id : req.body.id
+                id : req.params.id
                 
             }
         }).then(function(dbReply){
