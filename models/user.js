@@ -23,7 +23,9 @@ module.exports = function (sequelize, DataTypes) {
 
      fbtoken : {
       type : DataTypes.STRING,
-      allowNull: true
+
+      allowNull: false
+
      },
      img_url: {
       type: DataTypes.STRING,
