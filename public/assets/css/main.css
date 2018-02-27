@@ -1,3 +1,5 @@
+/* HOME PAGE */
+
 #bodybackground {
     background-image: url("../images/sadface.jpg");
     background-size: cover;
@@ -45,22 +47,10 @@
     filter: blur(5px);
 }
 
-#helpfont {
-    font-family: 'Just Me Again Down Here', cursive;
-}
-
-#needhelpfont {
-    font-family: 'Just Me Again Down Here', cursive;
-}
-
-.buttons {
-    border-radius: 100px;
-}
-
 #profilebuttons {
     padding-top: 40px;
     margin-bottom: 175px;
-    padding-bottom: 600px;
+    padding-bottom: 635px;
     margin-left: 800px;
 }
 
@@ -71,7 +61,7 @@
     position: relative;
     display: inline-block;
     font-size: 30px;
-    text-shadow: 10px;
+    text-shadow: 30px;
     padding: 20px 60px;
     color: black;
     margin: 20px 10px 10px;
@@ -79,25 +69,41 @@
     text-align: center;
     transition: top .01s linear;
     text-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
-    background-color: #e3c600; 
+    background-color: #e3c600;
     box-shadow: 0 0 0 1px #F0D264 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 rgba(196, 172, 83, .7), 0 8px 0 1px rgba(0, 0, 0, .4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+    opacity: 10px;
 }
 
 #buttonsize:active {
-    box-shadow: 0 0 0 1px #e3c600 inset,
-    0 0 0 2px rgba(255, 255, 255, 0.15) inset,
-    0 0 0 1px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0 1px #e3c600 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
     top: 9px;
 }
 
-
-}
-.btn {
-    float: right;
-    background-color: inherit;
-}
 #profilelogo {
-    margin-left: 445px;
+    margin-left: 450px;
     z-index: 1;
     margin-top: -10px;
+}
+
+#medical {
+    float: right;
+    margin-right: 5px;
+    margin-top: -170px;
+}
+
+#charlie {
+    text-align: center;
+    margin-top: -5px;
+    margin-right: 5px;
+}
+
+#puzzle {
+    text-align: center;
+    margin-top: -5px;
+    margin-right: 5px;
+}
+
+#spiral {
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
 }
