@@ -8,6 +8,7 @@ module.exports = function (app) {
     db.Thread.findAll({})
       .then(function (dbThread) {
         res.json(dbThread)
+        
         console.log(dbThread[0].dataValues.id)
         // res.render('index', dbThread)
       })
@@ -22,6 +23,7 @@ module.exports = function (app) {
       }
     }).then(function (dbThread) {
       res.json(dbThread)
+      // res.render? for the profile page?
     })
   })
   // New Thread - Post / create
