@@ -4,29 +4,28 @@ $(document).ready(function() {
 // Click events for new reply
 // MAY NEED TO CHANGE... ACTUALLY MORE THAN LIKELY WILL
 // WHAT THESE ON CLICKS ARE LISTENING ON!!!!!!!!!!
-$(document).on("click", "button.newReply", handleReply());
-$(document).on("click", "button.delete", handleDelete());
-$(document).on("click", "button.edit", handleReplyEdit());
-$(document).on("click", // star buutons? each one having a value of one to five?
-, handleRatingUpdate);
+$(document).on("click", ".submit", handleReply);
+//$(document).on("click", "button.delete", handleDelete());
+//$(document).on("click", "button.edit", handleReplyEdit());
+
 
 
 
   function handleReply(event, bodyInput, userId, threadId) {
     event.preventDefault();
     // Wont submit the Reply if we are missing a body
-    if (!bodyInput) {
-      return;
-    }
+    // if (!bodyInput) {
+    //   return;
+    // }
     // Constructing a newReply object to hand to the database
     var newReply = {
-      body: bodyInput,
+      body: $('#bodyInput').val(),
         
         // need to figure out where these ids willl come from  somewhere on DOM?
-       userId: userId,
-        threadId : threadId,
+       UserId: $('#userId').val(),
+        ThreadId : $('#threadId').val(),
     }; 
-
+      console.log(newReply);
       postReply(newReply);
 }
 
@@ -49,41 +48,25 @@ function postReply(newReply) {
 
 
 
-  function handleDelete(event, userId, threadId) {
-      event.preventDefault();
-          var replyToDelete = {
-            // Again getting the id somewhere form the dom? 
-            
-            id : id
-          }
+  function handleDelete(event, userId) {
+     // event.preventDefault();
+      var replyId = 
+           
           // Condiational to make sure the post with a a corresponding thread and 
           // UserID can edit
-        if(threadId === threadId && userId === userId   ){
-         deleteReply(replyToDelete)
-        }
+       // if(userId === userId){
+         deleteReply(replyId)
+      //  }
      
   }
 
 
 
-
-
-  function deletePost(id) {
-    $.ajax({
-      method: "DELETE",
-      url: "/api/posts/" + id
-    })
-    .then(function() {
-      getPosts(postthreadSelect.val());
-    });
-  }
-
-
- function deleteReply(event, userId, threadId)
+ function deleteReply(replyId){
   $.ajax({
     method: "DELETE",
-    url : "api/deleteReply",
-    data : replyToDelete
+   // url : "api/deleteReply/" + replyId,
+    
 }).then(
     function() {
         // redirect to a confirmation of deleteion.
@@ -91,14 +74,18 @@ function postReply(newReply) {
     }
 )
 
+ }
 
-function  handleEdit(event, bodyInput, userId, threadId){
-    event.preventDefault();
-    if(userId )
+
+function  handleEdit(event, bodyInput, userId){
+   // event.preventDefault();
+    var id = $(this.id)
     var editedReply = {
         body: bodyInput
       
     };
+    // Check it against something?
+    //if(userId == )
     editReply(id ,editedReply);
 }
 
@@ -119,39 +106,8 @@ function editedReply(id , editedReply){
     )
 }
 
-
-
-// NEED TO FIGURE OUUT WHICH RATING I'M TARGETING
-// THAT IS WHO DOES IT BELONG TO??/ USERID SINCE
-// RATING IS IN THE USERMODEL
-
-function handleRatingUpdate(event){
-  event.preventDefault();
-  var currentRating = $('.') // stored on DOM?
-  var addScore = this.star.val() // each star will have a value of 1 to 5 attached
-  var updatedRating = j /// j is a place holder???
-
-
-updateRating(updatedRating);
-
-}
-
-function updateRating(updatedRating){
-    $.ajax({
-        method : "PUT",
-        url : "api/rating",
-        data : updatedRating
-    }).then(
-        function(){
-            // Refresh rating div ??
-        }
-    )
-
-}
-
-
-
 });
+
 
 
 
