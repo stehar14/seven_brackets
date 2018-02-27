@@ -4,12 +4,12 @@ module.exports = function(app, path) {
   })
 
   app.get('/profile', function(req, res) {
-    if(req.body.connected){
-      console.log(req.body.connected)
+    // if(req.body.connected){
+    //   console.log(req.body.connected)
     res.render('index')
-    } else {
-      res.redirect('/')
-    }
+    // } else {
+    //   res.redirect('/')
+    // }
   })
 
 }
