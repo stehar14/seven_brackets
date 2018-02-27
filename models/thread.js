@@ -6,14 +6,7 @@
 // Confident about this one after doing more research on sequlize and associations
 module.exports = function(sequelize, DataTypes) {
     var Thread = sequelize.define("Thread", {
-     category : {
-       type : DataTypes.STRING,
-       allowNull : false,
-       validate : {
-       len: [5]
-       }
-     },
-     body : {
+    body : {
       type : DataTypes.TEXT,
       allowNull : false,
       validate : {
