@@ -28,6 +28,7 @@ module.exports = function(app) {
         res.json(dbUser);
       })
   })
+  
 //  search all users? Get / findAll
    app.get("/api/findAllUsers", function(req,res){
      db.User.findAll({
