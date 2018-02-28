@@ -4,30 +4,29 @@ $(document).ready(function() {
 // Click events for new reply
 // MAY NEED TO CHANGE... ACTUALLY MORE THAN LIKELY WILL
 // WHAT THESE ON CLICKS ARE LISTENING ON!!!!!!!!!!
-$(document).on("click", "", handleReply);
+
 $(document).on("click", "button.delete", handleDelete());
 //$(document).on("click", "button.edit", handleReplyEdit());
 
 
 
-
-  function handleReply(event, bodyInput, userId, threadId) {
-    event.preventDefault();
+$(document).on("click", ".reply",  function(event) {
+ event.preventDefault();
     // Wont submit the Reply if we are missing a body
     // if (!bodyInput) {
     //   return;
     // }
     // Constructing a newReply object to hand to the database
     var newReply = {
-      body: $('#').val(),
+      body: $('').val(),
         
         // need to figure out where these ids willl come from  somewhere on DOM?
-       UserId: $('#userId').val(),
-        ThreadId : $('#threadId').val(),
+       UserId: 1,
+        ThreadId : 3
     }; 
       console.log(newReply);
       postReply(newReply);
-}
+});
 
 
 // This function does an API call to make a reply
