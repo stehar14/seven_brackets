@@ -48,186 +48,117 @@
 /*-----------------------------------------------------------------*/
 /* ANIMATIONS */
 /* RAINY */
+
 .rainy,
 .rainy2,
 .rainy3 {
-	animation: rainy 5s ease-in-out infinite 1s;
-	background: #CCCCCC; 
-	border-radius: 50%;
-	box-shadow: 
-		#CCCCCC 65px -15px 0 -5px, 
-		#CCCCCC 25px -25px, 
-		#CCCCCC 30px 10px, 
-		#CCCCCC 60px 15px 0 -10px, 
-		#CCCCCC 85px 5px 0 -5px;
-	display: block;
-	height: 50px;
-	width: 50px;	
-	position: absolute;
-	right: 29%;
-	top: 20%;
+    animation: rainy 5s ease-in-out infinite 1s;
+    background: #CCCCCC;
+    border-radius: 50%;
+    box-shadow: #CCCCCC 65px -15px 0 -5px, #CCCCCC 25px -25px, #CCCCCC 30px 10px, #CCCCCC 60px 15px 0 -10px, #CCCCCC 85px 5px 0 -5px;
+    display: block;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    right: 29%;
+    top: 20%;
 }
 
-.rainy2 {	
-	position: absolute;
-	right: 23%;
-	top: 30%;
+.rainy2 {
+    position: absolute;
+    right: 23%;
+    top: 30%;
 }
 
 .rainy3 {
     position: absolute;
     right: 34%;
-    top:34%
+    top: 34%
 }
 
 .rainy:after,
 .rainy2:after,
 .rainy3:after {
-	animation: rainy_shadow 5s ease-in-out infinite 1s;
-	background: #000000;
-	border-radius: 50%;
-	content: '';
-	height: 15px;
-	width: 120px;
-	opacity: 0.2;
-	position: absolute;
-	left: 5px; 
-	bottom: -60px;
-	transform: scale(1);
+    animation: rainy_shadow 5s ease-in-out infinite 1s;
+    background: #000000;
+    border-radius: 50%;
+    content: '';
+    height: 15px;
+    width: 120px;
+    opacity: 0.2;
+    position: absolute;
+    left: 5px;
+    bottom: -60px;
+    transform: scale(1);
 }
 
 .rainy:before,
 .rainy2:before,
 .rainy3:before {
-	animation: rainy_rain .7s infinite linear;
-	content: '';
-	background: #CCCCCC;
-	border-radius: 50%;
-	display: block;
-	height: 6px;
-	width: 3px;
-	opacity: 0.3;
-	transform: scale(.9);
+    animation: rainy_rain .7s infinite linear;
+    content: '';
+    background: #CCCCCC;
+    border-radius: 50%;
+    display: block;
+    height: 6px;
+    width: 3px;
+    opacity: 0.3;
+    transform: scale(.9);
 }
 
 @keyframes rainy {
-	50% { transform: translateY(-20px); }
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 @keyframes rainy_shadow {
-	50% { transform: translateY(20px) scale(.7); opacity: 0.05; }
+    50% {
+        transform: translateY(20px) scale(.7);
+        opacity: 0.05;
+    }
 }
 
 @keyframes rainy_rain {
-	0% {  
-		box-shadow: 
-			rgba(0,0,0,0) 30px 30px, 
-			rgba(0,0,0,0) 40px 40px,  
-			#000 50px 75px, 
-			#000 55px 50px, 
-			#000 70px 100px, 
-			#000 80px 95px, 
-			#000 110px 45px, 
-			#000 90px 35px; 
-	}
-	25% {  
-	  	box-shadow: 
-			#000 30px 45px,
-			#000 40px 60px,
-			#000 50px 90px,
-			#000 55px 65px,
-			rgba(0,0,0,0) 70px 120px,
-			rgba(0,0,0,0) 80px 120px,
-			#000 110px 70px,
-			#000 90px 60px;
-	}
-	26% {  
-		box-shadow:
-			#000 30px 45px,
-			#000 40px 60px,
-			#000 50px 90px,
-			#000 55px 65px,
-			rgba(0,0,0,0) 70px 40px,
-			rgba(0,0,0,0) 80px 20px,
-			#000 110px 70px,
-			#000 90px 60px; 
-	}
-	50% { 
-		box-shadow:
-			#000 30px 70px,
-			#000 40px 80px,
-			rgba(0,0,0,0) 50px 100px,
-			#000 55px 80px,
-			#000 70px 60px,
-			#000 80px 45px,
-			#000 110px 95px,
-			#000 90px 85px;
-	}
-	51% {
-		box-shadow:
-			#000 30px 70px,
-			#000 40px 80px,
-			rgba(0,0,0,0) 50px 45px,
-			#000 55px 80px,
-			#000 70px 60px,
-			#000 80px 45px,
-			#000 110px 95px,
-			#000 90px 85px;
-	}
-	75% {
-		box-shadow:
-			#000 30px 95px,
-			#000 40px 100px,
-			#000 50px 60px,
-			rgba(0,0,0,0) 55px 95px,
-			#000 70px 80px,
-			#000 80px 70px,
-			rgba(0,0,0,0) 110px 120px,
-			rgba(0,0,0,0) 90px 110px;
-	}
-	76% {
-		box-shadow:
-			#000 30px 95px,
-			#000 40px 100px,
-			#000 50px 60px,
-			rgba(0,0,0,0) 55px 35px,
-			#000 70px 80px,
-			#000 80px 70px,
-			rgba(0,0,0,0) 110px 25px,
-			rgba(0,0,0,0) 90px 15px;
-	}
-	100% {
-		box-shadow:
-			rgba(0,0,0,0) 30px 120px,
-			rgba(0,0,0,0) 40px 120px,
-			#000 50px 75px,
-			#000 55px 50px,
-			#000 70px 100px,
-			#000 80px 95px,
-			#000 110px 45px,
-			#000 90px 35px;
-	}
+    0% {
+        box-shadow: rgba(0, 0, 0, 0) 30px 30px, rgba(0, 0, 0, 0) 40px 40px, #000 50px 75px, #000 55px 50px, #000 70px 100px, #000 80px 95px, #000 110px 45px, #000 90px 35px;
+    }
+    25% {
+        box-shadow: #000 30px 45px, #000 40px 60px, #000 50px 90px, #000 55px 65px, rgba(0, 0, 0, 0) 70px 120px, rgba(0, 0, 0, 0) 80px 120px, #000 110px 70px, #000 90px 60px;
+    }
+    26% {
+        box-shadow: #000 30px 45px, #000 40px 60px, #000 50px 90px, #000 55px 65px, rgba(0, 0, 0, 0) 70px 40px, rgba(0, 0, 0, 0) 80px 20px, #000 110px 70px, #000 90px 60px;
+    }
+    50% {
+        box-shadow: #000 30px 70px, #000 40px 80px, rgba(0, 0, 0, 0) 50px 100px, #000 55px 80px, #000 70px 60px, #000 80px 45px, #000 110px 95px, #000 90px 85px;
+    }
+    51% {
+        box-shadow: #000 30px 70px, #000 40px 80px, rgba(0, 0, 0, 0) 50px 45px, #000 55px 80px, #000 70px 60px, #000 80px 45px, #000 110px 95px, #000 90px 85px;
+    }
+    75% {
+        box-shadow: #000 30px 95px, #000 40px 100px, #000 50px 60px, rgba(0, 0, 0, 0) 55px 95px, #000 70px 80px, #000 80px 70px, rgba(0, 0, 0, 0) 110px 120px, rgba(0, 0, 0, 0) 90px 110px;
+    }
+    76% {
+        box-shadow: #000 30px 95px, #000 40px 100px, #000 50px 60px, rgba(0, 0, 0, 0) 55px 35px, #000 70px 80px, #000 80px 70px, rgba(0, 0, 0, 0) 110px 25px, rgba(0, 0, 0, 0) 90px 15px;
+    }
+    100% {
+        box-shadow: rgba(0, 0, 0, 0) 30px 120px, rgba(0, 0, 0, 0) 40px 120px, #000 50px 75px, #000 55px 50px, #000 70px 100px, #000 80px 95px, #000 110px 45px, #000 90px 35px;
+    }
 }
 
 /*-----------------------------------------------------------------*/
 /* RAINBOW */
+
 .rainbow {
-	animation: rainbow 5s ease-in-out infinite;
-	border-radius: 170px 0 0 0;
-	box-shadow: 
-		#FB323C -2px -2px 0 1px,
-		#F99716 -4px -4px 0 3px,
-		#FEE124 -6px -6px 0 5px,
-		#AFDF2E -8px -8px 0 7px,
-		#6AD7F8 -10px -10px 0 9px,
-		#60B1F5 -12px -12px 0 11px,
-		#A3459B -14px -14px 0 13px;
-	height: 140px;
-	width: 140px;
-	position: absolute;
-	right: 22%;
-	top: 30%;
-  	transform: rotate(40deg);
+    animation: rainbow 5s ease-in-out infinite;
+    border-radius: 170px 0 0 0;
+    box-shadow: #FB323C -2px -2px 0 1px, #F99716 -4px -4px 0 3px, #FEE124 -6px -6px 0 5px, #AFDF2E -8px -8px 0 7px, #6AD7F8 -10px -10px 0 9px, #60B1F5 -12px -12px 0 11px, #A3459B -14px -14px 0 13px;
+    height: 140px;
+    width: 140px;
+    position: absolute;
+    right: 22%;
+    top: 30%;
+    transform: rotate(40deg);
 }
 
 .rainbow:after {
@@ -246,11 +177,16 @@
 }
 
 @keyframes rainbow {
-	50% { transform: rotate(50deg); }
+    50% {
+        transform: rotate(50deg);
+    }
 }
 
 @keyframes rainbow_shadow {
-	50% { transform:  rotate(-50deg) translate(10px) scale(.7); opacity: 0.05; }
+    50% {
+        transform: rotate(-50deg) translate(10px) scale(.7);
+        opacity: 0.05;
+    }
 }
 
 /*-----------------------------------------------------------------*/
@@ -266,27 +202,27 @@
 }
 
 .sunny:before {
-	background: linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
-	content: ''; 
-	height: 280px; 
-	width: 40px;
-	opacity: 1; 
-	position: absolute;
-	bottom: 0px;
-	left: 0px; 
-	transform: rotate(90deg);
+    background: linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
+    content: '';
+    height: 280px;
+    width: 40px;
+    opacity: 1;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    transform: rotate(90deg);
 }
 
 .sunny:after {
-	background: #FFEE44; 
-	border-radius: 50%; 
-	box-shadow: rgba(255,255,0,0.2) 0 0 0 15px;
-	content: '';  
-	height: 160px;
-	width: 160px;  
-	position: absolute; 
-	left: -30px; 
-	top: 30px;
+    background: #FFEE44;
+    border-radius: 50%;
+    box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 15px;
+    content: '';
+    height: 160px;
+    width: 160px;
+    position: absolute;
+    left: -30px;
+    top: 30px;
 }
 
 
@@ -296,8 +232,6 @@
 
 #profilebackground {
     background-image: url("../images/dice.jpeg");
-    background-position: 10% 53%;
-    z-index: 2;
 }
 
 .jumbotron {
@@ -313,48 +247,61 @@
     filter: blur(5px);
 }
 
-#helpfont {
-    font-family: 'Just Me Again Down Here', cursive;
-}
-
-#needhelpfont {
-    font-family: 'Just Me Again Down Here', cursive;
-}
-
-.buttons {
-    border-radius: 100px;
-}
-
 #profilebuttons {
     padding-top: 40px;
     margin-bottom: 175px;
-    padding-bottom: 600px;
+    padding-bottom: 850px;
     margin-left: 800px;
+    margin-right: 70px;
 }
 
 #buttonsize {
-    margin-left: 3px;
+    margin-left: 30px;
     font-family: 'Just Me Again Down Here', cursive;
     font-size: 40px;
     position: relative;
     display: inline-block;
     font-size: 30px;
-    text-shadow: 10px;
+    text-shadow: 30px;
     padding: 20px 60px;
     color: black;
-    margin: 20px 10px 10px;
+    margin: 20px 270px 10px;
     border-radius: 6px;
     text-align: center;
     transition: top .01s linear;
     text-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
-    background-color: #e3c600; 
+    background-color: #e3c600;
     box-shadow: 0 0 0 1px #F0D264 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 rgba(196, 172, 83, .7), 0 8px 0 1px rgba(0, 0, 0, .4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+    opacity: 10px;
+}
+
+#buttonsize2 {
+    margin-left: 30px;
+    font-family: 'Just Me Again Down Here', cursive;
+    font-size: 40px;
+    position: relative;
+    display: inline-block;
+    font-size: 28px;
+    text-shadow: 30px;
+    padding: 20px 60px;
+    color: black;
+    margin: -100px -50px 10px;
+    border-radius: 6px;
+    text-align: center;
+    transition: top .01s linear;
+    text-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
+    background-color: #e3c600;
+    box-shadow: 0 0 0 1px #F0D264 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 rgba(196, 172, 83, .7), 0 8px 0 1px rgba(0, 0, 0, .4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+    opacity: 10px;
 }
 
 #buttonsize:active {
-    box-shadow: 0 0 0 1px #e3c600 inset,
-    0 0 0 2px rgba(255, 255, 255, 0.15) inset,
-    0 0 0 1px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0 1px #e3c600 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+    top: 9px;
+}
+
+#buttonsize2:active {
+    box-shadow: 0 0 0 1px #e3c600 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
     top: 9px;
 }
 
@@ -362,8 +309,9 @@
     float: right;
     background-color: inherit;
 }
+
 #profilelogo {
-    margin-left: 445px;
+    margin-left: 450px;
     z-index: 1;
     margin-top: -10px;
 }
@@ -761,4 +709,25 @@ button i {
     .container {
         padding: 0;
     }
+#medical {
+    float: right;
+    margin-right: 214px;
+    margin-top: -122px;
+}
+
+#charlie {
+    text-align: center;
+    margin-top: -10px;
+    margin-right: 5px;
+}
+
+#puzzle {
+    text-align: center;
+    margin-top: -5px;
+    margin-right: 5px;
+}
+
+#spiral {
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
 }
