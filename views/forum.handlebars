@@ -81,10 +81,10 @@
 <!-- INSERT THREAD.Body-->                      <p>{{body}}</p> 
                                           </div>
                                           <div class="buttons pull-right">
-<!--NEED TO ADD UNIQUE data-target-->           <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right expand" data-toggle="collapse" data-target="#thread{{id}}"><i class="fa fa-expand"></i></button>
-<!-- NEED ONCLICK function to post reply-->     <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-threadId="#{{id}}"><i class="fa fa-mail-reply"></i></button>
-<!-- NEED ONCLICK function to update thread-->  <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-threadId="#{{id}}"><i class="fa fa-edit"></i></button>
-<!-- NEED ONCLICK function to delete thread-->  <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right"><i class="fa fa-times-circle-o"></i></button>
+<!--NEED TO ADD UNIQUE data-target-->           <button  type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right expand" data-toggle="collapse" data-target="#thread{{id}}"><i class="fa fa-expand"></i></button>
+<!-- NEED ONCLICK function to post reply-->     <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-threadId="{{id}}"><i class="fa fa-mail-reply"></i></button>
+<!-- NEED ONCLICK function to update thread-->  <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-threadId="{{id}}"><i class="fa fa-edit"></i></button>
+<!-- NEED ONCLICK function to delete thread-->  <button id="delete-thread" type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-toggle="modal" data-target="#delete-post" data-userId="{{#with User}} {{this.fbtoken}} {{/with}}" data-threadId="{{id}}"><i class="fa fa-times-circle-o"></i></button>
                                           </div>
                                           
                                       </div>
@@ -249,10 +249,93 @@
                       </form>
                   </div>
                   <div class="modal-footer">
-<!-- post thread to db--><button type="submit" class="btn btn-primary">Ask for Help</button>
+<!-- post thread to db--><button id="new-thread-submit"type="submit" class="btn btn-primary">Ask for Help</button>
                   </div>
               </div>
           </div>
       </div>
+        <div class="modal fade" id="delete-post" tabindex="-1" role="form" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Delete Post</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      <h3 id="delete-h3"></h3>
+                  </div>
+                  <div class="modal-footer">
+<!-- post thread to db--><button id="delete-thread-confirm"type="submit" class="btn btn-primary">Delete</button>
+                         <button type="submit" class="btn btn-primary">Close</button>
+                </div>
+              </div>
+          </div>
+      </div>
   </body>
+  <script type = "text/javascript" src ="./assets/js/jquery.min.js"></script>
+  <script type = "text/javascript" src ="./assets/js/threads.js"></script>
+    <script type = "text/javascript">
+ window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1791323147839783',
+      cookie     : true,  // enable cookies to allow the server to access 
+                          // the session
+      xfbml      : true,  // parse social plugins on this page
+      version    : 'v2.8' // use graph api version 2.8
+    });
+
+
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+
+  $('#new-thread-submit').on('click', function(event){
+    event.preventDefault();
+    var newThread = {
+      body : $('#inputpost').val(),
+      solved : 0
+    }
+    console.log(newThread)
+   threadApi.postThread(newThread)
+  })
+ 
+
+$('#delete-thread').on("click", function(event){
+      event.preventDefault();
+      var threadId = $(this).attr('data-threadId');
+      var userId =   $(this).attr('data-userId')
+    
+     console.log('thread ' + threadId)
+     console.log('user ' + userId)
+     FB.getLoginStatus(function(response) {
+      console.log(response)
+      if (response.authResponse.userID == userId) {
+        $('#deleteh3').text('Are you sure you want to delete this thread?')
+        $('#delete-thread-confirm').on('click', function() {
+					threadApi.deleteThread(threadId)
+				})
+			} else {
+          console.log('nope')
+           $('#deleteh3').text('You are not the author of this thread')
+      }
+      
+    });
+     
+ });
+
+
+
+
+     </script>
 </html>

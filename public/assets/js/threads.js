@@ -1,7 +1,6 @@
 // var db = require('../models');
 // $(document).on('ready', function(){
 
-  
 
 // });
   // Thread routes 

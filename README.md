@@ -27,20 +27,13 @@ who want to help.
 
 
 ## Worked needed to be done
-1. HTML pages
-  1. Landing / Login (login modal?)
-  2. Account Page
-  3. Forum (new post?)
-2. Front end ajax - 
-3. HTML routes
-4. API routes
-5. Database Models
-6. Database ORM (sequelize)
+1. Forum
+  - Finish jquery buttons
+  - Change fb image size
+  - Get userid to be stored in button
+2. Profile
+  - Date format
+  - 
 
 
 ## Responsibilities
-Chris - Database models
-Ben - Front Page UI
-Andrew - Files and structure
-Jeff - Authentication / Chatbox
-Steve - Front end
