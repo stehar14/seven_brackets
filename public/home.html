@@ -43,9 +43,11 @@
                     console.log(res);
 
              $.post("/api/newUser", {userName: res.name, fbtoken: fbID, img_url: "http://graph.facebook.com/" + fbID + "/picture?type=normal"})
-              $.get("/profile", data, function(temp){
+        //       $.get("/profile", data, function(temp){
 
-        })
+        // })
+
+              window.location.replace("/profile");        
             }
         })
     });
