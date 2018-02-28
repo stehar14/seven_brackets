@@ -28,23 +28,26 @@
         var fbID = res.id;
         console.log(res);
         console.log(fbID);
-        $.get("/api/findUser/" + fbID, function(data){
+        $.get("/api/checkUser/" + fbID, function(data){
          // if user exist then redirect to profile page
          console.log(data);
         if (data) {
             console.log("foo");
-        $.get("/profile", data, function(temp){
+        // $.get("/profile", function(temp){
 
-        })
+        // })
+        window.location.replace("/profile");
             }
         // if doesnt exist create new user in db then redirect to profile page
         else{
                     console.log(res);
 
              $.post("/api/newUser", {userName: res.name, fbtoken: fbID, img_url: "http://graph.facebook.com/" + fbID + "/picture?type=normal"})
-              $.get("/profile", data, function(temp){
+        //       $.get("/profile", data, function(temp){
 
-        })
+        // })
+
+              window.location.replace("/profile");        
             }
         })
     });
@@ -151,6 +154,7 @@
 <div class="rainy3"></div>
 <div class="sunny"></div>
 <div class="rainbow"></div>
+
 
 
 <fb:login-button style="height:100px; width: 100px;" scope="public_profile,email" onlogin="checkLoginState();">
