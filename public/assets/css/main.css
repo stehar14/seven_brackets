@@ -16,7 +16,7 @@
 
 #happy {
     position: absolute;
-    top: 40%;
+    top: 41%;
     left: 65%;
 }
 
@@ -646,6 +646,10 @@ button i {
         padding: 0;
         text-shadow: 0px 1px 0 #a2a2a2;
     }
+}
+
+.modalbtn {
+    background-color: #0275d8;
 }
 
 /*-----------------------------------------------------------------*/
