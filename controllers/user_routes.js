@@ -39,7 +39,15 @@ module.exports = function(app) {
       })
   })
 
-  
+  app.get("/api/getImg/:id", function(req,res){
+      db.User.findOne({
+        where : {
+          fbtoken : req.params.id
+        },
+      }).then(function(dbUser){
+        res.json(dbUser.img_url);
+      })
+  })
 
 //  search all users? Get / findAll
    app.get("/api/findAllUsers", function(req,res){

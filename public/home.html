@@ -33,9 +33,10 @@
          console.log(data);
         if (data) {
             console.log("foo");
-        $.get("/profile", data, function(temp){
+        // $.get("/profile", function(temp){
 
-        })
+        // })
+        window.location.replace("/profile");
             }
         // if doesnt exist create new user in db then redirect to profile page
         else{
@@ -153,7 +154,7 @@
 <div class="rainbow"></div>
 
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();" style="height: 100px; margin-left: 200px;" >
 </fb:login-button>
 
 <!-- <div class="footer">
