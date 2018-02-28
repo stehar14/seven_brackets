@@ -9,6 +9,8 @@
       <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+      <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
       <!-- Custom -->
       <link href="style.css" rel="stylesheet">
       <!-- Font Awesome Icons -->
@@ -80,7 +82,7 @@
 <!-- INSERT THREAD.Category-->                  <h2><a href="#">{{CategoryId}}</a></h2>
 <!-- INSERT THREAD.Body-->                      <p>{{body}}</p> 
                                           </div>
-                                          <div class="buttons pull-right">
+                                          <div class= id="deletePost"  id ={{id}}"buttons pull-right">
 <!--NEED TO ADD UNIQUE data-target-->           <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right expand" data-toggle="collapse" data-target="#first"><i class="fa fa-expand"></i></button>
 <!-- NEED ONCLICK function to post reply-->     <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right"><i class="fa fa-mail-reply"></i></button>
 <!-- NEED ONCLICK function to update thread-->  <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-threadId="#{{this.id}}"><i class="fa fa-edit"></i></button>
@@ -129,8 +131,8 @@
                                           </div>
                                           <div class="clearfix"></div>
                                       </div>
-                          <!--    {{/unless}}
-                              {{/each}}-->
+                             {{/unless}}
+                              {{/each}}
                           </div><!-- /POST -->
                           
                           <!-- POST -->
@@ -351,10 +353,77 @@
                       </form>
                   </div>
                   <div class="modal-footer">
-<!-- post thread to db--><button type="submit" class="btn btn-primary">Ask for Help</button>
+<!-- post thread to db--><button type="submit" id="submitPost"  class="btn btn-primary">Ask for Help</button>
                   </div>
               </div>
           </div>
       </div>
+       
+  <script type = "text/javascript" src ="./assets/js/threads.js"></script>
+      <script type = "text/javascript">
+          
+    $(document).on('click', '#submitPost', function(event){
+    event.preventDefault();
+    var newThread = {
+      body : $('#inputpost').val(),
+      solved : 0
+    }
+    console.log(newThread)
+   threadApi.postThread(newThread)
+  })
+
+
+
+$(document).on("click", "#deletePost", function(event){
+       event.preventDefault();
+       var threadId = $().val().trim()
+       var userId =   $().val().trim()
+    
+      // var deleteThisId = $(this.id).val();
+      var deleteThisId  = 2;
+       threadApi.deleteThread(deleteThisId)
+  });
+
+
+ // Thread routes 
+  var threadApi = {
+  // Get all threads - Get / findAll
+  getThreads: function () {
+    $.get('/api/threads', function(data) {
+      console.log(data)
+    })
+  },
+  // Get Thread by id
+  getOneThread: function (threadId) {
+    $.get('/api/threads/' + threadId, function(data) {
+      console.log(data)
+    })
+  },
+  // New Thread - Post / create
+ 
+postThread: function (threadObject) {
+    $.post('/api/threads', threadObject, function(response) {
+      console.log(response)
+    })
+  },
+  // Delete thread - Delete / destroy
+  deleteThread: function (threadId) {
+    $.delete('/api/threads', threadId, function(response) {
+      console.log(response)
+    })
+  },
+  // Confimed solved - Put / update
+  updateThread: function (threadId) {
+    $.put('/api/threads', threadId, function(response) { 
+      console.log(response)
+    })
+  }
+}
+
+
+
+
+
+      </script>
   </body>
 </html>

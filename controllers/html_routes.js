@@ -30,7 +30,7 @@ module.exports = function(app, path) {
 
     // if(req.body.connected){
     //   console.log(req.body.connected)
-    res.render('index')
+  
     // } else {
     //   res.redirect('/')
 

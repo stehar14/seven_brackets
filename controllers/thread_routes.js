@@ -11,9 +11,9 @@ module.exports = function (app) {
     })
       .then(function (dbThread) {
 
-       // res.json(dbThread)
+        res.json(dbThread)
        // console.log(dbThread[0].dataValues.id)
-         res.render('index', {dbThread : dbThread})
+         
 
       })
   })
@@ -64,18 +64,7 @@ module.exports = function (app) {
   })
 
 
-  app.get('/api/threadJSON', function (req, res) {
-    
-    console.log('/api/threads get request received')
-    db.Thread.findAll({
-      include : [db.User , db.Reply]
-    })
-      .then(function (dbThread) {
-        res.json(dbThread)
-       // console.log(dbThread[0].dataValues.id)
-        
-      })
-  })
+
 
 
 }

@@ -1,9 +1,15 @@
 // var db = require('../models');
-// $(document).on('ready', function(){
+ $(document).on('ready', function(){
 
-  
 
-// });
+  $(document).on("click", "#deletePost", function(event){
+       event.preventDefault();
+       var threadId = $().val().trim()
+       var userId =   $().val().trim()
+
+
+  });
+ 
   // Thread routes 
   var threadApi = {
   // Get all threads - Get / findAll
@@ -19,7 +25,8 @@
     })
   },
   // New Thread - Post / create
-  postThread: function (threadObject) {
+ 
+postThread: function (threadObject) {
     $.post('/api/threads', threadObject, function(response) {
       console.log(response)
     })
@@ -38,5 +45,17 @@
   }
 }
 
+$(document).on('click', '#submitPost', function(event){
+  event.preventDefault();
+  var newThread = {
+    body : $('#inputpost').val(),
+    solved : 0
+  }
+  console.log(newThread)
+  threadApi.postThread(newThread)
+})
 
+
+
+ });
 // module.exports  = threadApi;

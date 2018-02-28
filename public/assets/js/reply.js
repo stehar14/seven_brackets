@@ -4,8 +4,8 @@ $(document).ready(function() {
 // Click events for new reply
 // MAY NEED TO CHANGE... ACTUALLY MORE THAN LIKELY WILL
 // WHAT THESE ON CLICKS ARE LISTENING ON!!!!!!!!!!
-$(document).on("click", ".submit", handleReply);
-//$(document).on("click", "button.delete", handleDelete());
+$(document).on("click", "", handleReply);
+$(document).on("click", "button.delete", handleDelete());
 //$(document).on("click", "button.edit", handleReplyEdit());
 
 
@@ -19,7 +19,7 @@ $(document).on("click", ".submit", handleReply);
     // }
     // Constructing a newReply object to hand to the database
     var newReply = {
-      body: $('#bodyInput').val(),
+      body: $('#').val(),
         
         // need to figure out where these ids willl come from  somewhere on DOM?
        UserId: $('#userId').val(),
