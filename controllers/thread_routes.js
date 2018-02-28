@@ -10,11 +10,7 @@ module.exports = function (app) {
       include : [db.User , db.Reply]
     })
       .then(function (dbThread) {
-
-       // res.json(dbThread)
-       // console.log(dbThread[0].dataValues.id)
-         res.render('index', {dbThread : dbThread})
-
+       res.json(dbThread)
       })
   })
   // Get Thread by id
