@@ -11,7 +11,7 @@ module.exports = function(app, path) {
     console.log('/profile get request received')
     // if(req.body.connected){
     //   console.log(req.body.connected)
-    res.render('index', req.body)
+    res.render('forum', req.body)
     // } else {
     //   res.sendFile(path.join(__dirname + '/../public/waiting.html'));
     // }
@@ -20,7 +20,9 @@ module.exports = function(app, path) {
   app.get('/threads', function(req, res){
     console.log('/threads get request received')
     // if(req.body.connected){
-      db.Thread.findAll({})
+      db.Thread.findAll({
+        include : [db.User, db.Reply]
+      })
       .then(function (dbThread) {
         // checkCategory(dbThread)
         res.render('forum', {threads: dbThread})
@@ -30,7 +32,7 @@ module.exports = function(app, path) {
 
     // if(req.body.connected){
     //   console.log(req.body.connected)
-    res.render('index')
+    
     // } else {
     //   res.redirect('/')
 

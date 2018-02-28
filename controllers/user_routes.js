@@ -28,7 +28,27 @@ module.exports = function(app) {
         res.json(dbUser);
       })
   })
-  
+
+  app.get("/api/checkUser/:id", function(req,res){
+      db.User.findOne({
+        where : {
+          fbtoken : req.params.id
+        },
+      }).then(function(dbUser){
+        res.json(dbUser);
+      })
+  })
+
+  app.get("/api/getImg/:id", function(req,res){
+      db.User.findOne({
+        where : {
+          fbtoken : req.params.id
+        },
+      }).then(function(dbUser){
+        res.json(dbUser.img_url);
+      })
+  })
+
 //  search all users? Get / findAll
    app.get("/api/findAllUsers", function(req,res){
      db.User.findAll({
