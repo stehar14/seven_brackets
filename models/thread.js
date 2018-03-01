@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
         defaultValue : false
       },
     })
-  
+    
    Thread.associate = function(models) {
      Thread.belongsTo(models.User)
      Thread.belongsTo(models.Category)
