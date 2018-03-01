@@ -224,7 +224,9 @@
 
                                                     #profilebackground {
                                                         background-image: url("../images/dice.jpeg");
-                                                        background-position: -90px -450px;
+                                                        background-position: -90px -365px;
+                                                        padding-bottom: 110px;
+
                                                     }
 
                                                     .jumbotron {
@@ -239,13 +241,7 @@
                                                         -ms-filter: blur(5px);
                                                         filter: blur(5px);
                                                     }
-                                                    /* #profilebuttons {
-    padding-top: 40px;
-    margin-bottom: 175px;
-    padding-bottom: 850px;
-    margin-left: 800px;
-    margin-right: 70px;
-} */
+
 
                                                     #buttonsize {
                                                         margin-left: 30px;
@@ -328,6 +324,7 @@
                                                         filter: drop-shadow(5px 5px 5px #222);
                                                         color: #e3c600
                                                     }
+
                                                     /* FORUM */
                                                     /*-----------------------------------------------------------------*/
                                                     /*--- General ---*/
