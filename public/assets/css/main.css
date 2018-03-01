@@ -1,11 +1,8 @@
-/* SEVEN BRACKETS */
-
+    /* SEVEN BRACKETS */
 /* Homepage */
 /* Profile Page */
 /* Forum */
 /* Media Queries */
-
-
 /*-----------------------------------------------------------------*/
 /* Homepage */
 
@@ -44,7 +41,6 @@
 #cardsection {
   margin-top: -30px;
 }
-
 /*-----------------------------------------------------------------*/
 /* ANIMATIONS */
 /* RAINY */
@@ -145,7 +141,6 @@
       box-shadow: rgba(0, 0, 0, 0) 30px 120px, rgba(0, 0, 0, 0) 40px 120px, #000 50px 75px, #000 55px 50px, #000 70px 100px, #000 80px 95px, #000 110px 45px, #000 90px 35px;
   }
 }
-
 /*-----------------------------------------------------------------*/
 /* RAINBOW */
 
@@ -161,44 +156,43 @@
   transform: rotate(40deg);
 }
 
-.rainbow:after {
-animation: rainbow_shadow 5s ease-in-out infinite;
-background: #00000000;
-border-radius: 50%;
-content: '';
-opacity: 0.2;
-height: 15px;
-width: 140px;
-position: absolute;
-bottom: -23px; 
-left: 17px;
+  .rainbow:after {
+  animation: rainbow_shadow 5s ease-in-out infinite;
+  background: #00000000;
+  border-radius: 50%;
+  content: '';
+  opacity: 0.2;
+  height: 15px;
+  width: 140px;
+  position: absolute;
+  bottom: -23px; 
+  left: 17px;
   transform: rotate(-40deg);
   transform-origin: 50% 50%;
 }
 
 @keyframes rainbow {
   50% {
-      transform: rotate(50deg);
+    transform: rotate(50deg);
   }
 }
 
 @keyframes rainbow_shadow {
   50% {
-      transform: rotate(-50deg) translate(10px) scale(.7);
-      opacity: 0.05;
+    transform: rotate(-50deg) translate(10px) scale(.7);
+    opacity: 0.05;
   }
 }
-
 /*-----------------------------------------------------------------*/
 /* SUNNY */
 .sunny { 
-animation: sunny 15s linear infinite;
-background: linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%); 
-height: 140px;
-width: 20px; 
-position: absolute;
-right: 23%;  
-top: 15%;
+  animation: sunny 15s linear infinite;
+  background: linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%); 
+  height: 140px;
+  width: 20px; 
+  position: absolute;
+  right: 23%;  
+  top: 15%;
 }
 
 .sunny:before {
@@ -224,14 +218,13 @@ top: 15%;
   left: -30px;
   top: 30px;
 }
-
-
-
 /*-----------------------------------------------------------------*/
 /* PROFILE PAGE */
 
 #profilebackground {
   background-image: url("../images/dice.jpeg");
+  background-position: -90px -365px;
+  padding-bottom: 110px;
 }
 
 .jumbotron {
@@ -257,7 +250,7 @@ top: 15%;
   text-shadow: 30px;
   padding: 20px 60px;
   color: black;
-  margin: 20px 270px 10px;
+  margin: -300px 800px 10px;
   border-radius: 6px;
   text-align: center;
   transition: top .01s linear;
@@ -277,7 +270,7 @@ top: 15%;
   text-shadow: 30px;
   padding: 20px 60px;
   color: black;
-  margin: -100px -50px 10px;
+  margin: -180px 785px 10px;
   border-radius: 6px;
   text-align: center;
   transition: top .01s linear;
@@ -331,27 +324,71 @@ top: 15%;
   filter: drop-shadow(5px 5px 5px #222);
 }
 
+#profilePic {
+    border-radius: 20px;
+    border: 1px solid #e3c600;
+}
+
+#userName {
+    font-family: 'Just Me Again Down Here', cursive;
+    font-size: 70px;
+    text-shadow: 1px 0px 0px black;
+    filter: drop-shadow(5px 5px 5px #222);
+    color: #e3c600
+}
+
+#date {
+    font-family: 'Just Me Again Down Here', cursive;
+    font-size: 70px;
+    text-shadow: 1px 0px 0px black;
+    filter: drop-shadow(5px 5px 5px #222);
+    color: #e3c600
+}
+
+#medical {
+    float: left;
+    margin-left: 230px;
+    margin-top: -180px;
+}
+#charlie {
+    text-align: center;
+    margin-top: -10px;
+    margin-right: 5px;
+}
+#puzzle {
+    text-align: center;
+    margin-top: -5px;
+    margin-right: 5px;
+}
+#spiral {
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+}
+#steth {
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+}
+#doctor {
+    float: left;
+    margin-left: 235px;
+    margin-top: -290px;
+}
 /* FORUM */
 /*-----------------------------------------------------------------*/
 /*--- General ---*/
-
 body {
-  position: relative;
   font-family: 'Open Sans Light', sans-serif;
   font-size: 14px;
   color: #595959;
   background-color: #17A2B8;
   background-image: url("https://wallpaperlayer.com/img/2015/11/bubble-wallpaper-1006-1118-hd-wallpapers.jpg");
 }
-
 a {
   color: #17a2b8;   
 }
-
 a:hover {
   color: #989c9e;    
 }
-
 /*-----------------------------------------------------------------*/
 /*--- Content ---*/
 
@@ -373,7 +410,6 @@ a:hover {
   display: inline-block;
   margin-left: 20px;
 }
-
 .pagination li a {
   min-width: 24px;
   height: 24px;
@@ -386,7 +422,6 @@ a:hover {
   padding: 0 8px;
   line-height: 24px;
 }
-
 .pagination li a.active,
 .pagination li a:hover,
 .pagination li a:focus,
@@ -397,39 +432,32 @@ a:hover {
   font-family: 'Open Sans Bold', sans-serif;
   text-decoration: none;
 }
-
 .pagination {
   margin: 19px auto;
   padding: 0;
 }
-
 .prevnext {
   font-size: 26px;
   color: #bbdef0;
   margin-top: 11px;
   display: block;
 }
-
 .prevnext.last {
   margin-left: 20px;
 }
-
 #newpost {
   background-color: #FFC107;
   margin-top: 12px;
   margin-left:-10px;
 }
-
 /*-----------------------------------------------------------------*/
 /*--- Sidebar ---*/
-
 .sidebarblock {
   background-color: #ffffff;
   border-radius: 2px;
   box-shadow: 0 1px 2px #c9cccd;
   margin-bottom: 20px;
 }
-
 .sidebarblock h3 {
   color: #363838;
   font-size: 14px;
@@ -437,17 +465,14 @@ a:hover {
   margin: 0;
   padding: 20px;
 }
-
 .sidebarblock .divline {
   height: 1px;
   line-height: 1px;
   border-bottom: solid 1px #f1f1f1;
 }
-
 .sidebarblock .blocktxt {
   padding:20px;
 }
-
 ul#categories li {
   list-style: none;
   display: block;
@@ -455,19 +480,16 @@ ul#categories li {
   padding:0;
   line-height: 30px;
 }
-
 ul#categories {
   margin: 0;
   padding: 0;
 }
-
 ul#categories li a {
   font-size: 14px;
   color: #363838;
   font-family: 'Open Sans Light', sans-serif;
   line-height: 30px;
 }
-
 ul#categories .badge {
   background-color: #bdc3c7;
   font-size: 12px;
@@ -475,13 +497,11 @@ ul#categories .badge {
   font-family: 'Open Sans Bold', sans-serif;
   margin-top: 7px;
 }
-
 .sidebarblock .blocktxt {
   font-size: 14px;
   color: #363838;
   font-family: 'Open Sans Light', sans-serif;
 }
-
 /*-----------------------------------------------------------------*/
 /*--- Post --*/
 .post {
@@ -490,35 +510,28 @@ ul#categories .badge {
   box-shadow: 0 1px 2px #c9cccd;
   border-bottom: white solid 1px;
 }
-
 button {
   border: 0 !important;
   margin-right: 2px;
 }
-
 button i {
   padding: 4px;
 }
-
 .expand {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .buttons {
   display: flex;
 }
-
 .collapse {
   border-top: white solid 1px;
   padding: 0;
 }
-
 .post .postcontent {
   width: 85%;
 }
-
 .commentcontent {
   width: 70%;
   margin-left: 15%;
@@ -526,7 +539,6 @@ button i {
   border-left: solid 1px #f1f1f1;
   border-right: solid 1px #f1f1f1;
 }
-
 .post .userinfo {
   width: 15%;
   padding: 20px 0 5px 15px;
@@ -553,7 +565,6 @@ button i {
   font-family: 'Open Sans Light', sans-serif;   
   line-height: 25px;
 }
-
 .post .postinfo,
 .commentinfo {
   width: 15%;
@@ -571,14 +582,12 @@ button i {
   width: 50px;
   margin-left: 5px;
 }
-
 .post .icons {
   width: 48px;
   border-top: solid 1px #f1f1f1;
   margin-top: 20px;
   padding-top: 7px;
 }
-
 .post h2 {
   color: #363838;
   font-size: 18px;
@@ -586,13 +595,11 @@ button i {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
 .post .comments {
   border-bottom: solid 1px #f1f1f1;
   padding: 18px 0 25px 0;
   text-align: center;
 }
-
 .post .comments .commentbg {
   background-color: #FFC107;
   border-radius: 2px;
@@ -603,7 +610,6 @@ button i {
   font-family: 'Open Sans Bold', sans-serif; 
   position: relative;
 }
-
 .post .comments .commentbg .mark {
   width: 11px;
   height: 11px;
@@ -616,7 +622,6 @@ button i {
   -ms-transform:rotate(45deg); /* IE 9 */
   -webkit-transform:rotate(45deg); /* Opera, Chrome, and Safari */
 }
-
 .post .views {
   border-bottom: solid 1px #f1f1f1;
   color:#17A2B8;
@@ -625,11 +630,9 @@ button i {
   text-align: center;
   line-height: 29px;
 }
-
 .post .views i {
   font-size: 14px;
 }
-
 .post .time {
   color:#17A2B8;
   font-size: 12px;
@@ -637,14 +640,11 @@ button i {
   text-align: center;
   line-height: 29px;
 }
-
 .post .time i {
   font-size: 14px;
 }
-
 /*-----------------------------------------------------------------*/
 /*--- Extra small devices (less 767px) ---*/
-
 @media (max-width: 767px) {
   
   .container-fluid {
@@ -697,7 +697,6 @@ button i {
 
 /*-----------------------------------------------------------------*/
 /*--- Small devices (768 - 991px) ---*/
-
 @media (min-width: 768px) and (max-width: 991px) {
 
   .container-fluid {
@@ -734,9 +733,8 @@ button i {
   .post .comments .commentbg .mark {
     left: 36%;
   }
+
 }
-
-
 /*-----------------------------------------------------------------*/
 /*--- Medium devices (992-1200px) ---*/
 @media (min-width: 992px) and (max-width: 1200px) {
@@ -744,8 +742,6 @@ button i {
     padding: 0;
   }
 }
-
-
 /*-----------------------------------------------------------------*/
 /*--- Large devices (more 1200px) ---*/
 @media (min-width: 1201px) {

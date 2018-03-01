@@ -17,6 +17,18 @@ module.exports = function(app, path) {
     // }
   })
   
+  app.get('/threads/category/:id', function (req, res) {
+    console.log('/api/threads/' + req.params.id + ' get request received')
+    var category_id= req.params.id;
+    db.Thread.findAll({
+      where: {
+        CategoryId: category_id
+      }
+    }).then(function (dbThread) {
+      res.render('forum', {threads: dbThread})
+      // res.render? for the profile page?
+    })
+  })
   app.get('/threads', function(req, res){
     console.log('/threads get request received')
     // if(req.body.connected){
