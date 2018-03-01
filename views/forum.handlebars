@@ -294,6 +294,15 @@
               </div>
           </div>
       </div>
+<!-- Condition where if user click "Get help" New Post modal appears -->
+      <script type="text/javascript">
+        var url = window.location.href;
+        if(url.indexOf('?threads/modal') != -1 || url.IndexOf('/threads/modal') != -1) {
+        $('#newpostform').modal('show');
+            }
+      </script>
+
+
   </body>
   <script type = "text/javascript" src ="./assets/js/jquery.min.js"></script>
   <script type = "text/javascript" src ="./assets/js/threads.js"></script>
