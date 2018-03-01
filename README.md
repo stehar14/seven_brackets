@@ -31,9 +31,13 @@ who want to help.
   - Finish jquery buttons
   - Change fb image size
   - Get userid to be stored in button
+  - Categories?
 2. Profile
   - Date format
+  - Buttons
+  - Modal 
+3. Routes
+  - Add modal checker for profile buttons
   - 
-
 
 ## Responsibilities
