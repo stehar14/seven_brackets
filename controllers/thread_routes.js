@@ -10,11 +10,7 @@ module.exports = function (app) {
       include : [db.User , db.Reply]
     })
       .then(function (dbThread) {
-
-       // res.json(dbThread)
-       // console.log(dbThread[0].dataValues.id)
-         res.render('index', {dbThread : dbThread})
-
+       res.json(dbThread)
       })
   })
   // Get Thread by id
@@ -38,8 +34,9 @@ module.exports = function (app) {
     })
   })
   // Delete thread - Delete / destroy
-  app.delete('/api/threads', function (req, res) {
-    console.log('/api/threads delete request')
+  app.post('/api/threadDelete', function (req, res) {
+    console.log('/api/threadDelete request')
+    console.log(req.body.id)
     db.Thread.destroy({
       where: {
         id: req.body.id
@@ -49,10 +46,26 @@ module.exports = function (app) {
     })
   })
   // Confimed solved - Put / update
-  app.put('/api/threads', function (req, res) {
-    console.log('/api/threads put request')
+  app.post('/api/threadSolved', function (req, res) {
+    console.log('/api/threadSolved request')
     db.Thread.update({
       solved: 1
+    },
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then(function (dbThread) {
+        res.json(dbThread)
+      })
+  })
+  // Edit Thread
+  app.post('/api/threadUpdate', function (req, res) {
+    console.log(req.body)
+    console.log('/api/threadUpdate request')
+    
+    db.Thread.update({
+      body: req.body.body
     },
       {
         where: {
