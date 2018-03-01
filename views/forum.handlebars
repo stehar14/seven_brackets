@@ -6,7 +6,7 @@
       <title>Life Overflow Forum</title>
       <!-- Bootstrap -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    
+      <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
       <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -84,9 +84,9 @@
                                           </div>
                                           <div class="buttons pull-right">
 <!--NEED TO ADD UNIQUE data-target-->           <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right expand" data-toggle="collapse" data-target="#thread{{id}}"><i class="fa fa-expand"></i></button>
-<!-- NEED ONCLICK function to post reply-->     <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-threadId="#{{id}}"><i class="fa fa-mail-reply"></i></button>
+<!-- NEED ONCLICK function to post reply-->     <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" id= "reply"  data-toggle = "modal" data-threadId="{{id}}" data-target = "#newreplyform"><i class="fa fa-mail-reply"></i></button>
 <!-- NEED ONCLICK function to update thread-->  <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-threadId="#{{id}}"><i class="fa fa-edit"></i></button>
-<!-- NEED ONCLICK function to delete thread-->  <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right"><i class="fa fa-times-circle-o"></i></button>
+<!-- NEED ONCLICK function to delete thread-->  <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" ><i class="fa fa-times-circle-o"></i></button>
                                           </div>
                                           
                                       </div>
@@ -95,6 +95,7 @@
                                   <div class="postinfo pull-left">
                                       <div class="comments">
                                           <div class="commentbg">
+                                              
 <!-- Insert reply count for thread-->          560
                                               <div class="mark"></div>
                                           </div>
@@ -112,7 +113,8 @@
                                           <div class="userinfo pull-left">
                                               <div class="avatar">
 <!-- Insert Facebook img-->                         <img src="https://placeimg.com/37/37/any" alt="" />
-                                              </div>
+                                                     <p> some static text {{UserId}}</p>
+                                              </div> 
                                               <div class="icons">
 <!-- insert user.rating-->                          <div class="star-ratings-css">
                                                       <div style="width: 84%; color: #FFC107;"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
@@ -120,9 +122,11 @@
                                                   </div>
                                               </div>
                                               <div class="commenttext pull-left">
-<!--Need onclick function to edit reply-->          <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-replyId="#{{this.id}}"><i class="fa fa-edit"></i></button>
-<!--Need onclick function to delete reply-->        <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-replyId="#{{this.id}}"><i class="fa fa-times-circle-o"></i></button>  
-<!-- INsert reply.body-->                           <p>{{this.body}}</p>
+                                                    
+<!--Need onclick function to edit reply-->            <button id="editReply" type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-toggle="modal" data-target="#edit-reply" data-userId="{{UserId}}" data-fbToken= "{{#with User}}{{this.fbtoken}}{{/with}}"  data-replyId="{{id}}"><i class="fa fa-edit"></i></button>
+                                                     <button id="deleteReply" type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-toggle="modal" data-target="#delete-reply" data-userId="{{UserId}}" data-fbToken="{{#with User}}{{this.fbtoken}}{{/with}}"  data-replyId="{{id}}"><i class="fa fa-times-circle-o"></i></button>
+<!--Need onclick function to delete reply-->        
+<!-- INsert reply.body-->                           <p id ="reply-{{id}}-body">{{this.body}}</p>
                                               </div>
                                           
                                           </div>
@@ -219,12 +223,12 @@
               </div>
           </section>
       </div>
-      <!-- Modal -->
+      <!-- New Thread Modal -->
       <div class="modal fade" id="newpostform" tabindex="-1" role="form" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
               <div class="modal-content">
                   <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Submit Help Request</h5>
+                      <h5 class="modal-title"></h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                       </button>
@@ -251,14 +255,303 @@
                       </form>
                   </div>
                   <div class="modal-footer">
-<!-- post thread to db--><button type="submit" id="submitPost"  class="btn btn-primary">Ask for Help</button>
+<!-- post thread to db--><button type="submit" class="modalbtn btn btn-primary">Ask for Help</button>
                   </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Reply Modal -->
+      <div class="modal fade" id="newreplyform" tabindex="-1" role="form" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title">Respond to Thread</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                  <form>
+                      <div class="form-group">
+                          <label for="inputreply">Post</label>
+                          <textarea class="form-control" id="inputreply" rows="10"></textarea>
+                          <small><p>Provide a clear, respectful reply to the user seeking help.</p></small>
+                      </div>
+                      </form>
+                  </div>
+                  <div class="modal-footer">
+<!-- post reply to db--><button type="submit" id="offerhelp"  data-threadId="#{{id}}"class="modalbtn btn btn-primary">Offer Help</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+
+
+       <div class="modal fade" id="delete-reply" tabindex="-1" role="form" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Delete Reply</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      <h3 id="delete-reply-h3"></h3>
+                  </div>
+                  <div class="modal-footer">
+<!-- edit to db--><button id="delete-reply-confirm" type="submit" class="btn btn-primary">Delete</button>
+                         <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"> Close </button>
+                      
+                </div>
+              </div>
+          </div>
+      </div>
+
+
+
+      <div class="modal fade" id="edit-reply" tabindex="-1" role="form" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Edit Reply</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      <form>
+                      <div class="form-group">
+                          <label for="inputreply">Post</label>
+                          <textarea class="form-control" id="edit-reply-text" rows="10"></textarea>
+                          <small><p>Make sure to edit your reply carefully and still remain respectful.</p></small>
+                      </div>
+                      </form>
+                      
+                  </div>
+                  <div class="modal-footer">
+<!--edit reply in db--><button id="edit-reply-confirm"type="submit" class="btn btn-primary">Confirm Edit</button>
+                         <button type="submit" class="btn btn-primary">Close</button>
+                </div>
               </div>
           </div>
       </div>
        
   <script type = "text/javascript" src ="./assets/js/jquery.min.js"></script>
+  <script type = "text/javascript" src ="./assets/js/reply.js"></script>
+  <script>
+ 
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1791323147839783',
+        cookie     : true,  // enable cookies to allow the server to access 
+                            // the session
+        xfbml      : true,  // parse social plugins on this page
+        version    : 'v2.8' // use graph api version 2.8
+      });
+    };
 
+    // Load the SDK asynchronously
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+
+
+    var ajaxUserData;
+    var ThreadId;
+    var replyId;
+    var userId;
+    var userObj;
+    var usr_token;
+      $('#reply').on('click', function(event){
+        
+        
+        ThreadId = $(this).attr('data-threadId')
+         
+      $('#offerhelp').on("click", function(event) {
+         FB.getLoginStatus(function(response) {
+      usr_token = response.authResponse.userID;
+      ajaxUserData = getUserByToekn(usr_token, function(cb){        
+         
+              userObj = cb;
+      
+    //event.preventDefault();
+    var bodyInput =  $("#inputreply").val();
+    //Wont submit the Reply if we are missing a body
+     if (!bodyInput) {
+       return;
+     }
+    // Constructing a newReply object to hand to the database
+    var newReply = {
+        body: bodyInput,
+        
+        // need to figure out where these ids willl come from  somewhere on DOM?
+        UserId: 8,
+        fbToken : 1990764087807219,
+        ThreadId : ThreadId,
+        
+       
+    }; 
+      console.log(newReply);
+      postReply(newReply);
+});
+      });
+      });
+      });
+
+$(document).on('click', '#deleteReply', function(event){
+    
+    
+    console.log('del')
+         replyId = $(this).attr('data-replyId')
+         userId = $(this).attr('data-userId')
+          ajaxUserData = getUserById(userId, function(cb){        
+         
+              userObj = cb;
+              
+          
+         console.log(replyId);
+         console.log('delete reply userId' , userId)
+         console.log('delte reply ajax user data', userObj.fbtoken)
+    FB.getLoginStatus(function(response) {
+      usr_token = response.authResponse.userID;
+      // If current user is the same as the author
+      if (usr_token == userObj.fbtoken) {
+         $('#delete-reply-h3').text('Are you sure you want to delete this reply?')
+          $('#delete-reply-confirm').on('click', function() {
+                    console.log('del confirmation')
+					deleteReply(replyId)
+
+          })
+
+      }
+
+      else {
+          $('#delete-reply-h3').text('This is not your reply? Why are you trying to delete it? Come on man...')
+          setTimeout(function() {
+            location.reload();
+          }, 5000)
+          
+      } 
+				})
+           
+               
+      
+          })
+})
+
+
+
+var editId;
+var replyBody;
+$(document).on('click','#editReply', function(event){
+    editId = $(this).attr('data-replyId')
+    userId = $(this).attr('data-userId')
+        ajaxUserData = getUserById(userId, function(cb){
+            userObj = cb;
+            console.log('line 386' , userObj)
+            replyBody = $(`#reply-${editId}-body`).text()
+            console.log(editId);
+            console.log(replyBody);
+            console.log('edit reply userId' , userId)
+            console.log('edit reply ajax user data', userObj.fbtoken)
+
+    $('#edit-reply-text').text(replyBody)
+        $('#edit-reply-confirm').on('click', function() {
+              replyBody = $('#edit-reply-text').val()
+               var editedReply = {
+                  body : replyBody,
+                  
+                 }
+                    console.log("editId inside the confirm " , editId)
+                    console.log("edited reply body inside the confirm " , replyBody)
+                    
+					editReply(editId, editedReply)
+				})
+           
+          // Conditional to make sure the post with a a corresponding thread and 
+          // UserID can edit
+       // if(userId === userId){
+         
+      //  } 
+          })
+})
+
+
+
+
+function postReply(newReply) {
+    $.ajax({
+      method: "POST",
+      url: "/api/newReply",
+      data : newReply
+    })
+    .then(function() {
+      location.reload();
+      
+    });
+  }
+
+
+   function deleteReply(replyId){
+  $.ajax({
+    method: "DELETE",
+    url : "/api/deleteReply/" + replyId,
+    
+}).then(
+    function() {
+        // redirect to a confirmation of deleteion.
+        
+    }
+)
+
+ }
+
+
+
+function getUserByToken(fbToken, cb){
+    $.ajax({
+        url : '/api/checkUser/' + fbToken,
+        method : 'GET'
+    }).done(function(res){
+        cb(res);
+    })
+}
+
+
+function getUserById(userId, cb){
+  $.ajax({
+            url: '/api/findUser/' + userId,
+            method: "GET"
+          }).done(function(res) {
+             cb(res);
+
+       })
+       
+}
+
+ function editReply(editId, editedReply){
+    $.ajax({
+      method : "PUT",
+      url : "/api/editReply/" + editId,
+      data : editedReply  
+    }).then(
+        function(){
+        location.reload()
+        // ?????
+        }
+    )
+}
+
+
+  </script>
 
   </body>
 </html>

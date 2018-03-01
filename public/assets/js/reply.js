@@ -10,15 +10,15 @@ $(document).on("click", "button.delete", handleDelete());
 
 
 
-$(document).on("click", ".reply",  function(event) {
- event.preventDefault();
+$(document).on("click", "#offerhelp",  function(event) {
+ //event.preventDefault();
     // Wont submit the Reply if we are missing a body
     // if (!bodyInput) {
     //   return;
     // }
     // Constructing a newReply object to hand to the database
     var newReply = {
-      body: $('').val(),
+      body: $("#inputreply").val(),
         
         // need to figure out where these ids willl come from  somewhere on DOM?
        UserId: 1,
@@ -30,6 +30,7 @@ $(document).on("click", ".reply",  function(event) {
 
 
 // This function does an API call to make a reply
+
 function postReply(newReply) {
     $.ajax({
       method: "POST",
@@ -48,7 +49,7 @@ function postReply(newReply) {
 
 
   function handleDelete(event, userId) {
-      event.preventDefault();
+      //event.preventDefault();
       var replyId = 
            
           // Condiational to make sure the post with a a corresponding thread and 
@@ -77,7 +78,7 @@ function postReply(newReply) {
 
 
 function  handleEdit(event, bodyInput, userId){
-    event.preventDefault();
+   // event.preventDefault();
     var id = $(this.id)
     var editedReply = {
         body: bodyInput

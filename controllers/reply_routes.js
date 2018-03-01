@@ -33,7 +33,7 @@ module.exports = function(app) {
     // edit a reply on a thread
      app.put("/api/editReply/:id", function(req, res){
          db.Reply.update(
-             req.body.body,
+             req.body,
              {
              where : {
                  id : req.params.id
@@ -49,6 +49,7 @@ module.exports = function(app) {
     app.delete("/api/deleteReply/:id", function(req,res){
         db.Reply.destroy({
             where : {
+                
                 id : req.params.id
                 
             }
