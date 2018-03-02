@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <!-- Custom -->
-    <link href="main.css" rel="stylesheet">
+    <link href="/assets/css/main.css" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <!-- Fonts -->
@@ -151,7 +151,9 @@
               <div class="blocktxt">
                 <ul id="categories">
                   <!-- All                 -->            
-                  <li><a href="/">All <span class="badge pull-right">168</span></a></li>
+
+                  <li><a href="">All <span class="badge pull-right">168</span></a></li>
+
                   <!--    of               -->            
                   <li><a href="#">Financial Advice <span class="badge pull-right">20</span></a></li>
                   <!--    these        -->                
@@ -480,7 +482,11 @@ $(document).on('click', '#deleteReply', function(event){
          $('#delete-reply-h3').text('Are you sure you want to delete this reply?')
           $('#delete-reply-confirm').on('click', function() {
                     console.log('del confirmation')
-					deleteReply(replyId)
+
+          deleteReply(replyId)
+
+
+
 
           })
 
@@ -493,7 +499,10 @@ $(document).on('click', '#deleteReply', function(event){
           }, 5000)
           
       } 
-				})
+
+        })
+
+
            
                
       
@@ -526,8 +535,13 @@ $(document).on('click','#editReply', function(event){
                     console.log("editId inside the confirm " , editId)
                     console.log("edited reply body inside the confirm " , replyBody)
                     
-					editReply(editId, editedReply)
-				})
+
+          editReply(editId, editedReply)
+        })
+
+
+
+
            
           // Conditional to make sure the post with a a corresponding thread and 
           // UserID can edit
@@ -602,8 +616,24 @@ function getUserById(userId, cb){
         }
     )
 }
+ 
+$(window).on("load", function(){
 
-
+	var url = window.location.href;
+ console.log(url);
+        if(url.indexOf('?threads/modal') != -1 || url.indexOf('/threads/modal') != -1) {
+        $('#newpostform').modal('show'); 
+}});
   </script>
+
+  <!-- Condition where if user click "Get help" New Post modal appears -->
+<!--       <script type="text/javascript">
+        var url = window.location.href;
+        if(url.indexOf('?threads/modal') != -1 || url.IndexOf('/threads/modal') != -1) {
+        $('#newpostform').modal('show');
+            }
+      </script> -->
+
+
 
   </body>

@@ -43,13 +43,30 @@
         $.get("/api/checkUser/"+ response.id, function(data){
             console.log(data);
             var date = data.createdAt;
-            var res = date.split(" ");
+            var format = "";
+            	for (var i = 0; i < 9; i++) {
+				var num = date.charAt(i);
+				format = format + num;
+				}
+			var final = format.split("-");
+			console.log(final);
           document.getElementById('userName').innerHTML = data.userName;
-          document.getElementById('date').innerHTML = res[0];
+          document.getElementById('date').innerHTML = "Join Community On: " + final[2].toString() + "-" + final[1].toString() + "-" + final[0].toString();
         })
       });
     }
 
+    function getHelp() {
+    	$.get("/threads/modal", function(data){
+       window.location.replace("/threads/modal");
+    	})
+    }
+
+    function goHelp() {
+      $.get("/threads", function(data){
+       window.location.replace("/threads");
+      })
+    }
 </script>
 
 
@@ -74,9 +91,9 @@
     </div>
 
     <div id="profilebuttons">
-        <button id="buttonsize" type="button" class="btn lg btn-warning" style="background-color: transparent">
+        <button id="buttonsize" type="button" class="btn lg btn-warning" style="background-color: transparent" onclick="goHelp()">
         <img id="charlie" src="/assets/images/charliebrown.jpg" height="50" width="50" class="rounded-circle" alt="Charlie Brown">Give Help</button>
-        <button id="buttonsize2" type="button" class="btn lg btn-warning" style="background-color: transparent">
+        <button id="buttonsize2" type="button" class="btn lg btn-warning" style="background-color: transparent" onclick="getHelp()">
         <img id="puzzle" src="/assets/images/mentalhealth.jpg" height="50" width="50" class="rounded-circle" alt="Puzzled"> I Need Help</button>
         <div id="medical">
                         <img id="spiral" src="/assets/images/medical.png" height="80" width="80">

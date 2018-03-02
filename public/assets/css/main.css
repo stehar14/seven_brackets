@@ -41,6 +41,11 @@
 #cardsection {
   margin-top: -30px;
 }
+
+#facebookbutton{
+  margin-left: 135px;
+  padding-bottom: 20px;
+}
 /*-----------------------------------------------------------------*/
 /* ANIMATIONS */
 /* RAINY */
@@ -509,6 +514,7 @@ ul#categories .badge {
   border-radius: 2px;
   box-shadow: 0 1px 2px #c9cccd;
   border-bottom: white solid 1px;
+  margin-top: 15px;
 }
 button {
   border: 0 !important;
