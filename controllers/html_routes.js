@@ -11,12 +11,24 @@ module.exports = function(app, path) {
     console.log('/profile get request received')
     // if(req.body.connected){
     //   console.log(req.body.connected)
-    res.render('forum', req.body)
+    res.render('profile', req.body)
     // } else {
     //   res.sendFile(path.join(__dirname + '/../public/waiting.html'));
     // }
   })
   
+  app.get('/threads/category/:id', function (req, res) {
+    console.log('/api/threads/' + req.params.id + ' get request received')
+    var category_id= req.params.id;
+    db.Thread.findAll({
+      where: {
+        CategoryId: category_id
+      }
+    }).then(function (dbThread) {
+      res.render('forum', {threads: dbThread})
+      // res.render? for the profile page?
+    })
+  })
   app.get('/threads', function(req, res){
     console.log('/threads get request received')
     // if(req.body.connected){
