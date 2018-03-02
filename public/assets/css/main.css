@@ -753,3 +753,7 @@ button i {
     padding: 0;
   }
 }
+
+@media (min-width:1440px ) and (max-width:990px) {
+  
+}
