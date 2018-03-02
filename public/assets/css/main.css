@@ -303,6 +303,8 @@
 }
 
 #profilePic {
+    height: 202px;
+    width: 202px;
     border-radius: 20px;
     border: 1px solid #e3c600;
 }
