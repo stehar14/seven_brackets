@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <meta charset="UTF-8">
+<meta name="Life Overflow" description="A community of genuine individuals reaching out to provide or receive assistance across all walks of life." >
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 <head>
     <title>Life Overflow</title>
 
 <link href="https://fonts.googleapis.com/css?family=Merienda+One" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-
+<link rel="icon" href="assets/images/favicon.png" type="image/x-icon"/>
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -157,8 +159,10 @@
 
 
 
-<fb:login-button style="height:100px; width: 100px;" scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
+<!-- <fb:login-button style="height:100px; width: 100px;" scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button> -->
+
+<div id="facebookbutton" class="fb-login-button" data-width="250" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" onlogin="checkLoginState();"></div>
 
 <!-- <div class="footer">
     <p>Footer</p>

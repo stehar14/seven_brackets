@@ -21,6 +21,7 @@ module.exports = function(app, path) {
     console.log('/api/threads/' + req.params.id + ' get request received')
     var category_id= req.params.id;
     db.Thread.findAll({
+      include : [db.User, db.Reply],
       where: {
         CategoryId: category_id
       }
@@ -50,6 +51,18 @@ module.exports = function(app, path) {
 
     // }
   })
+  app.get('/threads/modal', function(req, res){
+    console.log('/threads/modal get request received')
+    // if(req.body.connected){
+      db.Thread.findAll({
+        include : [db.User, db.Reply]
+      })
+      .then(function (dbThread) {
+        // checkCategory(dbThread)
+        res.render('forum', {threads: dbThread})
+      })
+
+    });
  
 
 
