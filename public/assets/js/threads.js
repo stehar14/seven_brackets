@@ -34,6 +34,11 @@
     $.post('/api/threadUpdate', threadId, function(response) { 
       console.log(response)
     })
+  },
+  solveThread: function (threadId) {
+    $.post('/api/threadSolved', threadId, function(response) { 
+      console.log(response)
+    })
   }
 }
 
@@ -145,12 +150,35 @@ function jqueryStuffs() {
       })
     });
 
+    $('#solved-thread').on("click", function(event){
+      event.preventDefault();
+      var usr_token;
+      // Getting author and thread ID from the DOM.
+      threadApi.getOneThread
+      var threadId = $(this).attr('data-threadId');
+      
+      // Getting login status to check the current user.
+      FB.getLoginStatus(function(response) {
+        usr_token = response.authResponse.userID;
+        // If current user is the same as the author
+        if (usr_token == authorId) {
+          $('#solve-thread-confirm').on('click', function() {
+            
+            threadApi.solveThread()
+          });
+        } else {
+            $('#delete-h3').text('You are not the author of this post...')
+        } 
+      })
+    });
+
     // Event listener for connection accept
     $('#accept-connection').on("click", function(event){
       event.preventDefault();
       var usr_token;
       // Getting author and thread ID from the DOM.
       var reply_authorID = $('#deleteReply').attr('data-userId')
+      console.log(reply_authorID)
       var authorId = $(this).attr('data-userId');
       var threadId = $(this).attr('data-threadId');
       var current_words = $(`#thread${threadId}-body`).text()
