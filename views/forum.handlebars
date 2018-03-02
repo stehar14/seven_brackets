@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Life Overflow Forum</title>
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <!-- Custom -->
-    <link href="/assets/css/main.css" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <!-- Fonts -->
-  </head>
+
   <body>
     <div class="container-fluid">
       <div class="container">
@@ -82,15 +66,15 @@
                   <div class="posttext pull-left">
                     <div class="posttextcontent pull-left">
                       <!-- INSERT THREAD.Category--> 
-                      <h2><a href="#">{{CategoryId}}</a></h2>
+                      <h2><a href="#" class="category-name" data-userId="{{CategoryId}}"></a></h2>
                       <!-- INSERT THREAD.Body--> 
                       <p id="thread{{id}}-body">{{body}}</p>
                     </div>
                     <div class="buttons pull-right">
                       <!--NEED TO ADD UNIQUE data-target--> <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right expand" data-toggle="collapse" data-target="#thread{{id}}"><i class="fa fa-expand"></i></button>
-                     <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" id= "reply"  data-toggle = "modal" data-threadId="{{id}}" data-target = "#newreplyform"><i class="fa fa-mail-reply"></i></button>
-                      <!-- NEED ONCLICK function to update thread--> <button id="update-thread" type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-threadId="{{id}}" data-toggle="modal" data-target="#edit-post" data-userId="{{#with User}}{{this.fbtoken}}{{/with}}" data-threadId="{{id}}"><i class="fa fa-edit"></i></button>
-                      <!-- NEED ONCLICK function to delete thread--> <button id="delete-thread" type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right delete-thread" data-toggle="modal" data-target="#delete-post" data-userId="{{#with User}}{{this.fbtoken}}{{/with}}" data-threadId="{{id}}"><i class="fa fa-times-circle-o"></i></button>
+                     <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right reply"  data-toggle = "modal" data-threadId="{{id}}" data-target = "#newreplyform"><i class="fa fa-mail-reply"></i></button>
+                      <!-- NEED ONCLICK function to update thread--> <button  style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right update-thread" data-threadId="{{id}}" data-toggle="modal" data-target="#edit-post" data-userId="{{#with User}}{{this.fbtoken}}{{/with}}" data-threadId="{{id}}"><i class="fa fa-edit"></i></button>
+                      <!-- NEED ONCLICK function to delete thread--> <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right delete-thread" data-toggle="modal" data-target="#delete-post" data-userId="{{#with User}}{{this.fbtoken}}{{/with}}" data-threadId="{{id}}"><i class="fa fa-times-circle-o"></i></button>
                     </div>
                   </div>
                   <div class="clearfix"></div>
@@ -98,7 +82,7 @@
                 <div class="postinfo pull-left">
                   <div class="comments">
                     <div class="commentbg">
-                      <!-- Insert reply count for thread--> 560
+                      <p class="reply-count" data-threadId="{{id}}"></p>
                       <div class="mark"></div>
                     </div>
                   </div>
@@ -131,12 +115,14 @@
                     <!-- INsert reply.body-->                           
                     <p id ="reply-{{id}}-body">{{this.body}}</p>
                   </div>
+                  <div class="clearfix"></div>
                 </div>
                 <div class="commentinfo pull-left">
                   <!--Time since posted/timeposted-->             
                   <div class="time"><i class="fa fa-clock-o"></i> 24 min</div>
                 </div>
                 {{/each}}
+                <div class="clearfix"></div>
               </div>
             </div>
             {{/unless}}
@@ -152,20 +138,20 @@
                 <ul id="categories">
                   <!-- All                 -->            
 
-                  <li><a href="">All <span class="badge pull-right">168</span></a></li>
+                  <li><a href="/threads">All <span class="badge pull-right">168</span></a></li>
 
                   <!--    of               -->            
-                  <li><a href="#">Financial Advice <span class="badge pull-right">20</span></a></li>
+                  <li><a href="/threads/category/1">Financial Advice <span class="badge pull-right">20</span></a></li>
                   <!--    these        -->                
-                  <li><a href="#">Family Advice <span class="badge pull-right">10</span></a></li>
+                  <li><a href="/threads/category/2">Family Advice <span class="badge pull-right">10</span></a></li>
                   <!--    need     -->                    
-                  <li><a href="#">Relationship Advice <span class="badge pull-right">50</span></a></li>
+                  <li><a href="/threads/category/3">Relationship Advice <span class="badge pull-right">50</span></a></li>
                   <!--    to   -->                        
-                  <li><a href="#">Fitness Advice <span class="badge pull-right">36</span></a></li>
+                  <li><a href="/threads/category/4">Fitness Advice <span class="badge pull-right">36</span></a></li>
                   <!--    affect -->                      
-                  <li><a href="#">Education Resources <span class="badge pull-right">41</span></a></li>
+                  <li><a href="/threads/category/5">Education Resources <span class="badge pull-right">41</span></a></li>
                   <!--    threads shown-->                
-                  <li><a href="#">Mental Health Resources <span class="badge pull-right">11</span></a></li>
+                  <li><a href="/threads/category/6">Mental Health Resources <span class="badge pull-right">11</span></a></li>
                 </ul>
               </div>
             </div>
@@ -333,6 +319,7 @@
         </div>
       </div>
     </div>
+    <!--Delete Reply Modal -->
     <div class="modal fade" id="delete-reply" tabindex="-1" role="form" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -382,7 +369,7 @@
             <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body" id="">
             <textarea id='update-thread-text' class="form-control" rows="3"></textarea>
           </div>
           <div class="modal-footer">
@@ -392,10 +379,6 @@
         </div>
       </div>
     </div>
-
-  <script type = "text/javascript" src ="./assets/js/jquery.min.js"></script>
-  <script type = "text/javascript" src ="./assets/js/reply.js"></script>
-  <script type = "text/javascript" src ="./assets/js/threads.js"></script>
   <script>
     jqueryStuffs()
     window.fbAsyncInit = function() {
@@ -425,7 +408,7 @@
     var userId;
     var userObj;
     var usr_token;
-      $('#reply').on('click', function(event){
+      $('.reply').on('click', function(event){
         
         
         ThreadId = $(this).attr('data-threadId')

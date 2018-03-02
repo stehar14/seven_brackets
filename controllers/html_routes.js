@@ -21,6 +21,7 @@ module.exports = function(app, path) {
     console.log('/api/threads/' + req.params.id + ' get request received')
     var category_id= req.params.id;
     db.Thread.findAll({
+      include : [db.User, db.Reply],
       where: {
         CategoryId: category_id
       }
