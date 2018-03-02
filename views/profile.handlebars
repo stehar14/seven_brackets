@@ -48,8 +48,11 @@
 				var num = date.charAt(i);
 				format = format + num;
 				}
+			var final = format.split("-");
+			console.log(final);
           document.getElementById('userName').innerHTML = data.userName;
-          document.getElementById('date').innerHTML = "Join Community On: " + format;
+          //document.getElementById('date').innerHTML = "Join Community On: " + format;
+          document.getElementById('date').innerHTML = "Join Community On: " + final[2].toString() + "-" + final[1].toString() + "-" + final[0].toString();
         })
       });
     }
