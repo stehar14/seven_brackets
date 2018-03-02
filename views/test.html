@@ -43,6 +43,7 @@
 
             var date = data.createdAt;
             var res = date.split(" ");
+            console.log(res);
           document.getElementById('userName').innerHTML = data.userName;
           document.getElementById('date').innerHTML = res[0];
         })
