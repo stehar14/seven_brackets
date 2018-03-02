@@ -18,6 +18,7 @@ module.exports = function (app) {
     console.log('/api/threads/' + req.params.id + ' get request received')
     var thread_id = req.params.id;
     db.Thread.findAll({
+      include : [db.User , db.Reply],
       where: {
         id: thread_id
       }
@@ -59,6 +60,7 @@ module.exports = function (app) {
         res.json(dbThread)
       })
   })
+
   // Edit Thread
   app.post('/api/threadUpdate', function (req, res) {
     console.log(req.body)
@@ -75,6 +77,7 @@ module.exports = function (app) {
         res.json(dbThread)
       })
   })
+
 }
 
 
