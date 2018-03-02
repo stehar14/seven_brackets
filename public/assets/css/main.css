@@ -447,8 +447,8 @@ a:hover {
 }
 #newpost {
   background-color: #FFC107;
-  margin-top: 12px;
-  margin-left:-10px;
+  margin: auto;
+  
 }
 /*-----------------------------------------------------------------*/
 /*--- Sidebar ---*/
@@ -509,6 +509,7 @@ ul#categories .badge {
   border-radius: 2px;
   box-shadow: 0 1px 2px #c9cccd;
   border-bottom: white solid 1px;
+  margin-top: 15px;
 }
 button {
   border: 0 !important;
