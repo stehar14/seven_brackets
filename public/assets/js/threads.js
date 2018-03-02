@@ -84,6 +84,12 @@ function jqueryStuffs() {
         category_text = "Family Advice"
       } else if(category == 3) {
         category_text = "Relationship Advice"
+      } else if (category == 4) {
+        category_text = "Fitness Advice"
+      } else if (category == 5) {
+        category_text = "Education Advice"
+      } else if (category == 6) {
+        category_text = "Mental Health Advice"
       }
       
       console.log(category_text)
