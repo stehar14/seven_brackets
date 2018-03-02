@@ -32,7 +32,6 @@ require("./controllers/thread_routes.js")(app);
 require("./controllers/reply_routes.js")(app);
 require("./controllers/html_routes.js")(app, path)
 
-var threads = require('./public/assets/js/threads.js')
 
 
 
