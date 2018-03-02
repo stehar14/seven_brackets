@@ -1,5 +1,3 @@
-// var db = require('../models');
- $(document).on('ready', function(){
 
   // Thread routes 
   var threadApi = {
@@ -231,6 +229,5 @@ function jqueryStuffs() {
     }); 
   }
 
-});
 // module.exports  = threadApi;
 
