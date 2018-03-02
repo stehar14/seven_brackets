@@ -455,11 +455,14 @@ a:hover {
 }
 
 #newpost {
-  background-color: #FFC107;  
+  background-color: #FFC107;
+  display: flex;
+  justify-content: space-around;  
 }
 
 .postbutton {
   display: flex;
+  justify-content: space-around;
 }
 /*-----------------------------------------------------------------*/
 /*--- Sidebar ---*/
