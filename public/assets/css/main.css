@@ -41,11 +41,6 @@
 #cardsection {
   margin-top: -30px;
 }
-
-#facebookbutton{
-  margin-left: 135px;
-  padding-bottom: 20px;
-}
 /*-----------------------------------------------------------------*/
 /* ANIMATIONS */
 /* RAINY */
@@ -450,10 +445,13 @@ a:hover {
 .prevnext.last {
   margin-left: 20px;
 }
+
 #newpost {
-  background-color: #FFC107;
-  margin: auto;
-  
+  background-color: #FFC107;  
+}
+
+.postbutton {
+  display: flex;
 }
 /*-----------------------------------------------------------------*/
 /*--- Sidebar ---*/
