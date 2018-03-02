@@ -1,6 +1,3 @@
-// var db = require('../models');
- $(document).on('ready', function(){
-
   // Thread routes 
   var threadApi = {
   // Get all threads - Get / findAll
@@ -231,6 +228,6 @@ function jqueryStuffs() {
     }); 
   }
 
-});
+
 // module.exports  = threadApi;
 
