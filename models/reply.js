@@ -13,7 +13,7 @@ module.exports = function (sequelize, DataTypes) {
     
    
     Reply.associate = function(models) {
-    // This makes it so a Reply can't exist without an author.
+    // This makes it so a Reply can't exist without a user.
       Reply.belongsTo(models.User, {
         foreignKey: {
           allowNull: false

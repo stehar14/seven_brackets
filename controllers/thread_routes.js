@@ -60,6 +60,7 @@ module.exports = function (app) {
         res.json(dbThread)
       })
   })
+
   // Edit Thread
   app.post('/api/threadUpdate', function (req, res) {
     console.log(req.body)
@@ -76,6 +77,7 @@ module.exports = function (app) {
         res.json(dbThread)
       })
   })
+
 }
 
 

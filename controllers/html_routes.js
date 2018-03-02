@@ -82,7 +82,7 @@ module.exports = function(app, path) {
     db.Reply.findAll({
         include : [db.User, db.Thread]
     }).then(function(dbReply){
-       res.render("replies", {replies : dbReply})
+       res.render('forum', {replies : dbReply})
     })
   });
 
