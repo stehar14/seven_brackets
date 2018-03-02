@@ -4,7 +4,6 @@
   getThreads: function () {
     $.get('/api/threads', function(data) {
       console.log(data)
-      
     })
   },
   // Get Thread by id
@@ -144,10 +143,8 @@ function jqueryStuffs() {
       } else {
           $('#delete-h3').text('You are not the author of this post...')
           setTimeout(function() {
-            location.reload();
           }, 3000)
-          
-      } 
+        } 
     })
   });
   // Event Listener for thread update
@@ -158,8 +155,6 @@ function jqueryStuffs() {
       var poster_id = $(this).attr('data-userId');
       var threadId = $(this).attr('data-threadId');
       var current_words = $(`#thread${threadId}-body`).text()
-      
-
       
       // Getting login status to check the current user.
       FB.getLoginStatus(function(response) {
@@ -178,7 +173,8 @@ function jqueryStuffs() {
             location.reload();
           })
         } else {
-            $('#update-thread-text').text('You are not the author of this post...')
+          $('#update-thread-text').val('')
+            $('#update-thread-text').val('You are not the author of this post...')
         } 
       })
     });
