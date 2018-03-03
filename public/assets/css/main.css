@@ -41,6 +41,12 @@
 #cardsection {
   margin-top: -30px;
 }
+
+#facebookbutton{
+  margin-left: 135px;
+  padding-bottom: 20px;
+  margin-top: 30px;
+}
 /*-----------------------------------------------------------------*/
 /* ANIMATIONS */
 /* RAINY */
@@ -325,6 +331,8 @@
 }
 
 #profilePic {
+    height: 202px;
+    width: 202px;
     border-radius: 20px;
     border: 1px solid #e3c600;
 }
@@ -509,6 +517,7 @@ ul#categories .badge {
   border-radius: 2px;
   box-shadow: 0 1px 2px #c9cccd;
   border-bottom: white solid 1px;
+  margin-top: 15px;
 }
 button {
   border: 0 !important;
@@ -643,6 +652,62 @@ button i {
 .post .time i {
   font-size: 14px;
 }
+
+
+.connect-button { 
+  color: #FFFFFF; 
+  background-color: #19F4FC; 
+  border-color: #19F4FC; 
+  font-size: 12px;
+  font-family: 'Open Sans Regular', sans-serif; 
+   text-align: center;
+  line-height: 29px;
+  display : inline-block;
+  margin-top : 5%;
+  margin-right : 1%;
+} 
+ 
+.connect-button:hover, 
+.connect-button:focus, 
+.connect-button:active, 
+.connect-button.active, 
+.open .dropdown-toggle.connect-button { 
+  color: #FFFFFF; 
+  background-color: #1BB8BD; 
+  border-color: #19F4FC; 
+} 
+ 
+.connect-button:active, 
+.connect-button.active, 
+.open .dropdown-toggle.connect-button { 
+  background-image: none; 
+} 
+ 
+.connect-button.disabled, 
+.connect-button[disabled], 
+fieldset[disabled] .connect-button, 
+.connect-button.disabled:hover, 
+.connect-button[disabled]:hover, 
+fieldset[disabled] .connect-button:hover, 
+.connect-button.disabled:focus, 
+.connect-button[disabled]:focus, 
+fieldset[disabled] .connect-button:focus, 
+.connect-button.disabled:active, 
+.connect-button[disabled]:active, 
+fieldset[disabled] .connect-button:active, 
+.connect-button.disabled.active, 
+.connect-button[disabled].active, 
+fieldset[disabled] .connect-button.active { 
+  background-color: #19F4FC; 
+  border-color: #19F4FC; 
+} 
+ 
+.connect-button .badge { 
+  color: #19F4FC; 
+  background-color: #FFFFFF; 
+}
+
+
 /*-----------------------------------------------------------------*/
 /*--- Extra small devices (less 767px) ---*/
 @media (max-width: 767px) {
@@ -752,4 +817,8 @@ button i {
   .container {
     padding: 0;
   }
+}
+
+@media (min-width: 1440px) and (max-width: 900px){
+    
 }

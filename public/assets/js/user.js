@@ -1,6 +1,7 @@
 $(document).ready(function() {
-
-
+    
+    $(document).on("click", "button.searchUser", searchUser(event))
+ 
     $(document).on("click", "button.newUser", handleNewUser(event, userName, rating, img, fbtoken));
     $(document).on("click", "button.allUsers", allUsers);
     $(document).on("click", ".button.star", handleRatingUpdate(event, currentRating, addedRating, totalRatings));
@@ -20,11 +21,11 @@ $(document).ready(function() {
     }
 
 // Actually creates the the User
-    function createUser(newReply) {
+    function createUser(newUser) {
         $.ajax({
           method: "POST",
-          url: "/api/newReply",
-          data : newReply
+          url: "/api/newUser",
+          data : newUser
         })
         .then(function() {
             //  or some redirect
@@ -44,6 +45,21 @@ $(document).ready(function() {
         }).then(function(){
 
         })
+      }
+
+
+
+      function searchUser(event){
+          event.preventDefault();
+          // whatever the textbox is will go in the selector 
+          var userName = $().val().trim()
+          $.ajax({
+              method : "GET",
+              url : "/api/findUser/" + userName,
+
+          }).then(function(){
+
+          })
       }
 
 
@@ -84,6 +100,12 @@ function handleRatingUpdate(event, currentRating, addedRating, totalRatings){
           )
       
       }
+
+
+
+
+
+
       
       
       

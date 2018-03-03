@@ -1,26 +1,25 @@
+var db = require('../models');
 
 
 
-// //  add connection - Put / update
-// app.post("api/ally", function(req,res){
-//     db.Ally.create({
-//        Ally1 : req.body.Ally1,
-//        Ally2 : req.body.Ally2,
-//     }, {
-//     where : {
-      
-//     }
-  
-//     }).then(function(dbAlly){
-      
-//     })
-  
-//   //  delete connection - Delete / destroy
-   
-//   //  view connections - Get / findAll
-  
-  
-  
+module.exports = function(app) {
+
+  app.get("/showAllyTable", function(req,res){
+    db.Ally.findAll({
+        
+    }).then(function(dbAlly){
+        res.json(dbAlly);
+    })
+});
+
+app.post('/newAlly', function(req, res) {
+    db.Ally.create(req.body)
+  })
+
+
+}
+
+
   
   
   

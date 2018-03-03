@@ -3,6 +3,7 @@ var bodyParser = require("body-parser");
 var method = require('method-override');
 var path = require('path')
 
+// Set port for server = 8585
 var PORT = process.env.PORT || 3000;
 
 var app = express();
@@ -29,6 +30,7 @@ app.set("view engine", "handlebars");
 require("./controllers/user_routes.js")(app);
 require("./controllers/thread_routes.js")(app);
 require("./controllers/reply_routes.js")(app);
+require("./controllers/ally_routes.js")(app);
 require("./controllers/html_routes.js")(app, path)
 
 //var threads = require('./public/assets/js/threads.js')
@@ -41,3 +43,4 @@ db.sequelize.sync({ force: false }).then(function() {
     console.log("App listening on PORT " + PORT);
   });
 });
+
