@@ -400,318 +400,264 @@ SSSSSS
 
   <script src="/assets/js/threads.js"></script>
   <script>
-  window.onload = function() {
-      // Opens modal when loading from 'get help' button on profile page
-    $(window).on("load", function(){
+window.onload = function() {
+    // Opens modal when loading from 'get help' button on profile page
+    $(window).on("load", function() {
       var url = window.location.href;
       console.log(url);
-      if(url.indexOf('?threads/modal') != -1 || url.indexOf('/threads/modal') != -1) {
-        $('#newpostform').modal('show'); 
+      if (url.indexOf('?threads/modal') != -1 || url.indexOf('/threads/modal') != -1) {
+        $('#newpostform').modal('show');
       }
     });
     $(window).on("load", function() {
-      $('[data-toggle="tooltip"]').tooltip(); 
+      $('[data-toggle="tooltip"]').tooltip();
     });
-window.fbAsyncInit = function() {
-  FB.init({
-    appId: '1791323147839783',
-    cookie: true, // enable cookies to allow the server to access 
-    // the session
-    xfbml: true, // parse social plugins on this page
-    version: 'v2.8' // use graph api version 2.8
-  });
-};
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId: '1791323147839783',
+        cookie: true, // enable cookies to allow the server to access 
+        // the session
+        xfbml: true, // parse social plugins on this page
+        version: 'v2.8' // use graph api version 2.8
+      });
+    };
 
-// Load the SDK asynchronously
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://connect.facebook.net/en_US/sdk.js";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+    // Load the SDK asynchronously
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 
-    
-    
-        var ajaxUserData;
-        var ThreadId;
-        var replyId;
-        var userId;
-        var userObj;
-        var usr_token;
-        var replyerId;
-    
-    
- 
-         
-    
-    $('.connect-button').on('click', function(event){
+
+
+    var ajaxUserData;
+    var ThreadId;
+    var replyId;
+    var userId;
+    var userObj;
+    var usr_token;
+    var replyerId;
+
+
+
+
+    $('.connect-button').on('click', function(event) {
       threadId = $(this).attr('data-originthreadid')
       replyerId = $(this).attr('data-userreplyid')
-     
+
       FB.getLoginStatus(function(response) {
         usr_token = response.authResponse.userID;
-       ajaxUserData =  getPosterByThreadId(threadId , function(cb){
-               userObj =cb;
-               
-                var userIdOfThread = userObj[0].UserId
-                
-                 var posterId = userObj[0].User.fbtoken
-                
-                
-                var newConnection = {
-                    Ally1 : userIdOfThread,
-                    Ally2 : replyerId
-                }
+        ajaxUserData = getPosterByThreadId(threadId, function(cb) {
+          userObj = cb;
+          var userIdOfThread = userObj[0].UserId
+          var posterId = userObj[0].User.fbtoken
+          var newConnection = {
+            Ally1: userIdOfThread,
+            Ally2: replyerId
+          }
+          if (posterId == usr_token && userIdOfThread != replyerId) {
+            storeConnection(newConnection)
+            console.log("we will handle your connection")
+          } else if (userIdOfThread == replyerId) {
+            console.log("You can't connect to yourself")
+          } else {
+            console.log('this is not your connection to make')
+          }
 
 
-               if(posterId == usr_token && userIdOfThread != replyerId){
-                  storeConnection(newConnection)
-                 console.log("we will handle your connection")
-               }
-
-               else if(userIdOfThread == replyerId) {
-                    console.log("You can't connect to yourself")
-               }
-
-               else {
-                 console.log('this is not your connection to make')
-               }
-
-
-           })
+        })
 
       })
 
-   
+
     })
-    
-          $('.reply').on('click', function(event){
-      
-         ThreadId = $(this).attr('data-threadId')
-         FB.getLoginStatus(function(response) {
-          usr_token = response.authResponse.userID;
-         
-          ajaxUserData = getUserByToken(usr_token, function(cb){        
-             
-                  userObj = cb;
-                  
-                   
-             
+
+    $('.reply').on('click', function(event) {
+
+      ThreadId = $(this).attr('data-threadId')
+      FB.getLoginStatus(function(response) {
+        usr_token = response.authResponse.userID;
+
+        ajaxUserData = getUserByToken(usr_token, function(cb) {
+
+          userObj = cb;
+
+
+
           $('#offerhelp').on("click", function(event) {
-             
-        //event.preventDefault();
-        var bodyInput =  $("#inputreply").val();
-        //Wont submit the Reply if we are missing a body
-         if (!bodyInput) {
-           return;
-         }
-        // Constructing a newReply object to hand to the database
-        var newReply = {
-            body: bodyInput,
-            UserId: userObj.id,
-            fbToken : usr_token,
-            ThreadId : ThreadId,
-            
-           
-        }; 
-         
-          postReply(newReply);
+
+            //event.preventDefault();
+            var bodyInput = $("#inputreply").val();
+            //Wont submit the Reply if we are missing a body
+            if (!bodyInput) {
+              return;
+            }
+            // Constructing a newReply object to hand to the database
+            var newReply = {
+              body: bodyInput,
+              UserId: userObj.id,
+              fbToken: usr_token,
+              ThreadId: ThreadId,
+
+
+            };
+
+            postReply(newReply);
+          });
+        });
+      });
     });
-          });
-          });
-          });
-  
-    
-        function popReplyImages (){
-    $('.reply-img').each(function(index){
-         var this_reply = $(this)
-         getUserById($(this).attr('data-userImgId'),  function(data){
-           
-           this_reply.attr('src' , data.img_url)
-    
-         })
-       })
-    
-        }
-        popReplyImages()
-    
-    $(document).on('click', '#deleteReply', function(event){
-        
-        
-        
-             replyId = $(this).attr('data-replyId')
-             userId = $(this).attr('data-userId')
-              ajaxUserData = getUserById(userId, function(cb){        
-             
-                  userObj = cb;
-                  
-              
-            
+
+
+    function popReplyImages() {
+      $('.reply-img').each(function(index) {
+        var this_reply = $(this)
+        getUserById($(this).attr('data-userImgId'), function(data) {
+
+          this_reply.attr('src', data.img_url)
+
+        })
+      })
+
+    }
+    popReplyImages()
+
+    $(document).on('click', '#deleteReply', function(event) {
+      replyId = $(this).attr('data-replyId')
+      userId = $(this).attr('data-userId')
+      ajaxUserData = getUserById(userId, function(cb) {
+        userObj = cb;
         FB.getLoginStatus(function(response) {
           usr_token = response.authResponse.userID;
           // If current user is the same as the author
           if (usr_token == userObj.fbtoken) {
-               $('#delete-reply-confirm').show()
-             $('#delete-reply-h3').text('Are you sure you want to delete this reply? It cannot be undone.')
-              $('#delete-reply-confirm').on('click', function() {
-                        
-                       
-                       deleteReply(replyId)
-                       
-              
-                        
-    
-              })
-    
+            $('#delete-reply-confirm').show()
+            $('#delete-reply-h3').text('Are you sure you want to delete this reply? It cannot be undone.')
+            $('#delete-reply-confirm').on('click', function() {
+              deleteReply(replyId)
+            })
+          } else {
+            $('#delete-reply-h3').text('This is not your reply? Why are you trying to delete it? Come on man...')
+            $('#delete-reply-confirm').hide()
           }
-    
-          else {
-              $('#delete-reply-h3').text('This is not your reply? Why are you trying to delete it? Come on man...')
-              $('#delete-reply-confirm').hide()
-              
-              
-          } 
-                    })
-               
-                   
-          
-              })
+        })
+      })
     })
-    
-    
-    
     var editId;
     var replyBody;
-    $(document).on('click','#editReply', function(event){
-        editId = $(this).attr('data-replyId')
-        userId = $(this).attr('data-userId')
-            
-          
-            
-            
-            ajaxUserData = getUserById(userId, function(cb){
-                userObj = cb;
-                FB.getLoginStatus(function(response) {
+    $(document).on('click', '#editReply', function(event) {
+      editId = $(this).attr('data-replyId')
+      userId = $(this).attr('data-userId')
+      ajaxUserData = getUserById(userId, function(cb) {
+        userObj = cb;
+        FB.getLoginStatus(function(response) {
           usr_token = response.authResponse.userID;
           // If current user is the same as the author
           if (usr_token == userObj.fbtoken) {
-              
-                replyBody = $(`#reply-${editId}-body`).text()
-                
-                 $('#edit-reply-confirm').show()
-    
-        $('#edit-reply-text').text(replyBody)
+            replyBody = $(`#reply-${editId}-body`).text()
+            $('#edit-reply-confirm').show()
+            $('#edit-reply-text').text(replyBody)
             $('#edit-reply-confirm').on('click', function() {
-                  replyBody = $('#edit-reply-text').val()
-                   var editedReply = {
-                      body : replyBody,
-                      
-                     }
-                        
-                        
-                        editReply(editId, editedReply)
-                    })
-    
+              replyBody = $('#edit-reply-text').val()
+              var editedReply = {
+                body: replyBody,
+              }
+              editReply(editId, editedReply)
+            })
+          } else {
+            $('#edit-reply-text').text("This 'isn't' your reply, you 'can't' edit this")
+            $('#edit-reply-confirm').hide()
+
           }
-    
-          else{
-               $('#edit-reply-text').text("This 'isn't' your reply, you 'can't' edit this")
-               $('#edit-reply-confirm').hide()
-             
-          }
-               
-             
-              })
-    })
+
+
+        })
+      })
     });
-    
-    
-  
+
+
+
     function storeConnection(newConnection) {
       $.ajax({
-        method : "POST",
-        url : "/newAlly",
-        data : newConnection
+        method: "POST",
+        url: "/newAlly",
+        data: newConnection
       })
     }
-    
+
     function postReply(newReply) {
-        $.ajax({
+      $.ajax({
           method: "POST",
           url: "/api/newReply",
-          data : newReply
+          data: newReply
         })
         .then(function() {
           location.reload();
-          
+
         });
-      }
-    
-    
-       function deleteReply(replyId){
+    }
+
+
+    function deleteReply(replyId) {
       $.ajax({
         method: "DELETE",
-        url : "/api/deleteReply/" + replyId,
-        
-    }).then(
+        url: "/api/deleteReply/" + replyId,
+
+      }).then(
         function() {
-            // redirect to a confirmation of deleteion.
-            
+          // redirect to a confirmation of deleteion.
+
         }
-    )
-    
-     }
-    
-    function getPosterByThreadId(threadId , cb){
+      )
+
+    }
+
+    function getPosterByThreadId(threadId, cb) {
       $.ajax({
-          url : '/api/threads/' + threadId,
-          method : 'GET'
-      }).done(function(res){
+        url: '/api/threads/' + threadId,
+        method: 'GET'
+      }).done(function(res) {
         cb(res);
       })
     }
-    
-    function getUserByToken(fbToken, cb){
-        $.ajax({
-            url : '/api/checkUser/' + fbToken,
-            method : 'GET'
-        }).done(function(res){
-            cb(res);
-        })
-    }
-    
-    
-    function getUserById(userId, cb){
+
+    function getUserByToken(fbToken, cb) {
       $.ajax({
-                url: '/api/findUser/' + userId,
-                method: "GET"
-              }).done(function(res) {
-                 cb(res);
-    
-           })
-           
-    }
-    
-     function editReply(editId, editedReply){
-        $.ajax({
-          method : "PUT",
-          url : "/api/editReply/" + editId,
-          data : editedReply  
-        }).then(
-            function(){
-            location.reload()
-            // ?????
-            }
-        )
+        url: '/api/checkUser/' + fbToken,
+        method: 'GET'
+      }).done(function(res) {
+        cb(res);
+      })
     }
 
-  }
+
+    function getUserById(userId, cb) {
+      $.ajax({
+        url: '/api/findUser/' + userId,
+        method: "GET"
+      }).done(function(res) {
+        cb(res);
+
+      })
+
+    }
+
+    function editReply(editId, editedReply) {
+      $.ajax({
+        method: "PUT",
+        url: "/api/editReply/" + editId,
+        data: editedReply
+      }).then(
+        function() {
+          location.reload()
+          // ?????
+        }
+      )
+    }
+
+  } 
   </script>
-
-
- 
-
-
-

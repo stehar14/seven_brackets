@@ -1,3 +1,49 @@
+<style>
+  .ally{
+    display: inline-block;
+  }
+  .ally > * {
+    margin-right: 15px;
+  }
+
+  .ally > img {
+    border-radius: 20px;
+border: 1px solid #e3c600;
+  }
+</style>
+<div class="container-fluid" id="profilebackground">
+  <div class="jumbotron jumbotron bg-cover jumbotron-fluid">
+    <div class="container">
+      <div id="profilelogo">
+        <img src="/assets/images/favicon.png">
+      </div>
+    </div>
+  </div>
+  <div id="userInfo">
+    <h1 id="userName"></h1>
+    <img id="profilePic" src="">
+    <h2 id="date">Join Date: </h2>
+  </div>
+  <div id="profilebuttons">
+    <button id="buttonsize" type="button" class="btn lg btn-warning" style="background-color: transparent" onclick="goHelp()">
+        <img id="charlie" src="/assets/images/charliebrown.jpg" height="50" width="50" class="rounded-circle" alt="Charlie Brown">Give Help</button>
+    <button id="buttonsize2" type="button" class="btn lg btn-warning" style="background-color: transparent" onclick="getHelp()">
+        <img id="puzzle" src="/assets/images/mentalhealth.jpg" height="50" width="50" class="rounded-circle" alt="Puzzled"> I Need Help</button>
+    <div id="medical">
+      <img id="spiral" src="/assets/images/medical.png" height="80" width="80">
+    </div>
+    <div id="doctor">
+      <img id="steth" src="/assets/images/tool.png" height="80" width="80">
+    </div>
+
+  </div>
+    <div id="connections">
+        
+    </div>
+
+<div id="facebookbutton2" class="fb-login-button" data-width="250" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
+
+</div>
 <script>
 window.fbAsyncInit = function() {
   FB.init({
@@ -71,47 +117,32 @@ function goHelp() {
 }
 
 function getAllies(response) {  
+  var allies = [];
+  var ally_object = [];
   var user = response.authResponse.userID;
-  $.get('/getAllies', function(data) {
-    console.log(data)
-  })
+    $.get("/api/checkUser/" + user, function(data) {
+      console.log(data)
+      var user_id = data.id;
+      $.get('/getAllies/' + user_id , function(data) {
+        data.forEach(ally => {
+          if (ally.Ally1 == user_id) {
+            allies.push(ally.Ally2)
+          } else {
+            allies.push(ally.Ally1)
+          }
+        })
+        allies.forEach((ally, index) => {
+          $.get("/api/findUser/" + ally , function(data) {
+            //console.log(data)
+            ally_object.push(data)
+            console.log(ally_object)
+            $('#connections').append(`<div class="ally"><h5 id="ally-name">${data.userName}</h5><img src="${data.img_url}"/></div>`)
+          })
+        })
+      });
+    });
 }
+
 </script>
 
-
-<div class="container-fluid" id="profilebackground">
-  <div class="jumbotron jumbotron bg-cover jumbotron-fluid">
-    <div class="container">
-      <div id="profilelogo">
-        <img src="/assets/images/favicon.png">
-      </div>
-    </div>
-  </div>
-
-  <div id="userInfo">
-    <h1 id="userName"></h1>
-    <img id="profilePic" src="">
-    <h2 id="date">Join Date: </h2>
-  </div>
-  <div id="profilebuttons">
-    <button id="buttonsize" type="button" class="btn lg btn-warning" style="background-color: transparent" onclick="goHelp()">
-        <img id="charlie" src="/assets/images/charliebrown.jpg" height="50" width="50" class="rounded-circle" alt="Charlie Brown">Give Help</button>
-    <button id="buttonsize2" type="button" class="btn lg btn-warning" style="background-color: transparent" onclick="getHelp()">
-        <img id="puzzle" src="/assets/images/mentalhealth.jpg" height="50" width="50" class="rounded-circle" alt="Puzzled"> I Need Help</button>
-    <div id="medical">
-      <img id="spiral" src="/assets/images/medical.png" height="80" width="80">
-    </div>
-    <div id="doctor">
-      <img id="steth" src="/assets/images/tool.png" height="80" width="80">
-    </div>
-
-  </div>
-    <div id="connections">
-        <h3 id="thread-category"></h3>
-        <h5 id="ally-name"></h5>
-    </div>
-
-<div id="facebookbutton2" class="fb-login-button" data-width="250" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
-
-</div>
 
