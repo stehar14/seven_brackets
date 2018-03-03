@@ -726,6 +726,62 @@ button i {
 .post .time i {
   font-size: 14px;
 }
+
+
+.connect-button { 
+  color: #FFFFFF; 
+  background-color: #19F4FC; 
+  border-color: #19F4FC; 
+  font-size: 12px;
+  font-family: 'Open Sans Regular', sans-serif; 
+   text-align: center;
+  line-height: 29px;
+  display : inline-block;
+  margin-top : 5%;
+  margin-right : 1%;
+} 
+ 
+.connect-button:hover, 
+.connect-button:focus, 
+.connect-button:active, 
+.connect-button.active, 
+.open .dropdown-toggle.connect-button { 
+  color: #FFFFFF; 
+  background-color: #1BB8BD; 
+  border-color: #19F4FC; 
+} 
+ 
+.connect-button:active, 
+.connect-button.active, 
+.open .dropdown-toggle.connect-button { 
+  background-image: none; 
+} 
+ 
+.connect-button.disabled, 
+.connect-button[disabled], 
+fieldset[disabled] .connect-button, 
+.connect-button.disabled:hover, 
+.connect-button[disabled]:hover, 
+fieldset[disabled] .connect-button:hover, 
+.connect-button.disabled:focus, 
+.connect-button[disabled]:focus, 
+fieldset[disabled] .connect-button:focus, 
+.connect-button.disabled:active, 
+.connect-button[disabled]:active, 
+fieldset[disabled] .connect-button:active, 
+.connect-button.disabled.active, 
+.connect-button[disabled].active, 
+fieldset[disabled] .connect-button.active { 
+  background-color: #19F4FC; 
+  border-color: #19F4FC; 
+} 
+ 
+.connect-button .badge { 
+  color: #19F4FC; 
+  background-color: #FFFFFF; 
+}
+
+
 /*-----------------------------------------------------------------*/
 /*--- Extra small devices (less 767px) ---*/
 @media (max-width: 767px) {

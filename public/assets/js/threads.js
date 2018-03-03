@@ -26,10 +26,12 @@ postThread: function (threadObject) {
   updateThread: function (threadId) {
     $.post('/api/threadUpdate', threadId, function(response) { 
     })
+
   },
   solveThread: function (threadId) {
     $.post('/api/threadSolved', threadId, function(response) { 
     })
+
   }
 }
 
