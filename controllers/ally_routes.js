@@ -10,9 +10,10 @@ module.exports = function(app) {
   app.get('/getAllies/:user', function(req, res){
     const Op = Sequelize.Op;
     console.log(req.params.user)
+    console.log('************************')
     db.Ally.findAll({
       where: {
-        [Op.or]: [{Ally1: req.body}, {Ally2: req.body}]
+        [Op.or]: [{Ally1: req.params.user}, {Ally2: req.params.user}]
       }
     }).then(function(allies) {
       res.json(allies)
