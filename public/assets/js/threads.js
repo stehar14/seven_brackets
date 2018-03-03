@@ -76,8 +76,8 @@ function jqueryStuffs() {
 
     $('.category-name').each(function(index){
       var category = $(this).attr('data-userId')
-      var category_text = 
-      console.log(category)
+      var category_text; 
+      
       if (category == 1){
         category_text = "Financial Advice"
       } else if (category == 2) {
@@ -92,7 +92,7 @@ function jqueryStuffs() {
         category_text = "Mental Health Advice"
       }
       
-      console.log(category_text)
+      
       $(this).text(category_text)
     })
 
