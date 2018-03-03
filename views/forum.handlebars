@@ -167,7 +167,7 @@ SSSSSS
             </div>
             <!--Recent posts/comments -->
             <!-- Needs to display posts/comments based on created time-->
-            <div class="sidebarblock">
+           <!-- <div class="sidebarblock">
               <h3>My Most Recent Threads</h3>
               <div class="divline"></div>
               <div class="blocktxt">
@@ -204,7 +204,7 @@ SSSSSS
                   <p>First ever post</p>
                 </a>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
     </div>
@@ -237,6 +237,10 @@ SSSSSS
     </div>
     -->
     </section>
+  </div>
+  <!-- Static button -->
+  <div id="profilebtn">
+    <button class="probtn btn modalbtn" style="border-radius: 100%; height: 7em; width: 7em; background-color:#17a2b8; color:#bbdef0; font-size:1.5em;"><a href="/profile"><strong>Profile Page</strong></a></button>
   </div>
   <!-- New Thread Modal -->
   <div class="modal fade" id="newpostform" tabindex="-1" role="form" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -412,40 +416,44 @@ window.onload = function() {
     $(window).on("load", function() {
       $('[data-toggle="tooltip"]').tooltip();
     });
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId: '1791323147839783',
-        cookie: true, // enable cookies to allow the server to access 
-        // the session
-        xfbml: true, // parse social plugins on this page
-        version: 'v2.8' // use graph api version 2.8
-      });
-    };
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
+window.fbAsyncInit = function() {
+  FB.init({
+    appId: '1791323147839783',
+    cookie: true, // enable cookies to allow the server to access 
+    // the session
+    xfbml: true, // parse social plugins on this page
+    version: 'v2.8' // use graph api version 2.8
+  });
+};
 
-    // Load the SDK asynchronously
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+// Load the SDK asynchronously
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://connect.facebook.net/en_US/sdk.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 
-
-
-    var ajaxUserData;
-    var ThreadId;
-    var replyId;
-    var userId;
-    var userObj;
-    var usr_token;
-    var replyerId;
-
-
-
-
-    $('.connect-button').on('click', function(event) {
+    
+    
+        var ajaxUserData;
+        var ThreadId;
+        var replyId;
+        var userId;
+        var userObj;
+        var usr_token;
+        var replyerId;
+    
+    
+ 
+         
+    
+    $('.connect-button').on('click', function(event){
       threadId = $(this).attr('data-originthreadid')
       replyerId = $(this).attr('data-userreplyid')
 
