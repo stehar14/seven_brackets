@@ -4,7 +4,7 @@ var method = require('method-override');
 var path = require('path')
 
 // Set port for server = 8585
-var PORT = process.env.PORT || 80;
+var PORT = process.env.PORT || 3000;
 
 var app = express();
 
@@ -33,9 +33,6 @@ require("./controllers/user_routes.js")(app);
 require("./controllers/thread_routes.js")(app);
 require("./controllers/reply_routes.js")(app);
 require("./controllers/html_routes.js")(app, path)
-
-
-
 
 db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
