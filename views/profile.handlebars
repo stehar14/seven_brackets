@@ -51,7 +51,7 @@
 			var final = format.split("-");
 			console.log(final);
           document.getElementById('userName').innerHTML = data.userName;
-          document.getElementById('date').innerHTML = "Join Community On: " + final[2].toString() + "-" + final[1].toString() + "-" + final[0].toString();
+          document.getElementById('date').innerHTML = "Joined Community On: " + final[2].toString() + "-" + final[1].toString() + "-" + final[0].toString();
         })
       });
     }
@@ -104,5 +104,6 @@
                     
     </div>
 
+<div id="facebookbutton2" class="fb-login-button" data-width="250" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true" onlogin="checkLoginState();"></div>
 
 </div>
