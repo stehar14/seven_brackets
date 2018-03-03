@@ -1,846 +1,846 @@
-    /* SEVEN BRACKETS */
-    /* Homepage */
-    /* Profile Page */
-    /* Forum */
-    /* Media Queries */
-    /*-----------------------------------------------------------------*/
-    /* Homepage */
+/* SEVEN BRACKETS */
+/* Homepage */
+/* Profile Page */
+/* Forum */
+/* Media Queries */
+/*-----------------------------------------------------------------*/
+/* Homepage */
 
-    #bodybackground {
-        background-image: url("../images/sadface.jpg");
-        background-size: cover;
+#bodybackground {
+    background-image: url("../images/sadface.jpg");
+    background-size: cover;
+}
+
+#happy {
+    position: absolute;
+    top: 41%;
+    left: 65%;
+}
+
+#face {
+    height: 220px;
+    width: 225px;
+}
+
+.card {
+    margin-left: 5px;
+}
+
+#actuallogo {
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-bottom: 40px;
+    width: 400px;
+    height: 100px;
+}
+
+#bottombox {
+    margin-bottom: 50px;
+}
+
+#cardsection {
+    margin-top: -30px;
+}
+
+#facebookbutton {
+    margin-left: 135px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+}
+
+#facebookbutton2 {
+    padding-bottom: 25px;
+    margin-left: 200px;
+    margin-bottom: -15px;
+}
+/*-----------------------------------------------------------------*/
+/* ANIMATIONS */
+/* RAINY */
+
+.rainy,
+.rainy2,
+.rainy3 {
+    animation: rainy 5s ease-in-out infinite 1s;
+    background: #CCCCCC;
+    border-radius: 50%;
+    box-shadow: #CCCCCC 65px -15px 0 -5px, #CCCCCC 25px -25px, #CCCCCC 30px 10px, #CCCCCC 60px 15px 0 -10px, #CCCCCC 85px 5px 0 -5px;
+    display: block;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    right: 29%;
+    top: 20%;
+}
+
+.rainy2 {
+    position: absolute;
+    right: 23%;
+    top: 30%;
+}
+
+.rainy3 {
+    position: absolute;
+    right: 34%;
+    top: 34%
+}
+
+.rainy:after,
+.rainy2:after,
+.rainy3:after {
+    animation: rainy_shadow 5s ease-in-out infinite 1s;
+    background: #000000;
+    border-radius: 50%;
+    content: '';
+    height: 15px;
+    width: 120px;
+    opacity: 0.2;
+    position: absolute;
+    left: 5px;
+    bottom: -60px;
+    transform: scale(1);
+}
+
+.rainy:before,
+.rainy2:before,
+.rainy3:before {
+    animation: rainy_rain .7s infinite linear;
+    content: '';
+    background: #CCCCCC;
+    border-radius: 50%;
+    display: block;
+    height: 6px;
+    width: 3px;
+    opacity: 0.3;
+    transform: scale(.9);
+}
+
+@keyframes rainy {
+    50% {
+        transform: translateY(-20px);
     }
+}
 
-    #happy {
-        position: absolute;
-        top: 41%;
-        left: 65%;
+@keyframes rainy_shadow {
+    50% {
+        transform: translateY(20px) scale(.7);
+        opacity: 0.05;
     }
+}
 
-    #face {
-        height: 220px;
-        width: 225px;
+@keyframes rainy_rain {
+    0% {
+        box-shadow: rgba(0, 0, 0, 0) 30px 30px, rgba(0, 0, 0, 0) 40px 40px, #000 50px 75px, #000 55px 50px, #000 70px 100px, #000 80px 95px, #000 110px 45px, #000 90px 35px;
     }
-
-    .card {
-        margin-left: 5px;
+    25% {
+        box-shadow: #000 30px 45px, #000 40px 60px, #000 50px 90px, #000 55px 65px, rgba(0, 0, 0, 0) 70px 120px, rgba(0, 0, 0, 0) 80px 120px, #000 110px 70px, #000 90px 60px;
     }
-
-    #actuallogo {
-        margin-top: 10px;
-        margin-left: 50px;
-        margin-bottom: 40px;
-        width: 400px;
-        height: 100px;
+    26% {
+        box-shadow: #000 30px 45px, #000 40px 60px, #000 50px 90px, #000 55px 65px, rgba(0, 0, 0, 0) 70px 40px, rgba(0, 0, 0, 0) 80px 20px, #000 110px 70px, #000 90px 60px;
     }
-
-    #bottombox {
-        margin-bottom: 50px;
+    50% {
+        box-shadow: #000 30px 70px, #000 40px 80px, rgba(0, 0, 0, 0) 50px 100px, #000 55px 80px, #000 70px 60px, #000 80px 45px, #000 110px 95px, #000 90px 85px;
     }
-
-    #cardsection {
-        margin-top: -30px;
+    51% {
+        box-shadow: #000 30px 70px, #000 40px 80px, rgba(0, 0, 0, 0) 50px 45px, #000 55px 80px, #000 70px 60px, #000 80px 45px, #000 110px 95px, #000 90px 85px;
     }
-
-    #facebookbutton {
-        margin-left: 135px;
-        padding-bottom: 20px;
-        margin-top: 30px;
+    75% {
+        box-shadow: #000 30px 95px, #000 40px 100px, #000 50px 60px, rgba(0, 0, 0, 0) 55px 95px, #000 70px 80px, #000 80px 70px, rgba(0, 0, 0, 0) 110px 120px, rgba(0, 0, 0, 0) 90px 110px;
     }
-
-    #facebookbutton2 {
-        padding-bottom: 25px;
-        margin-left: 200px;
-        margin-bottom: -15px;
+    76% {
+        box-shadow: #000 30px 95px, #000 40px 100px, #000 50px 60px, rgba(0, 0, 0, 0) 55px 35px, #000 70px 80px, #000 80px 70px, rgba(0, 0, 0, 0) 110px 25px, rgba(0, 0, 0, 0) 90px 15px;
     }
-    /*-----------------------------------------------------------------*/
-    /* ANIMATIONS */
-    /* RAINY */
-
-    .rainy,
-    .rainy2,
-    .rainy3 {
-        animation: rainy 5s ease-in-out infinite 1s;
-        background: #CCCCCC;
-        border-radius: 50%;
-        box-shadow: #CCCCCC 65px -15px 0 -5px, #CCCCCC 25px -25px, #CCCCCC 30px 10px, #CCCCCC 60px 15px 0 -10px, #CCCCCC 85px 5px 0 -5px;
-        display: block;
-        height: 50px;
-        width: 50px;
-        position: absolute;
-        right: 29%;
-        top: 20%;
+    100% {
+        box-shadow: rgba(0, 0, 0, 0) 30px 120px, rgba(0, 0, 0, 0) 40px 120px, #000 50px 75px, #000 55px 50px, #000 70px 100px, #000 80px 95px, #000 110px 45px, #000 90px 35px;
     }
+}
+/*-----------------------------------------------------------------*/
+/* RAINBOW */
 
-    .rainy2 {
-        position: absolute;
-        right: 23%;
-        top: 30%;
+.rainbow {
+    animation: rainbow 5s ease-in-out infinite;
+    border-radius: 170px 0 0 0;
+    box-shadow: #FB323C -2px -2px 0 1px, #F99716 -4px -4px 0 3px, #FEE124 -6px -6px 0 5px, #AFDF2E -8px -8px 0 7px, #6AD7F8 -10px -10px 0 9px, #60B1F5 -12px -12px 0 11px, #A3459B -14px -14px 0 13px;
+    height: 140px;
+    width: 140px;
+    position: absolute;
+    right: 22%;
+    top: 30%;
+    transform: rotate(40deg);
+}
+
+.rainbow:after {
+    animation: rainbow_shadow 5s ease-in-out infinite;
+    background: #00000000;
+    border-radius: 50%;
+    content: '';
+    opacity: 0.2;
+    height: 15px;
+    width: 140px;
+    position: absolute;
+    bottom: -23px;
+    left: 17px;
+    transform: rotate(-40deg);
+    transform-origin: 50% 50%;
+}
+
+@keyframes rainbow {
+    50% {
+        transform: rotate(50deg);
     }
+}
 
-    .rainy3 {
-        position: absolute;
-        right: 34%;
-        top: 34%
+@keyframes rainbow_shadow {
+    50% {
+        transform: rotate(-50deg) translate(10px) scale(.7);
+        opacity: 0.05;
     }
+}
+/*-----------------------------------------------------------------*/
+/* SUNNY */
 
-    .rainy:after,
-    .rainy2:after,
-    .rainy3:after {
-        animation: rainy_shadow 5s ease-in-out infinite 1s;
-        background: #000000;
-        border-radius: 50%;
-        content: '';
-        height: 15px;
-        width: 120px;
-        opacity: 0.2;
-        position: absolute;
-        left: 5px;
-        bottom: -60px;
-        transform: scale(1);
-    }
+.sunny {
+    animation: sunny 15s linear infinite;
+    background: linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
+    height: 140px;
+    width: 20px;
+    position: absolute;
+    right: 23%;
+    top: 15%;
+}
 
-    .rainy:before,
-    .rainy2:before,
-    .rainy3:before {
-        animation: rainy_rain .7s infinite linear;
-        content: '';
-        background: #CCCCCC;
-        border-radius: 50%;
-        display: block;
-        height: 6px;
-        width: 3px;
-        opacity: 0.3;
-        transform: scale(.9);
-    }
+.sunny:before {
+    background: linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
+    content: '';
+    height: 280px;
+    width: 40px;
+    opacity: 1;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    transform: rotate(90deg);
+}
 
-    @keyframes rainy {
-        50% {
-            transform: translateY(-20px);
-        }
-    }
+.sunny:after {
+    background: #FFEE44;
+    border-radius: 50%;
+    box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 15px;
+    content: '';
+    height: 160px;
+    width: 160px;
+    position: absolute;
+    left: -30px;
+    top: 30px;
+}
+/*-----------------------------------------------------------------*/
+/* PROFILE PAGE */
 
-    @keyframes rainy_shadow {
-        50% {
-            transform: translateY(20px) scale(.7);
-            opacity: 0.05;
-        }
-    }
+#profilebackground {
+    background-image: url("../images/dice.jpeg");
+    background-position: -90px -365px;
+    padding-bottom: 110px;
+}
 
-    @keyframes rainy_rain {
-        0% {
-            box-shadow: rgba(0, 0, 0, 0) 30px 30px, rgba(0, 0, 0, 0) 40px 40px, #000 50px 75px, #000 55px 50px, #000 70px 100px, #000 80px 95px, #000 110px 45px, #000 90px 35px;
-        }
-        25% {
-            box-shadow: #000 30px 45px, #000 40px 60px, #000 50px 90px, #000 55px 65px, rgba(0, 0, 0, 0) 70px 120px, rgba(0, 0, 0, 0) 80px 120px, #000 110px 70px, #000 90px 60px;
-        }
-        26% {
-            box-shadow: #000 30px 45px, #000 40px 60px, #000 50px 90px, #000 55px 65px, rgba(0, 0, 0, 0) 70px 40px, rgba(0, 0, 0, 0) 80px 20px, #000 110px 70px, #000 90px 60px;
-        }
-        50% {
-            box-shadow: #000 30px 70px, #000 40px 80px, rgba(0, 0, 0, 0) 50px 100px, #000 55px 80px, #000 70px 60px, #000 80px 45px, #000 110px 95px, #000 90px 85px;
-        }
-        51% {
-            box-shadow: #000 30px 70px, #000 40px 80px, rgba(0, 0, 0, 0) 50px 45px, #000 55px 80px, #000 70px 60px, #000 80px 45px, #000 110px 95px, #000 90px 85px;
-        }
-        75% {
-            box-shadow: #000 30px 95px, #000 40px 100px, #000 50px 60px, rgba(0, 0, 0, 0) 55px 95px, #000 70px 80px, #000 80px 70px, rgba(0, 0, 0, 0) 110px 120px, rgba(0, 0, 0, 0) 90px 110px;
-        }
-        76% {
-            box-shadow: #000 30px 95px, #000 40px 100px, #000 50px 60px, rgba(0, 0, 0, 0) 55px 35px, #000 70px 80px, #000 80px 70px, rgba(0, 0, 0, 0) 110px 25px, rgba(0, 0, 0, 0) 90px 15px;
-        }
-        100% {
-            box-shadow: rgba(0, 0, 0, 0) 30px 120px, rgba(0, 0, 0, 0) 40px 120px, #000 50px 75px, #000 55px 50px, #000 70px 100px, #000 80px 95px, #000 110px 45px, #000 90px 35px;
-        }
-    }
-    /*-----------------------------------------------------------------*/
-    /* RAINBOW */
+.jumbotron {
+    background-image: url("../images/greensmile.jpeg");
+    background-size: 100%;
+    background-position: 50% 25%;
+    height: 300px;
+    background-repeat: no-repeat;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
 
-    .rainbow {
-        animation: rainbow 5s ease-in-out infinite;
-        border-radius: 170px 0 0 0;
-        box-shadow: #FB323C -2px -2px 0 1px, #F99716 -4px -4px 0 3px, #FEE124 -6px -6px 0 5px, #AFDF2E -8px -8px 0 7px, #6AD7F8 -10px -10px 0 9px, #60B1F5 -12px -12px 0 11px, #A3459B -14px -14px 0 13px;
-        height: 140px;
-        width: 140px;
-        position: absolute;
-        right: 22%;
-        top: 30%;
-        transform: rotate(40deg);
-    }
+#buttonsize {
+    margin-left: 30px;
+    font-family: 'Just Me Again Down Here', cursive;
+    font-size: 40px;
+    position: relative;
+    display: inline-block;
+    font-size: 30px;
+    text-shadow: 30px;
+    padding: 20px 60px;
+    color: black;
+    margin: -300px 800px 10px;
+    border-radius: 6px;
+    text-align: center;
+    transition: top .01s linear;
+    text-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
+    background-color: #e3c600;
+    box-shadow: 0 0 0 1px #F0D264 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 rgba(196, 172, 83, .7), 0 8px 0 1px rgba(0, 0, 0, .4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+    opacity: 10px;
+}
 
-    .rainbow:after {
-        animation: rainbow_shadow 5s ease-in-out infinite;
-        background: #00000000;
-        border-radius: 50%;
-        content: '';
-        opacity: 0.2;
-        height: 15px;
-        width: 140px;
-        position: absolute;
-        bottom: -23px;
-        left: 17px;
-        transform: rotate(-40deg);
-        transform-origin: 50% 50%;
-    }
+#buttonsize2 {
+    margin-left: 30px;
+    font-family: 'Just Me Again Down Here', cursive;
+    font-size: 40px;
+    position: relative;
+    display: inline-block;
+    font-size: 28px;
+    text-shadow: 30px;
+    padding: 20px 60px;
+    color: black;
+    margin: -180px 785px 10px;
+    border-radius: 6px;
+    text-align: center;
+    transition: top .01s linear;
+    text-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
+    background-color: #e3c600;
+    box-shadow: 0 0 0 1px #F0D264 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 rgba(196, 172, 83, .7), 0 8px 0 1px rgba(0, 0, 0, .4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+    opacity: 10px;
+}
 
-    @keyframes rainbow {
-        50% {
-            transform: rotate(50deg);
-        }
-    }
+#buttonsize:active {
+    box-shadow: 0 0 0 1px #e3c600 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+    top: 9px;
+}
 
-    @keyframes rainbow_shadow {
-        50% {
-            transform: rotate(-50deg) translate(10px) scale(.7);
-            opacity: 0.05;
-        }
-    }
-    /*-----------------------------------------------------------------*/
-    /* SUNNY */
+#buttonsize2:active {
+    box-shadow: 0 0 0 1px #e3c600 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+    top: 9px;
+}
 
-    .sunny {
-        animation: sunny 15s linear infinite;
-        background: linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
-        height: 140px;
-        width: 20px;
-        position: absolute;
-        right: 23%;
-        top: 15%;
-    }
+.btn {
+    float: right;
+    background-color: inherit;
+}
 
-    .sunny:before {
-        background: linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
-        content: '';
-        height: 280px;
-        width: 40px;
-        opacity: 1;
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        transform: rotate(90deg);
-    }
+#profilelogo {
+    margin-left: 450px;
+    z-index: 1;
+    margin-top: -10px;
+}
 
-    .sunny:after {
-        background: #FFEE44;
-        border-radius: 50%;
-        box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 15px;
-        content: '';
-        height: 160px;
-        width: 160px;
-        position: absolute;
-        left: -30px;
-        top: 30px;
-    }
-    /*-----------------------------------------------------------------*/
-    /* PROFILE PAGE */
+#medical {
+    float: right;
+    margin-right: 214px;
+    margin-top: -122px;
+}
 
-    #profilebackground {
-        background-image: url("../images/dice.jpeg");
-        background-position: -90px -365px;
-        padding-bottom: 110px;
-    }
+#charlie {
+    text-align: center;
+    margin-top: -10px;
+    margin-right: 5px;
+}
 
-    .jumbotron {
-        background-image: url("../images/greensmile.jpeg");
-        background-size: 100%;
-        background-position: 50% 25%;
-        height: 300px;
-        background-repeat: no-repeat;
-        -webkit-filter: blur(5px);
-        -moz-filter: blur(5px);
-        -o-filter: blur(5px);
-        -ms-filter: blur(5px);
-        filter: blur(5px);
-    }
+#puzzle {
+    text-align: center;
+    margin-top: -5px;
+    margin-right: 5px;
+}
 
-    #buttonsize {
-        margin-left: 30px;
-        font-family: 'Just Me Again Down Here', cursive;
-        font-size: 40px;
-        position: relative;
-        display: inline-block;
-        font-size: 30px;
-        text-shadow: 30px;
-        padding: 20px 60px;
-        color: black;
-        margin: -300px 800px 10px;
-        border-radius: 6px;
-        text-align: center;
-        transition: top .01s linear;
-        text-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
-        background-color: #e3c600;
-        box-shadow: 0 0 0 1px #F0D264 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 rgba(196, 172, 83, .7), 0 8px 0 1px rgba(0, 0, 0, .4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
-        opacity: 10px;
-    }
+#spiral {
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+}
 
-    #buttonsize2 {
-        margin-left: 30px;
-        font-family: 'Just Me Again Down Here', cursive;
-        font-size: 40px;
-        position: relative;
-        display: inline-block;
-        font-size: 28px;
-        text-shadow: 30px;
-        padding: 20px 60px;
-        color: black;
-        margin: -180px 785px 10px;
-        border-radius: 6px;
-        text-align: center;
-        transition: top .01s linear;
-        text-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
-        background-color: #e3c600;
-        box-shadow: 0 0 0 1px #F0D264 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 rgba(196, 172, 83, .7), 0 8px 0 1px rgba(0, 0, 0, .4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
-        opacity: 10px;
-    }
+#profilePic {
+    height: 202px;
+    width: 202px;
+    border-radius: 20px;
+    border: 1px solid #e3c600;
+}
 
-    #buttonsize:active {
-        box-shadow: 0 0 0 1px #e3c600 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
-        top: 9px;
-    }
+#userName {
+    font-family: 'Just Me Again Down Here', cursive;
+    font-size: 70px;
+    text-shadow: 1px 0px 0px black;
+    filter: drop-shadow(5px 5px 5px #222);
+    color: #e3c600
+}
 
-    #buttonsize2:active {
-        box-shadow: 0 0 0 1px #e3c600 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
-        top: 9px;
-    }
+#date {
+    font-family: 'Just Me Again Down Here', cursive;
+    font-size: 70px;
+    text-shadow: 1px 0px 0px black;
+    filter: drop-shadow(5px 5px 5px #222);
+    color: #e3c600
+}
 
-    .btn {
-        float: right;
-        background-color: inherit;
-    }
+#medical {
+    float: left;
+    margin-left: 230px;
+    margin-top: -180px;
+}
 
-    #profilelogo {
-        margin-left: 450px;
-        z-index: 1;
-        margin-top: -10px;
-    }
+#charlie {
+    text-align: center;
+    margin-top: -10px;
+    margin-right: 5px;
+}
 
-    #medical {
-        float: right;
-        margin-right: 214px;
-        margin-top: -122px;
-    }
+#puzzle {
+    text-align: center;
+    margin-top: -5px;
+    margin-right: 5px;
+}
 
-    #charlie {
-        text-align: center;
-        margin-top: -10px;
-        margin-right: 5px;
-    }
+#spiral {
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+}
 
-    #puzzle {
-        text-align: center;
-        margin-top: -5px;
-        margin-right: 5px;
-    }
+#steth {
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+}
 
-    #spiral {
-        -webkit-filter: drop-shadow(5px 5px 5px #222);
-        filter: drop-shadow(5px 5px 5px #222);
-    }
+#doctor {
+    float: left;
+    margin-left: 235px;
+    margin-top: -290px;
+}
 
-    #profilePic {
-        height: 202px;
-        width: 202px;
-        border-radius: 20px;
-        border: 1px solid #e3c600;
-    }
+#connections {
+    height: 200px;
+    width: 620px;
+    margin-left: 20px;
+    margin-bottom: 40px;
+    font-family: 'Just Me Again Down Here', cursive;
+    font-size: 40px;
+    font-size: 28px;
+    text-shadow: 30px;
+    padding: 20px 60px;
+    color: black;
+    border-radius: 6px;
+    text-align: center;
+    text-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
+    background-color: inherit;
+    box-shadow: 0 0 0 1px #F0D264 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 rgba(196, 172, 83, .7), 0 8px 0 1px rgba(0, 0, 0, .4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+    opacity: 10px;
+}
+/* FORUM */
+/*-----------------------------------------------------------------*/
+/*--- General ---*/
 
-    #userName {
-        font-family: 'Just Me Again Down Here', cursive;
-        font-size: 70px;
-        text-shadow: 1px 0px 0px black;
-        filter: drop-shadow(5px 5px 5px #222);
-        color: #e3c600
-    }
+body {
+    font-family: 'Open Sans Light', sans-serif;
+    font-size: 14px;
+    color: #595959;
+    background-color: #17A2B8;
+    background-image: url("https://wallpaperlayer.com/img/2015/11/bubble-wallpaper-1006-1118-hd-wallpapers.jpg");
+}
 
-    #date {
-        font-family: 'Just Me Again Down Here', cursive;
-        font-size: 70px;
-        text-shadow: 1px 0px 0px black;
-        filter: drop-shadow(5px 5px 5px #222);
-        color: #e3c600
-    }
+a {
+    color: #17a2b8;
+}
 
-    #medical {
-        float: left;
-        margin-left: 230px;
-        margin-top: -180px;
-    }
+a:hover {
+    color: #989c9e;
+}
+/*-----------------------------------------------------------------*/
+/*--- Content ---*/
+/*--- Logo ---*/
 
-    #charlie {
-        text-align: center;
-        margin-top: -10px;
-        margin-right: 5px;
-    }
+#forumlogo {
+    margin: 10px auto;
+    width: 425px;
+    height: 100px;
+}
+/*--- Modals ---*/
 
-    #puzzle {
-        text-align: center;
-        margin-top: -5px;
-        margin-right: 5px;
-    }
+.modalbtn {
+    background-color: #0275d8;
+}
+/*--- Pagination ---*/
 
-    #spiral {
-        -webkit-filter: drop-shadow(5px 5px 5px #222);
-        filter: drop-shadow(5px 5px 5px #222);
-    }
+.pagination li {
+    list-style: none;
+    display: inline-block;
+    margin-left: 20px;
+}
 
-    #steth {
-        -webkit-filter: drop-shadow(5px 5px 5px #222);
-        filter: drop-shadow(5px 5px 5px #222);
-    }
+.pagination li a {
+    min-width: 24px;
+    height: 24px;
+    font-size: 14px;
+    font-family: 'Open Sans Semibold', sans-serif;
+    color: #595959;
+    background-color: #FFC107;
+    border-radius: 2px;
+    display: block;
+    padding: 0 8px;
+    line-height: 24px;
+}
 
-    #doctor {
-        float: left;
-        margin-left: 235px;
-        margin-top: -290px;
-    }
+.pagination li a.active,
+.pagination li a:hover,
+.pagination li a:focus,
+.pagination li a:active {
+    color: #363838;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px #c9cccd;
+    font-family: 'Open Sans Bold', sans-serif;
+    text-decoration: none;
+}
 
-    #connections {
-        height: 200px;
-        width: 620px;
-        margin-left: 20px;
-        margin-bottom: 40px;
-        font-family: 'Just Me Again Down Here', cursive;
-        font-size: 40px;
-        font-size: 28px;
-        text-shadow: 30px;
-        padding: 20px 60px;
-        color: black;
-        border-radius: 6px;
-        text-align: center;
-        text-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
-        background-color: inherit;
-        box-shadow: 0 0 0 1px #F0D264 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 rgba(196, 172, 83, .7), 0 8px 0 1px rgba(0, 0, 0, .4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
-        opacity: 10px;
-    }
-    /* FORUM */
-    /*-----------------------------------------------------------------*/
-    /*--- General ---*/
+.pagination {
+    margin: 19px auto;
+    padding: 0;
+}
 
-    body {
-        font-family: 'Open Sans Light', sans-serif;
-        font-size: 14px;
-        color: #595959;
-        background-color: #17A2B8;
-        background-image: url("https://wallpaperlayer.com/img/2015/11/bubble-wallpaper-1006-1118-hd-wallpapers.jpg");
-    }
+.prevnext {
+    font-size: 26px;
+    color: #bbdef0;
+    margin-top: 11px;
+    display: block;
+}
 
-    a {
-        color: #17a2b8;
-    }
+.prevnext.last {
+    margin-left: 20px;
+}
 
-    a:hover {
-        color: #989c9e;
-    }
-    /*-----------------------------------------------------------------*/
-    /*--- Content ---*/
-    /*--- Logo ---*/
+#newpost {
+    background-color: #FFC107;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-right: 15px;
+}
 
-    #forumlogo {
-        margin: 10px auto;
-        width: 425px;
-        height: 100px;
-    }
-    /*--- Modals ---*/
+.postbutton {
+    display: flex;
+    justify-content: space-around;
+}
+/*-----------------------------------------------------------------*/
+/*--- Sidebar ---*/
 
-    .modalbtn {
-        background-color: #0275d8;
-    }
-    /*--- Pagination ---*/
+.sidebarblock {
+    background-color: #ffffff;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px #c9cccd;
+    margin-bottom: 20px;
+}
 
-    .pagination li {
-        list-style: none;
-        display: inline-block;
-        margin-left: 20px;
-    }
+.sidebarblock h3 {
+    color: #363838;
+    font-size: 14px;
+    font-family: 'Open Sans Bold', sans-serif;
+    margin: 0;
+    padding: 20px;
+}
 
-    .pagination li a {
-        min-width: 24px;
-        height: 24px;
-        font-size: 14px;
-        font-family: 'Open Sans Semibold', sans-serif;
-        color: #595959;
-        background-color: #FFC107;
-        border-radius: 2px;
-        display: block;
-        padding: 0 8px;
-        line-height: 24px;
-    }
+.sidebarblock .divline {
+    height: 1px;
+    line-height: 1px;
+    border-bottom: solid 1px #f1f1f1;
+}
 
-    .pagination li a.active,
-    .pagination li a:hover,
-    .pagination li a:focus,
-    .pagination li a:active {
-        color: #363838;
-        background-color: #ffffff;
-        box-shadow: 0 1px 2px #c9cccd;
-        font-family: 'Open Sans Bold', sans-serif;
-        text-decoration: none;
-    }
+.sidebarblock .blocktxt {
+    padding: 20px;
+}
 
-    .pagination {
-        margin: 19px auto;
+ul#categories li {
+    list-style: none;
+    display: block;
+    margin: 0;
+    padding: 0;
+    line-height: 30px;
+}
+
+ul#categories {
+    margin: 0;
+    padding: 0;
+}
+
+ul#categories li a {
+    font-size: 14px;
+    color: #363838;
+    font-family: 'Open Sans Light', sans-serif;
+    line-height: 30px;
+}
+
+ul#categories .badge {
+    background-color: #fcc107;
+    font-size: 12px;
+    color: #595959;
+    font-family: 'Open Sans Bold', sans-serif;
+    margin-top: 7px;
+}
+
+.sidebarblock .blocktxt {
+    font-size: 14px;
+    color: #363838;
+    font-family: 'Open Sans Light', sans-serif;
+}
+/*-----------------------------------------------------------------*/
+/*--- Post --*/
+
+.post {
+    background-color: #bbdef0;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px #c9cccd;
+    border-bottom: white solid 1px;
+    margin-top: 15px;
+}
+
+button {
+    border: 0 !important;
+    margin-right: 2px;
+}
+
+button i {
+    padding: 4px;
+}
+
+.expand {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+}
+
+.collapse {
+    border-top: white solid 1px;
+    padding: 0;
+}
+
+.post .postcontent {
+    width: 85%;
+}
+
+.commentcontent {
+    width: 70%;
+    margin-left: 15%;
+    border-bottom: 1px solid white;
+    border-left: solid 1px #f1f1f1;
+}
+
+.post .userinfo {
+    width: 15%;
+    padding: 20px 0 5px 15px;
+}
+
+.post .posttext {
+    width: 85%;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    color: #595959;
+    font-size: 14px;
+    font-family: 'Open Sans Light', sans-serif;
+    line-height: 25px;
+}
+
+.commenttext {
+    width: 85%;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    color: #595959;
+    font-size: 14px;
+    font-family: 'Open Sans Light', sans-serif;
+    line-height: 25px;
+}
+
+.post .postinfo,
+.commentinfo {
+    width: 15%;
+    border-left: solid 1px #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.commentinfo {
+    border-bottom: solid 1px #f1f1f1;
+    border-top: solid 1px #f1f1f1;
+}
+
+.post .avatar,
+.threadavatar {
+    width: 50px;
+    margin-left: 4px;
+    margin-top: 5px;
+}
+
+.reply-img {
+    margin-top: 0px;
+}
+
+.post .icons {
+    width: 85%;
+    border-top: solid 1px #f1f1f1;
+    margin-top: 20px;
+    padding-top: 7px;
+}
+
+.commentcontent .icons {
+    width: 64px;
+    border-top: solid 1px #f1f1f1;
+    margin-top: 20px;
+    padding-top: 7px;
+}
+
+.commentcontent .userinfo {
+    padding: 20px 15px 5px 5px;
+}
+
+.post h2 {
+    color: #363838;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.post .comments {
+    border-bottom: solid 1px #f1f1f1;
+    padding: 18px 0 25px 0;
+    text-align: center;
+}
+
+.post .comments .commentbg {
+    background-color: #FFC107;
+    border-radius: 2px;
+    display: inline-block;
+    padding: 10px 17px 0 17px;
+    color: #595959;
+    font-size: 14px;
+    font-family: 'Open Sans Bold', sans-serif;
+    position: relative;
+}
+
+.post .comments .commentbg .mark {
+    width: 11px;
+    height: 11px;
+    background-color: #FFC107;
+    position: absolute;
+    bottom: 0;
+    left: 47%;
+    margin-bottom: -5px;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    /* IE 9 */
+    -webkit-transform: rotate(45deg);
+    /* Opera, Chrome, and Safari */
+}
+
+.post .views {
+    border-bottom: solid 1px #f1f1f1;
+    color: #17A2B8;
+    font-size: 12px;
+    font-family: 'Open Sans Regular', sans-serif;
+    text-align: center;
+    line-height: 29px;
+}
+
+.post .views i {
+    font-size: 14px;
+}
+
+.post .time {
+    color: #17A2B8;
+    font-size: 12px;
+    font-family: 'Open Sans Regular', sans-serif;
+    text-align: center;
+    line-height: 29px;
+}
+
+.post .time i {
+    font-size: 14px;
+}
+/*-----------------------------------------------------------------*/
+/*--- Extra small devices (less 767px) ---*/
+
+@media (max-width: 767px) {
+    .container-fluid {
         padding: 0;
     }
-
-    .prevnext {
-        font-size: 26px;
-        color: #bbdef0;
-        margin-top: 11px;
-        display: block;
-    }
-
-    .prevnext.last {
-        margin-left: 20px;
-    }
-
-    #newpost {
-        background-color: #FFC107;
-        display: flex;
-        justify-content: space-around;
-        margin-top: 30px;
-        margin-right: 15px;
-    }
-
-    .postbutton {
-        display: flex;
-        justify-content: space-around;
-    }
-    /*-----------------------------------------------------------------*/
-    /*--- Sidebar ---*/
-
-    .sidebarblock {
-        background-color: #ffffff;
-        border-radius: 2px;
-        box-shadow: 0 1px 2px #c9cccd;
-        margin-bottom: 20px;
-    }
-
-    .sidebarblock h3 {
-        color: #363838;
-        font-size: 14px;
-        font-family: 'Open Sans Bold', sans-serif;
-        margin: 0;
-        padding: 20px;
-    }
-
-    .sidebarblock .divline {
-        height: 1px;
-        line-height: 1px;
-        border-bottom: solid 1px #f1f1f1;
-    }
-
-    .sidebarblock .blocktxt {
-        padding: 20px;
-    }
-
-    ul#categories li {
-        list-style: none;
-        display: block;
-        margin: 0;
-        padding: 0;
-        line-height: 30px;
-    }
-
-    ul#categories {
-        margin: 0;
-        padding: 0;
-    }
-
-    ul#categories li a {
-        font-size: 14px;
-        color: #363838;
-        font-family: 'Open Sans Light', sans-serif;
-        line-height: 30px;
-    }
-
-    ul#categories .badge {
-        background-color: #fcc107;
-        font-size: 12px;
-        color: #595959;
-        font-family: 'Open Sans Bold', sans-serif;
-        margin-top: 7px;
-    }
-
-    .sidebarblock .blocktxt {
-        font-size: 14px;
-        color: #363838;
-        font-family: 'Open Sans Light', sans-serif;
-    }
-    /*-----------------------------------------------------------------*/
-    /*--- Post --*/
-
-    .post {
-        background-color: #bbdef0;
-        border-radius: 2px;
-        box-shadow: 0 1px 2px #c9cccd;
-        border-bottom: white solid 1px;
-        margin-top: 15px;
-    }
-
-    button {
-        border: 0 !important;
-        margin-right: 2px;
-    }
-
-    button i {
-        padding: 4px;
-    }
-
-    .expand {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .buttons {
-        display: flex;
-    }
-
-    .collapse {
-        border-top: white solid 1px;
-        padding: 0;
-    }
-
-    .post .postcontent {
-        width: 85%;
-    }
-
-    .commentcontent {
-        width: 70%;
-        margin-left: 15%;
-        border-bottom: 1px solid white;
-        border-left: solid 1px #f1f1f1;
-    }
-
     .post .userinfo {
-        width: 15%;
-        padding: 20px 0 5px 15px;
+        width: 30%;
+        padding: 15px 0 15px 15px;
     }
-
     .post .posttext {
-        width: 85%;
-        padding-right: 30px;
-        padding-top: 20px;
+        width: 70%;
+        padding-right: 15px;
+        padding-top: 15px;
         padding-bottom: 15px;
-        color: #595959;
-        font-size: 14px;
-        font-family: 'Open Sans Light', sans-serif;
-        line-height: 25px;
     }
-
-    .commenttext {
-        width: 85%;
-        padding-right: 30px;
-        padding-top: 20px;
-        padding-bottom: 15px;
-        color: #595959;
-        font-size: 14px;
-        font-family: 'Open Sans Light', sans-serif;
-        line-height: 25px;
+    .post .comments .commentbg {
+        font-size: 12px;
+        padding: 7px;
+        min-width: 35px;
     }
-
-    .post .postinfo,
-    .commentinfo {
-        width: 15%;
-        border-left: solid 1px #f1f1f1;
-        border-bottom: 1px solid #f1f1f1;
-    }
-
-    .commentinfo {
-        border-bottom: solid 1px #f1f1f1;
-        border-top: solid 1px #f1f1f1;
-    }
-
-    .post .avatar,
-    .threadavatar {
-        width: 50px;
-        margin-left: 4px;
+    .post .time i {
+        display: block;
         margin-top: 5px;
     }
-
-    .reply-img {
-        margin-top: 0px;
-    }
-
-    .post .icons {
-        width: 85%;
-        border-top: solid 1px #f1f1f1;
-        margin-top: 20px;
-        padding-top: 7px;
-    }
-
-    .commentcontent .icons {
-        width: 64px;
-        border-top: solid 1px #f1f1f1;
-        margin-top: 20px;
-        padding-top: 7px;
-    }
-
-    .commentcontent .userinfo {
-        padding: 20px 15px 5px 5px;
-    }
-
-    .post h2 {
-        color: #363838;
-        font-size: 18px;
-        font-family: 'Open Sans', sans-serif;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    .post .comments {
-        border-bottom: solid 1px #f1f1f1;
-        padding: 18px 0 25px 0;
-        text-align: center;
-    }
-
-    .post .comments .commentbg {
-        background-color: #FFC107;
-        border-radius: 2px;
-        display: inline-block;
-        padding: 10px 17px 0 17px;
-        color: #595959;
-        font-size: 14px;
-        font-family: 'Open Sans Bold', sans-serif;
-        position: relative;
-    }
-
-    .post .comments .commentbg .mark {
-        width: 11px;
-        height: 11px;
-        background-color: #FFC107;
-        position: absolute;
-        bottom: 0;
-        left: 47%;
-        margin-bottom: -5px;
-        transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        /* IE 9 */
-        -webkit-transform: rotate(45deg);
-        /* Opera, Chrome, and Safari */
-    }
-
-    .post .views {
-        border-bottom: solid 1px #f1f1f1;
-        color: #17A2B8;
-        font-size: 12px;
-        font-family: 'Open Sans Regular', sans-serif;
-        text-align: center;
-        line-height: 29px;
-    }
-
     .post .views i {
-        font-size: 14px;
+        display: block;
+        margin-top: 5px;
     }
+    .post .comments .commentbg .mark {
+        left: 36%;
+    }
+    .star-ratings-css {
+        unicode-bidi: bidi-override;
+        color: #c5c5c5;
+        font-size: 25px;
+        height: 25px;
+        width: 100px;
+        margin: 0 auto;
+        position: relative;
+        padding: 0;
+        text-shadow: 0px 1px 0 #a2a2a2;
+    }
+}
+/*-----------------------------------------------------------------*/
+/*--- Small devices (768 - 991px) ---*/
 
-    .post .time {
-        color: #17A2B8;
+@media (min-width: 768px) and (max-width: 991px) {
+    .container-fluid {
+        padding: 0;
+    }
+    .post .userinfo {
+        width: 15%;
+        padding: 15px 0 15px 15px;
+    }
+    .post .posttext {
+        width: 85%;
+        padding-right: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .post .comments .commentbg {
         font-size: 12px;
-        font-family: 'Open Sans Regular', sans-serif;
-        text-align: center;
-        line-height: 29px;
+        padding: 7px;
+        min-width: 35px;
     }
-
     .post .time i {
-        font-size: 14px;
+        display: block;
+        margin-top: 5px;
     }
-    /*-----------------------------------------------------------------*/
-    /*--- Extra small devices (less 767px) ---*/
-
-    @media (max-width: 767px) {
-        .container-fluid {
-            padding: 0;
-        }
-        .post .userinfo {
-            width: 30%;
-            padding: 15px 0 15px 15px;
-        }
-        .post .posttext {
-            width: 70%;
-            padding-right: 15px;
-            padding-top: 15px;
-            padding-bottom: 15px;
-        }
-        .post .comments .commentbg {
-            font-size: 12px;
-            padding: 7px;
-            min-width: 35px;
-        }
-        .post .time i {
-            display: block;
-            margin-top: 5px;
-        }
-        .post .views i {
-            display: block;
-            margin-top: 5px;
-        }
-        .post .comments .commentbg .mark {
-            left: 36%;
-        }
-        .star-ratings-css {
-            unicode-bidi: bidi-override;
-            color: #c5c5c5;
-            font-size: 25px;
-            height: 25px;
-            width: 100px;
-            margin: 0 auto;
-            position: relative;
-            padding: 0;
-            text-shadow: 0px 1px 0 #a2a2a2;
-        }
+    .post .views i {
+        display: block;
+        margin-top: 5px;
     }
-    /*-----------------------------------------------------------------*/
-    /*--- Small devices (768 - 991px) ---*/
-
-    @media (min-width: 768px) and (max-width: 991px) {
-        .container-fluid {
-            padding: 0;
-        }
-        .post .userinfo {
-            width: 15%;
-            padding: 15px 0 15px 15px;
-        }
-        .post .posttext {
-            width: 85%;
-            padding-right: 15px;
-            padding-top: 15px;
-            padding-bottom: 15px;
-        }
-        .post .comments .commentbg {
-            font-size: 12px;
-            padding: 7px;
-            min-width: 35px;
-        }
-        .post .time i {
-            display: block;
-            margin-top: 5px;
-        }
-        .post .views i {
-            display: block;
-            margin-top: 5px;
-        }
-        .post .comments .commentbg .mark {
-            left: 36%;
-        }
+    .post .comments .commentbg .mark {
+        left: 36%;
     }
-    /*-----------------------------------------------------------------*/
-    /*--- Medium devices (992-1200px) ---*/
+}
+/*-----------------------------------------------------------------*/
+/*--- Medium devices (992-1200px) ---*/
 
-    @media (min-width: 992px) and (max-width: 1200px) {
-        .container-fluid {
-            padding: 0;
-        }
+@media (min-width: 992px) and (max-width: 1200px) {
+    .container-fluid {
+        padding: 0;
     }
-    /*-----------------------------------------------------------------*/
-    /*--- Large devices (more 1200px) ---*/
+}
+/*-----------------------------------------------------------------*/
+/*--- Large devices (more 1200px) ---*/
 
-    @media (min-width: 1201px) {
-        .container-fluid {
-            padding: 0;
-        }
-        .container {
-            padding: 0;
-        }
+@media (min-width: 1201px) {
+    .container-fluid {
+        padding: 0;
     }
+    .container {
+        padding: 0;
+    }
+}
 
-    @media (min-width:1440px) and (max-width:990px) {}
+@media (min-width:1440px) and (max-width:990px) {}
