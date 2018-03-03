@@ -63,8 +63,11 @@ function jqueryStuffs() {
   }(document, 'script', 'facebook-jssdk'));
 
     $('.reply-count').each(function(index){
+      console.log("data*&************")
       var this_reply = $(this)
       threadApi.getOneThread($(this).attr('data-threadId'), function(data){
+        console.log(data,"data*&************")
+        
         this_reply.text(data[0].Replies.length)
       })
     })

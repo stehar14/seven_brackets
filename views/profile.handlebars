@@ -10,6 +10,8 @@
     border-radius: 20px;
 border: 1px solid #e3c600;
   }
+
+
 </style>
 <div class="container-fluid" id="profilebackground">
   <div class="jumbotron jumbotron bg-cover jumbotron-fluid">
@@ -135,7 +137,7 @@ function getAllies(response) {
           $.get("/api/findUser/" + ally , function(data) {
             //console.log(data)
             ally_object.push(data)
-            console.log(ally_object)
+            
             $('#connections').append(`<div class="ally"><h5 id="ally-name">${data.userName}</h5><img src="${data.img_url}"/></div>`)
           })
         })

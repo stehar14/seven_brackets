@@ -1,4 +1,12 @@
-
+<style>
+  body {
+    padding-bottom: 5vh;
+  /* background: rgba(204, 204, 204, 0.497);
+    padding: 20px;
+    border-radius: 20px; */
+  }
+  
+</style>
 <body>
   <div class="container-fluid">
     <div class="container">
@@ -113,7 +121,6 @@
                     </div>
                   </div>
                   <div class="commenttext pull-left">
-SSSSSS
                     <!--Need onclick function to edit reply-->            <button id="editReply" type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-toggle="modal" data-target="#edit-reply" data-userId="{{UserId}}"   data-replyId="{{id}}"><i class="fa fa-edit"></i></button>
                     <button id="deleteReply" type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-toggle="modal" data-target="#delete-reply" data-userId="{{UserId}}"   data-replyId="{{id}}"><i class="fa fa-times-circle-o"></i></button>
                     <!--Need onclick function to delete reply-->        
@@ -147,7 +154,7 @@ SSSSSS
               <div class="divline"></div>
               <div class="blocktxt">
                 <ul id="categories">
-<
+
                   <li><a href="/threads">All <span class="badge pull-right">168</span></a></li>
                   <!--    of               -->
                   <li><a href="/threads/category/1">Financial Advice <span class="badge pull-right">20</span></a></li>
@@ -404,6 +411,7 @@ SSSSSS
 
   <script src="/assets/js/threads.js"></script>
   <script>
+    jqueryStuffs()
 window.onload = function() {
     // Opens modal when loading from 'get help' button on profile page
     $(window).on("load", function() {
@@ -413,12 +421,14 @@ window.onload = function() {
         $('#newpostform').modal('show');
       }
     });
+
     $(window).on("load", function() {
       $('[data-toggle="tooltip"]').tooltip();
     });
     $(function () {
       $('[data-toggle="popover"]').popover()
     })
+
 window.fbAsyncInit = function() {
   FB.init({
     appId: '1791323147839783',
