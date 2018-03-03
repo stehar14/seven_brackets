@@ -1,4 +1,5 @@
 <script>
+<<<<<<< HEAD
   
   window.fbAsyncInit = function() {
     FB.init({
@@ -51,7 +52,11 @@
 			var final = format.split("-");
 			console.log(final);
           document.getElementById('userName').innerHTML = data.userName;
+<<<<<<< HEAD
           document.getElementById('date').innerHTML = "Join Community On: " + final[1].toString() + "-" + final[2].toString() + "-" + final[0].toString();
+=======
+          document.getElementById('date').innerHTML = "Joined Community On: " + final[2].toString() + "-" + final[1].toString() + "-" + final[0].toString();
+>>>>>>> master
         })
       });
     }
@@ -70,39 +75,42 @@
 </script>
 
 
-
 <div class="container-fluid" id="profilebackground">
-    <div class="jumbotron jumbotron bg-cover jumbotron-fluid">
-        <div class="container">
-            <div id="profilelogo">
-                <img src="/assets/images/favicon.png">
-            </div>
-        </div>   
+  <div class="jumbotron jumbotron bg-cover jumbotron-fluid">
+    <div class="container">
+      <div id="profilelogo">
+        <img src="/assets/images/favicon.png">
+      </div>
     </div>
+  </div>
 
-    <div id="userInfo">
-        <h1 id="userName"></h1>
-            <img id="profilePic" src="">
-                <h2 id="date">Join Date: </h2>
-    </div>
+  <div id="userInfo">
+    <h1 id="userName"></h1>
+    <img id="profilePic" src="">
+    <h2 id="date">Join Date: </h2>
+  </div>
 
-    <div id="connections">
-        
-    </div>
+  <div id="connections">
+    {{#each Ally}}
+      <h3 id="thread-category"></h3>
+      <h5 id="ally-name"></h5>
+    {{/each}}
+  </div>
 
-    <div id="profilebuttons">
-        <button id="buttonsize" type="button" class="btn lg btn-warning" style="background-color: transparent" onclick="goHelp()">
+  <div id="profilebuttons">
+    <button id="buttonsize" type="button" class="btn lg btn-warning" style="background-color: transparent" onclick="goHelp()">
         <img id="charlie" src="/assets/images/charliebrown.jpg" height="50" width="50" class="rounded-circle" alt="Charlie Brown">Give Help</button>
-        <button id="buttonsize2" type="button" class="btn lg btn-warning" style="background-color: transparent" onclick="getHelp()">
+    <button id="buttonsize2" type="button" class="btn lg btn-warning" style="background-color: transparent" onclick="getHelp()">
         <img id="puzzle" src="/assets/images/mentalhealth.jpg" height="50" width="50" class="rounded-circle" alt="Puzzled"> I Need Help</button>
-        <div id="medical">
-                        <img id="spiral" src="/assets/images/medical.png" height="80" width="80">
-        </div>
-        <div id="doctor">
-                        <img id="steth" src="/assets/images/tool.png" height="80" width="80">
-        </div>
-                    
+    <div id="medical">
+      <img id="spiral" src="/assets/images/medical.png" height="80" width="80">
+    </div>
+    <div id="doctor">
+      <img id="steth" src="/assets/images/tool.png" height="80" width="80">
     </div>
 
+  </div>
+
+<div id="facebookbutton2" class="fb-login-button" data-width="250" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
 
 </div>

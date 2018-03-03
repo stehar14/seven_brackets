@@ -1,4 +1,4 @@
-  <body>
+<body>
   <div class="container-fluid">
     <div class="container">
       <div class="row">
@@ -265,7 +265,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <!-- post thread to db--><button id="new-thread-submit" type="submit" class="modalbtn btn btn-primary">Ask for Help</button>
+          <!-- post thread to db--><button id="new-thread-submit" type="submit" class="modalbtn btn btn-primary" data-dismiss="modal">Ask for Help</button>
         </div>
       </div>
     </div>
@@ -292,7 +292,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <!-- post reply to db--><button type="submit" id="offerhelp" data-threadId="#{{id}}" class="modalbtn btn btn-primary">Offer Help</button>
+          <!-- post reply to db--><button type="submit" id="offerhelp" data-threadId="#{{id}}" class="modalbtn btn btn-primary" data-dismiss="modal">Offer Help</button>
         </div>
       </div>
     </div>
@@ -319,7 +319,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <!--edit reply in db--><button id="edit-reply-confirm" type="submit" class="btn btn-primary">Confirm Edit</button>
+          <!--edit reply in db--><button id="edit-reply-confirm" type="submit" class="btn btn-primary" data-dismiss="modal">Confirm Edit</button>
           <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"> Close </button>
         </div>
       </div>
@@ -339,7 +339,7 @@
           <h3 id="delete-reply-h3"></h3>
         </div>
         <div class="modal-footer">
-          <!-- edit to db--><button id="delete-reply-confirm" type="submit" class="btn btn-primary">Delete</button>
+          <!-- edit to db--><button id="delete-reply-confirm" type="submit" class="btn btn-primary" data-dismiss="modal">Delete</button>
           <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"> Close </button>
         </div>
       </div>
@@ -373,7 +373,7 @@
           <h5 class="modal-title" id="exampleModalLabel">Update Post</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
-            </button>
+          </button>
         </div>
         <div class="modal-body">
           <textarea id='update-thread-text' class="form-control" rows="3"></textarea>
@@ -385,10 +385,12 @@
       </div>
     </div>
   </div>
+
   <script src="/assets/js/threads.js"></script>
-  <script src="/assets/js/reply.js"></script>
   <script>
+  window.onload = function() {
     jqueryStuffs()
+}
     // Opens modal when loading from 'get help' button on profile page
     $(window).on("load", function(){
       var url = window.location.href;
