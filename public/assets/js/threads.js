@@ -129,14 +129,14 @@ function jqueryStuffs() {
       usr_token = response.authResponse.userID;
       // If current user is the same as the author
       if (usr_token == authorId) {
-        $('#delete-h3').html('Are you sure you want to delete this post?')
+
+          $('#delete-h3').html('Are you sure you want to delete this post?')
         $('#delete-thread-confirm').on('click', function() {
           threadApi.deleteThread(threadId)
           location.reload();
         })
       } else {
-          $('#delete-h3').val('')
-          $('#delete-h3').val('You are not the author of this post...')
+          $('#delete-h3').html('You are not the author of this post...')
         } 
     })
   });
@@ -170,28 +170,6 @@ function jqueryStuffs() {
       })
     });
 
-    $('#solved-thread').on("click", function(event){
-      event.preventDefault();
-      var usr_token;
-      // Getting author and thread ID from the DOM.
-      threadApi.getOneThread
-      var threadId = $(this).attr('data-threadId');
-      
-      // Getting login status to check the current user.
-      FB.getLoginStatus(function(response) {
-        usr_token = response.authResponse.userID;
-        // If current user is the same as the author
-        if (usr_token == authorId) {
-          $('#solve-thread-confirm').on('click', function() {
-            
-            threadApi.solveThread()
-          });
-        } else {
-            $('#delete-h3').val('');
-            $('#delete-h3').val('You are not the author of this post...')
-        } 
-      })
-    });
 
     // Event listener for connection accept
     $('#accept-connection').on("click", function(event){
