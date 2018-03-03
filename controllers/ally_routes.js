@@ -1,5 +1,7 @@
 var db = require('../models');
+
 var Sequelize = require('sequelize');
+
 
 module.exports = function(app) {
   app.post('/newAlly', function(req, res) {
@@ -17,4 +19,17 @@ module.exports = function(app) {
     })
   })
 };
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
 

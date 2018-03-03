@@ -18,7 +18,11 @@ module.exports = function (app) {
     console.log('/api/threads/' + req.params.id + ' get request received')
     var thread_id = req.params.id;
     db.Thread.findAll({
+<<<<<<< HEAD
+      include : [db.User],
+=======
       include : [db.User , db.Reply],
+>>>>>>> master
       where: {
         id: thread_id
       }
