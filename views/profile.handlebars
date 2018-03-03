@@ -72,7 +72,9 @@ function goHelp() {
 
 function getAllies(response) {  
   var user = response.authResponse.userID;
-  app.get('/api/allAllies')
+  $.get('/getAllies', function(data) {
+    console.log(data)
+  })
 }
 </script>
 
@@ -93,10 +95,8 @@ function getAllies(response) {
   </div>
 
   <div id="connections">
-    {{#each Ally}}
       <h3 id="thread-category"></h3>
       <h5 id="ally-name"></h5>
-    {{/each}}
   </div>
 
   <div id="profilebuttons">

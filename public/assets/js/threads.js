@@ -182,13 +182,13 @@ function jqueryStuffs() {
         usr_token = response.authResponse.userID;
         // If current user is the same as the author
         if (usr_token == authorId) {
+          $('#delete-h3').html('You are not the author of this post...')
           $('#solve-thread-confirm').on('click', function() {
             
             threadApi.solveThread()
           });
         } else {
-            $('#delete-h3').val('');
-            $('#delete-h3').val('You are not the author of this post...')
+            $('#delete-h3').html('You are not the author of this post...')
         } 
       })
     });
