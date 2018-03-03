@@ -72,7 +72,7 @@ function goHelp() {
 
 function getAllies(response) {  
   var user = response.authResponse.userID;
-  $.get('/getAllies', function(`data) {
+  $.get('/getAllies', function(data) {
     console.log(data)
   })
 }
