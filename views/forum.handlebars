@@ -1,8 +1,8 @@
-  <body>
+<body>
   <div class="container-fluid">
     <div class="container">
       <div class="row">
-        <img id="forumlogo" class="img-responsive" src="/assets/images/logo2.png">
+        <img id="forumlogo" class="img-responsive" src="https://raw.githubusercontent.com/Afellman/seven_brackets/master/public/assets/images/logo2.PNG">
       </div>
     </div>
     <section class="content">
@@ -373,10 +373,12 @@
       </div>
     </div>
   </div>
+
   <script src="/assets/js/threads.js"></script>
-  <script src="/assets/js/reply.js"></script>
   <script>
+  window.onload = function() {
     jqueryStuffs()
+}
     // Opens modal when loading from 'get help' button on profile page
     $(window).on("load", function(){
       var url = window.location.href;

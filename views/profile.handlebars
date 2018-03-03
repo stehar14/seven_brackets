@@ -44,14 +44,14 @@
             console.log(data);
             var date = data.createdAt;
             var format = "";
-            	for (var i = 0; i < 9; i++) {
+            	for (var i = 0; i < 10; i++) {
 				var num = date.charAt(i);
 				format = format + num;
 				}
 			var final = format.split("-");
 			console.log(final);
           document.getElementById('userName').innerHTML = data.userName;
-          document.getElementById('date').innerHTML = "Join Community On: " + final[2].toString() + "-" + final[1].toString() + "-" + final[0].toString();
+          document.getElementById('date').innerHTML = "Join Community On: " + final[1].toString() + "-" + final[2].toString() + "-" + final[0].toString();
         })
       });
     }
@@ -68,7 +68,9 @@
       })
     }
 </script>
-
+<script type="text/javascript">
+  $('#connections')
+</script>
 
 
 <div class="container-fluid" id="profilebackground">
@@ -87,7 +89,9 @@
     </div>
 
     <div id="connections">
-        
+        {{#each Ally}}
+       <h3 id="thread-category"></h3>
+       <h5 id="ally-name"></h5>
     </div>
 
     <div id="profilebuttons">
