@@ -129,7 +129,7 @@
                 </div>
                 <div class="commentinfo pull-left">
                   <div class="text-center center-text solved" style="padding: 18px 0;">
-                    <button class="conbut" data-originthreadid = "{{this.ThreadId}}" data-userreplyid = "{{this.UserId}}" type="button" style="border-radius: 100%; height: 4em; width: 4em; background-color:#ffc107; color:#595959;"><span data-toggle="tooltip" data-placement="top" title="Make connection"><i style="font-size: 40px;" class="fa fa-check-circle-o"></i></span></button>
+                    <button class="conbut" data-originthreadid = "{{this.ThreadId}}" data-userreplyid = "{{this.UserId}}" type="button" style="border-radius: 100%; height: 4em; width: 4em; background-color:#ffc107; color:#595959;" data-toggle="modal" data-target="#connection-modal" ><span data-toggle="tooltip" data-placement="top" title="Make connection"><i style="font-size: 40px;" class="fa fa-check-circle-o"></i></span></button>
                   </div>
                   <!--Time since posted/timeposted-->
                   {{!-- <div class="time"><i class="fa fa-clock-o"></i> 24 min</div> --}}
@@ -406,26 +406,33 @@
       </div>
     </div>
   </div>
+    <div class="modal fade" id="connection-modal" tabindex="-1" role="form" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h5 class="modal-title" id="exampleModalLabel">Connection Made!</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="/assets/js/threads.js"></script>
   <script>
     jqueryStuffs()
 window.onload = function() {
     // Opens modal when loading from 'get help' button on profile page
-    $(window).on("load", function() {
+  
       var url = window.location.href;
       console.log(url);
       if (url.indexOf('?threads/modal') != -1 || url.indexOf('/threads/modal') != -1) {
         $('#newpostform').modal('show');
       }
-    });
-
-    $(window).on("load", function() {
       $('[data-toggle="tooltip"]').tooltip();
-    });
-    $(function () {
       $('[data-toggle="popover"]').popover()
-    })
+  
 
 window.fbAsyncInit = function() {
   FB.init({
@@ -476,6 +483,8 @@ window.fbAsyncInit = function() {
             Ally2: replyerId
           }
           if (posterId == usr_token && userIdOfThread != replyerId) {
+            $.post('/api/threadSolved', {id: threadId}, function (req, res) {
+            })
             storeConnection(newConnection)
             console.log("we will handle your connection")
           } else if (userIdOfThread == replyerId) {
