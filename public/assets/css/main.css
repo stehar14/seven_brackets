@@ -401,6 +401,27 @@ a {
 a:hover {
   color: #989c9e;    
 }
+
+.probtn {
+  position: fixed;
+  bottom: 5%;
+  right: 18%;
+}
+
+.probtn a {
+  color:#bbdef0;
+}
+
+.probtn a:hover {
+  color:#bbdef0;
+}
+
+#profilebtn {
+  border-radius: 50%;
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+}
 /*-----------------------------------------------------------------*/
 /*--- Content ---*/
 
@@ -413,7 +434,7 @@ a:hover {
 
 /*--- Modals ---*/
 .modalbtn {
-  background-color: #0275d8;
+  background-color: #17a2b8;
 }
 
 /*--- Pagination ---*/
@@ -459,7 +480,8 @@ a:hover {
 }
 
 #newpost {
-  background-color: #FFC107;
+  background-color: #17A2B8;
+  color: #bbdef0;
   display: flex;
   justify-content: space-around;
   margin-top: 30px; 
@@ -474,7 +496,7 @@ a:hover {
 /*--- Sidebar ---*/
 .sidebarblock {
   background-color: #ffffff;
-  border-radius: 2px;
+  border-radius: 10px;
   box-shadow: 0 1px 2px #c9cccd;
   margin-bottom: 20px;
 }
@@ -511,7 +533,7 @@ ul#categories li a {
   line-height: 30px;
 }
 ul#categories .badge {
-  background-color: #fcc107;
+  background-color: #FFC107;
   font-size: 12px;
   color: #595959;
   font-family: 'Open Sans Bold', sans-serif;
@@ -526,7 +548,7 @@ ul#categories .badge {
 /*--- Post --*/
 .post {
   background-color: #bbdef0;
-  border-radius: 2px;
+  border-radius: 10px;
   box-shadow: 0 1px 2px #c9cccd;
   border-bottom: white solid 1px;
   margin-top: 15px;
@@ -602,6 +624,7 @@ button i {
   width: 50px;
   margin-left: 4px;
   margin-top: 5px;
+  border-radius: 20%;
 }
 
 .reply-img {
@@ -634,13 +657,12 @@ button i {
   margin-bottom: 10px;
 }
 .post .comments {
-  border-bottom: solid 1px #f1f1f1;
   padding: 18px 0 25px 0;
   text-align: center;
 }
 .post .comments .commentbg {
   background-color: #FFC107;
-  border-radius: 2px;
+  border-radius: 20%;
   display: inline-block;
   padding: 10px 17px 0 17px;
   color: #595959;
@@ -648,13 +670,14 @@ button i {
   font-family: 'Open Sans Bold', sans-serif; 
   position: relative;
 }
+
 .post .comments .commentbg .mark {
   width: 11px;
   height: 11px;
   background-color: #FFC107;
   position: absolute;
   bottom: 0;
-  left: 47%;
+  left: 39%;
   margin-bottom: -5px;
   transform:rotate(45deg);
   -ms-transform:rotate(45deg); /* IE 9 */
