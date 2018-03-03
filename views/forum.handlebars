@@ -245,7 +245,7 @@
   </div>
   <!-- Static button -->
   <div id="profilebtn">
-    <button class="probtn btn modalbtn" style="border-radius: 100%; height: 7em; width: 7em; background-color:#17a2b8; color:#bbdef0; font-size:1.5em;"><a href="/profile"><strong>Profile Page</strong></a></button>
+    <button class="probtn btn modalbtn" style="border-radius: 100%; height: 7em; width: 7em; background-color:#17a2b8; color:#bbdef0; font-size:1.5em;"><a href="/profile/{{user_id}}"><strong>Profile Page</strong></a></button>
   </div>
   <!-- New Thread Modal -->
   <div class="modal fade" id="newpostform" tabindex="-1" role="form" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -422,6 +422,7 @@
   <script src="/assets/js/threads.js"></script>
   <script>
     jqueryStuffs()
+    $('#profile-link').attr('')
 window.onload = function() {
     // Opens modal when loading from 'get help' button on profile page
   
