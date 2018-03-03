@@ -6,13 +6,9 @@ module.exports = function(app, path) {
     res.sendFile(path.join(__dirname + '/../public/home.html'));
   })
 
-  app.get('/profile/:id', function(req, res) {
-    console.log(req.params)
+  app.get('/profile', function(req, res) {
     console.log('/profile get request received')
-    db.Ally.findAll({}).then(function(allies) {
-
-    })
-    res.render('profile', {allies: req.params})
+    res.render('profile')
   })
   
   app.get('/threads/category/:id', function (req, res) {
@@ -62,18 +58,6 @@ module.exports = function(app, path) {
 
     });
  
-
-
-
-
-  app.get("/api/findAllUsers", function(req,res){
-    db.User.findAll({
-     include : [db.Reply, db.Thread]
-  }).then(function(dbUser){
-    res.render("userpage", {user : dbUser} )
-   
-  })
-  });
   
   
   app.get("/api/showReplies", function(req,res){

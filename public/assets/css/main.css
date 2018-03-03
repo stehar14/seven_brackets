@@ -1,4 +1,5 @@
     /* SEVEN BRACKETS */
+
 /* Homepage */
 /* Profile Page */
 /* Forum */
@@ -48,8 +49,10 @@
   margin-top: 30px;
 }
 
-#facebookbutton2{
-  padding-bottom: 20px;
+#facebookbutton2 {
+  padding-bottom: 25px;
+  margin-left: 200px;
+  margin-bottom: -15px;
 }
 /*-----------------------------------------------------------------*/
 /* ANIMATIONS */
@@ -384,6 +387,25 @@
     float: left;
     margin-left: 235px;
     margin-top: -290px;
+}
+
+#connections {
+  height: 200px;
+  width: 620px;
+  margin-left: 20px;
+  margin-bottom: 40px;
+  font-family: 'Just Me Again Down Here', cursive;
+  font-size: 40px;
+  font-size: 28px;
+  text-shadow: 30px;
+  padding: 20px 60px;
+  color: black;
+  border-radius: 6px;
+  text-align: center;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
+  background-color: inherit;
+  box-shadow: 0 0 0 1px #F0D264 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 rgba(196, 172, 83, .7), 0 8px 0 1px rgba(0, 0, 0, .4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  opacity: 10px;
 }
 /* FORUM */
 /*-----------------------------------------------------------------*/
