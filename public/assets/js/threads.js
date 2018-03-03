@@ -1,47 +1,43 @@
-// var db = require('../models');
-// $(document).on('ready', function(){
-
-
-// });
   // Thread routes 
   var threadApi = {
   // Get all threads - Get / findAll
   getThreads: function () {
     $.get('/api/threads', function(data) {
-      console.log(data)
     })
   },
   // Get Thread by id
-  getOneThread: function (threadId) {
+  getOneThread: function (threadId, cb) {
     $.get('/api/threads/' + threadId, function(data) {
-      console.log(data)
+      cb(data)
     })
   },
   // New Thread - Post / create
-  postThread: function (threadObject) {
+ 
+postThread: function (threadObject) {
     $.post('/api/threads', threadObject, function(response) {
-      console.log(response)
     })
   },
   // Delete thread - Delete / destroy
   deleteThread: function (threadId) {
     $.post('/api/threadDelete', {id: threadId}, function(response) {
-      console.log(response)
     })
   },
   // Confimed solved - Put / update
   updateThread: function (threadId) {
     $.post('/api/threadUpdate', threadId, function(response) { 
-      console.log(response)
     })
   },
   solveThread: function (threadId) {
     $.post('/api/threadSolved', threadId, function(response) { 
-      console.log(response)
     })
   }
 }
 
+
+
+
+ 
+// module.exports  = threadApi;
 
 
 function jqueryStuffs() {
@@ -64,8 +60,33 @@ function jqueryStuffs() {
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
+    $('.reply-count').each(function(index){
+      var this_reply = $(this)
+      threadApi.getOneThread($(this).attr('data-threadId'), function(data){
+        this_reply.text(data[0].Replies.length)
+      })
+    })
 
-
+    $('.category-name').each(function(index){
+      var category = $(this).attr('data-userId')
+      var category_text; 
+      if (category == 1){
+        category_text = "Financial Advice"
+      } else if (category == 2) {
+        category_text = "Family Advice"
+      } else if(category == 3) {
+        category_text = "Relationship Advice"
+      } else if (category == 4) {
+        category_text = "Fitness Advice"
+      } else if (category == 5) {
+        category_text = "Education Advice"
+      } else if (category == 6) {
+        category_text = "Mental Health Advice"
+      }
+      
+      
+      $(this).text(category_text)
+    })
 
   // Event listener for new thread post
   $('#new-thread-submit').on('click', function(event){
@@ -73,10 +94,8 @@ function jqueryStuffs() {
     var current_user;
     var usr_token;
     var newThread;
-    console.log()
     // Grabbing current users login token
     FB.getLoginStatus(function(response) {
-      console.log(response.authResponse.userID)
       usr_token = response.authResponse.userID;
       // Getting user data from database matching the current logged in user
       $.get("/api/checkUser/" + usr_token, function(res) {
@@ -88,7 +107,6 @@ function jqueryStuffs() {
           UserId : res.id,
           CategoryId: $('#inputcategory')[0].selectedIndex
         }
-      console.log(newThread)
       // Calling post ajax method 
       threadApi.postThread(newThread)
       })
@@ -101,8 +119,13 @@ function jqueryStuffs() {
     // Getting author and thread ID from the DOM.
     var authorId = $(this).attr('data-userId');
     var threadId = $(this).attr('data-threadId');
+
+        console.log("**********************************************")
+        console.log('delete threads')
     // Getting login status to check the current user.
     FB.getLoginStatus(function(response) {
+        console.log("**********************************************")
+        console.log('fb check')
       usr_token = response.authResponse.userID;
       // If current user is the same as the author
       if (usr_token == authorId) {
@@ -112,29 +135,25 @@ function jqueryStuffs() {
           location.reload();
         })
       } else {
-          $('#delete-h3').text('You are not the author of this post...')
-          setTimeout(function() {
-            location.reload();
-          }, 3000)
-          
-      } 
+          $('#delete-h3').val('')
+          $('#delete-h3').val('You are not the author of this post...')
+        } 
     })
   });
   // Event Listener for thread update
-  $('#update-thread').on("click", function(event){
+  $('.update-thread').on("click", function(event){
       event.preventDefault();
       var usr_token;
       // Getting author and thread ID from the DOM.
-      var authorId = $(this).attr('data-userId');
+      var poster_id = $(this).attr('data-userId');
       var threadId = $(this).attr('data-threadId');
       var current_words = $(`#thread${threadId}-body`).text()
-      console.log(current_words)
       
       // Getting login status to check the current user.
       FB.getLoginStatus(function(response) {
         usr_token = response.authResponse.userID;
         // If current user is the same as the author
-        if (usr_token == authorId) {
+        if (usr_token == poster_id) {
           $('#update-thread-text').val(current_words)
           $('#update-thread-confirm').on('click', function() {
             var update_object = {
@@ -145,7 +164,8 @@ function jqueryStuffs() {
             location.reload();
           })
         } else {
-            $('#delete-h3').text('You are not the author of this post...')
+          $('#update-thread-text').val('')
+            $('#update-thread-text').val('You are not the author of this post...')
         } 
       })
     });
@@ -167,7 +187,8 @@ function jqueryStuffs() {
             threadApi.solveThread()
           });
         } else {
-            $('#delete-h3').text('You are not the author of this post...')
+            $('#delete-h3').val('');
+            $('#delete-h3').val('You are not the author of this post...')
         } 
       })
     });
@@ -178,11 +199,9 @@ function jqueryStuffs() {
       var usr_token;
       // Getting author and thread ID from the DOM.
       var reply_authorID = $('#deleteReply').attr('data-userId')
-      console.log(reply_authorID)
       var authorId = $(this).attr('data-userId');
       var threadId = $(this).attr('data-threadId');
       var current_words = $(`#thread${threadId}-body`).text()
-      console.log(current_words)
       
       // Getting login status to check the current user.
       FB.getLoginStatus(function(response) {
@@ -192,7 +211,7 @@ function jqueryStuffs() {
 
         }
       })
-    });
-    
+    }); 
   }
-// module.exports  = threadApi;
+
+

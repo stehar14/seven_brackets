@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <meta charset="UTF-8">
+<meta name="Life Overflow" description="A community of genuine individuals reaching out to provide or receive assistance across all walks of life." >
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 <head>
     <title>Life Overflow</title>
 
 <link href="https://fonts.googleapis.com/css?family=Merienda+One" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-
+<link rel="icon" href="assets/images/favicon.png" type="image/x-icon"/>
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -26,28 +28,26 @@
  function getInfo() {
     FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id'}, function(res) {
         var fbID = res.id;
-        console.log(res);
-        console.log(fbID);
         $.get("/api/checkUser/" + fbID, function(data){
          // if user exist then redirect to profile page
-         console.log(data);
+         
         if (data) {
-            console.log("foo");
+            
         // $.get("/profile", function(temp){
 
         // })
-        window.location.replace("/profile");
+        window.location.replace("/profile/"+ fbID);
             }
         // if doesnt exist create new user in db then redirect to profile page
         else{
-                    console.log(res);
+       
 
              $.post("/api/newUser", {userName: res.name, fbtoken: fbID, img_url: "http://graph.facebook.com/" + fbID + "/picture?type=normal"})
         //       $.get("/profile", data, function(temp){
 
         // })
 
-              window.location.replace("/profile");        
+              window.location.replace("/profile/" + fbid );        
             }
         })
     });
@@ -55,8 +55,7 @@
 
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
+    
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation

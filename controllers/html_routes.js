@@ -6,21 +6,20 @@ module.exports = function(app, path) {
     res.sendFile(path.join(__dirname + '/../public/home.html'));
   })
 
-  app.get('/profile', function(req, res) {
-
+  app.get('/profile/:id', function(req, res) {
+    console.log(req.params)
     console.log('/profile get request received')
-    // if(req.body.connected){
-    //   console.log(req.body.connected)
-    res.render('profile', req.body)
-    // } else {
-    //   res.sendFile(path.join(__dirname + '/../public/waiting.html'));
-    // }
+    db.Ally.findAll({}).then(function(allies) {
+
+    })
+    res.render('profile', {allies: req.params})
   })
   
   app.get('/threads/category/:id', function (req, res) {
     console.log('/api/threads/' + req.params.id + ' get request received')
     var category_id= req.params.id;
     db.Thread.findAll({
+      include : [db.User, db.Reply],
       where: {
         CategoryId: category_id
       }
@@ -81,7 +80,7 @@ module.exports = function(app, path) {
     db.Reply.findAll({
         include : [db.User, db.Thread]
     }).then(function(dbReply){
-       res.render("replies", {replies : dbReply})
+       res.render('forum', {replies : dbReply})
     })
   });
 

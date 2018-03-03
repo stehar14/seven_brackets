@@ -45,6 +45,7 @@
 #facebookbutton{
   margin-left: 135px;
   padding-bottom: 20px;
+  margin-top: 30px;
 }
 
 #facebookbutton2{
@@ -334,6 +335,8 @@
 }
 
 #profilePic {
+    height: 202px;
+    width: 202px;
     border-radius: 20px;
     border: 1px solid #e3c600;
 }
@@ -762,4 +765,8 @@ button i {
   .container {
     padding: 0;
   }
+}
+
+@media (min-width:1440px ) and (max-width:990px) {
+  
 }
