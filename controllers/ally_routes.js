@@ -1,23 +1,26 @@
 var db = require('../models');
 
+var Sequelize = require('sequelize');
 
 
 module.exports = function(app) {
-
-  app.get("/showAllyTable", function(req,res){
-    db.Ally.findAll({
-        
-    }).then(function(dbAlly){
-        res.json(dbAlly);
-    })
-});
-
-app.post('/newAlly', function(req, res) {
+  app.post('/newAlly', function(req, res) {
     db.Ally.create(req.body)
   })
+  app.get('/getAllies/:user', function(req, res){
+    const Op = Sequelize.Op;
+    console.log(req.params.user)
+    db.Ally.findAll({
+      where: {
+        [Op.or]: [{Ally1: req.body}, {Ally2: req.body}]
+      }
+    }).then(function(allies) {
+      res.json(allies)
+    })
+  })
+};
 
 
-}
 
 
   
@@ -29,3 +32,4 @@ app.post('/newAlly', function(req, res) {
   
   
   
+
