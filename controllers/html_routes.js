@@ -33,7 +33,7 @@ module.exports = function(app, path) {
       })
       .then(function (dbThread) {
         // checkCategory(dbThread)
-        res.render('forum', {threads: dbThread, user_id: id})
+        res.render('forum', {threads: dbThread, user_id: req.params.id})
       })
     // } else {
     //   res.sendFile(path.join(__dirname + '/../public/waiting.html'));
@@ -54,7 +54,7 @@ module.exports = function(app, path) {
       })
       .then(function (dbThread) {
         // checkCategory(dbThread)
-        res.render('forum', {threads: dbThread, user_id: id})
+        res.render('forum', {threads: dbThread,user_id: req.params.id})
       })
 
     });
