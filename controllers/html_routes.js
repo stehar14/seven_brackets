@@ -6,9 +6,10 @@ module.exports = function(app, path) {
     res.sendFile(path.join(__dirname + '/../public/home.html'));
   })
 
-  app.get('/profile', function(req, res) {
+  app.get('/profile/:id', function(req, res) {
     console.log('/profile get request received')
-    res.render('profile')
+    console.log(req.params.id)
+    res.render('profile', {user_token: req.params.id})
   })
   
   app.get('/threads/category/:id', function (req, res) {
@@ -24,7 +25,7 @@ module.exports = function(app, path) {
       // res.render? for the profile page?
     })
   })
-  app.get('/threads', function(req, res){
+  app.get('/threads/:id', function(req, res){
     console.log('/threads get request received')
     // if(req.body.connected){
       db.Thread.findAll({
