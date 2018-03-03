@@ -1,32 +1,20 @@
+var db = require('../models');
+var Sequelize = require('sequelize');
 
+module.exports = function(app) {
+  app.post('/newAlly', function(req, res) {
+    db.Ally.create(req.body)
+  })
+  app.get('/getAllies/:user', function(req, res){
+    const Op = Sequelize.Op;
+    console.log(req.params.user)
+    db.Ally.findAll({
+      where: {
+        [Op.or]: [{Ally1: req.body}, {Ally2: req.body}]
+      }
+    }).then(function(allies) {
+      res.json(allies)
+    })
+  })
+};
 
-
-// //  add connection - Put / update
-// app.post("api/ally", function(req,res){
-//     db.Ally.create({
-//        Ally1 : req.body.Ally1,
-//        Ally2 : req.body.Ally2,
-//     }, {
-//     where : {
-      
-//     }
-  
-//     }).then(function(dbAlly){
-      
-//     })
-  
-//   //  delete connection - Delete / destroy
-   
-//   //  view connections - Get / findAll
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
