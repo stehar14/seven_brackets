@@ -72,8 +72,13 @@ function goHelp() {
 
 function getAllies(response) {  
   var user = response.authResponse.userID;
-  $.get('/getAllies', function(data) {
+  console.log(user, " user")
+  
+  $.get('/getAllies/'+ user, function(data) {
     console.log(data)
+    data.forEach(ally => {
+      console.log(ally)
+    })
   })
 }
 </script>
