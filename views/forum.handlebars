@@ -62,12 +62,10 @@
                     {{#with User}}
                     <!-- INSERT FACEBOOK IMG--><img class="threadavatar" src="{{img_url}}" alt="" /> {{/with}}
                   </div>
-
                   <div class="icons">
                     <div class="star-ratings-css">
                       <!-- INSERT USER.RATING -->
                       <div style="width: 84%; color: #FFC107;"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-
                     </div>
                   </div>
                 </div>
@@ -84,7 +82,6 @@
                     <!-- NEED ONCLICK function to update thread--><button style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right update-thread" data-threadId="{{id}}" data-toggle="modal" data-target="#edit-post" data-userId="{{#with User}}{{this.fbtoken}}{{/with}}" data-threadId="{{id}}"><span data-toggle="tooltip" data-placement="top" title="Edit thread"><i class="fa fa-edit"></i></span></button>
                     <!-- NEED ONCLICK function to delete thread--><button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right delete-thread" data-toggle="modal" data-target="#delete-post" data-userId="{{#with User}}{{this.fbtoken}}{{/with}}" data-threadId="{{id}}"><span data-toggle="tooltip" data-placement="top" title="Delete thread"><i class="fa fa-times-circle-o"></i></span></button>
                   </div>
-
                 </div>
                 <div class="clearfix"></div>
               </div>
@@ -109,9 +106,7 @@
                 <div class="commentcontent pull-left">
                   <div class="userinfo pull-left">
                     <div class="avatar">
-
                       <img class='reply-img threadavatar' data-userImgId='{{this.UserId}}' src="" alt="" />
-
                     </div>
                     <div class="icons">
                       <!-- insert user.rating-->
@@ -121,24 +116,27 @@
                     </div>
                   </div>
                   <div class="commenttext pull-left">
-                    <!--Need onclick function to edit reply-->            <button id="editReply" type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-toggle="modal" data-target="#edit-reply" data-userId="{{UserId}}"   data-replyId="{{id}}"><i class="fa fa-edit"></i></button>
-                    <button id="deleteReply" type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-toggle="modal" data-target="#delete-reply" data-userId="{{UserId}}"   data-replyId="{{id}}"><i class="fa fa-times-circle-o"></i></button>
-                    <!--Need onclick function to delete reply-->        
-                    <!-- INsert reply.body-->                           
-                    <p id ="reply-{{id}}-body">{{this.body}}</p>
+                    <div class="posttextcontent pull-left">
+                      <!-- INsert reply.body-->
+                      <p id="reply-{{id}}-body">{{this.body}}</p>
+                    </div>
+                    <div class="buttons pull-right">
+                      <!--Need onclick function to edit reply--><button id="editReply" type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-toggle="modal" data-target="#edit-reply" data-userId="{{UserId}}" data-replyId="{{id}}"><span data-toggle="tooltip" data-placement="top" title="Edit reply"><i class="fa fa-edit"></i></span></button>
+                      <button id="deleteReply" type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-toggle="modal" data-target="#delete-reply" data-userId="{{UserId}}" data-replyId="{{id}}"><span data-toggle="tooltip" data-placement="top" title="Delete reply"><i class="fa fa-times-circle-o"></i></span></button>
+                    </div>
                   </div>
-                  <div class = "clearfix"></div>
+                  <div class="clearfix"></div>
                 </div>
                 <div class="commentinfo pull-left">
-                  <!--Time since posted/timeposted-->             
-                  <div class="time"><i class="fa fa-clock-o"></i> 24 min</div>
-                  
+                  <div class="text-center center-text solved" style="padding: 18px 0;">
+                    <button class="conbut" data-originthreadid = "{{this.ThreadId}}" data-userreplyid = "{{this.UserId}}" type="button" style="border-radius: 100%; height: 4em; width: 4em; background-color:#ffc107; color:#595959;" data-toggle="modal" data-target="#connection-modal" ><span data-toggle="tooltip" data-placement="top" title="Make connection"><i style="font-size: 40px;" class="fa fa-check-circle-o"></i></span></button>
+                  </div>
+                  <!--Time since posted/timeposted-->
+                  {{!-- <div class="time"><i class="fa fa-clock-o"></i> 24 min</div> --}}
                 </div>
-                <div class = "btn connect-button" data-originthreadid = "{{this.ThreadId}}" data-userreplyid = "{{this.UserId}}"> Connect </div>
                 <div class="clearfix"></div>
                 {{/each}}
-                <div class = "clearfix"></div>
-
+                <div class="clearfix"></div>
               </div>
             </div>
             {{/unless}} {{/each}}
@@ -408,26 +406,33 @@
       </div>
     </div>
   </div>
+    <div class="modal fade" id="connection-modal" tabindex="-1" role="form" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h5 class="modal-title" id="exampleModalLabel">Connection Made!</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="/assets/js/threads.js"></script>
   <script>
     jqueryStuffs()
 window.onload = function() {
     // Opens modal when loading from 'get help' button on profile page
-    $(window).on("load", function() {
+  
       var url = window.location.href;
       console.log(url);
       if (url.indexOf('?threads/modal') != -1 || url.indexOf('/threads/modal') != -1) {
         $('#newpostform').modal('show');
       }
-    });
-
-    $(window).on("load", function() {
       $('[data-toggle="tooltip"]').tooltip();
-    });
-    $(function () {
       $('[data-toggle="popover"]').popover()
-    })
+  
 
 window.fbAsyncInit = function() {
   FB.init({
@@ -463,7 +468,7 @@ window.fbAsyncInit = function() {
  
          
     
-    $('.connect-button').on('click', function(event){
+    $('.conbut').on('click', function(event){
       threadId = $(this).attr('data-originthreadid')
       replyerId = $(this).attr('data-userreplyid')
 
@@ -478,6 +483,8 @@ window.fbAsyncInit = function() {
             Ally2: replyerId
           }
           if (posterId == usr_token && userIdOfThread != replyerId) {
+            $.post('/api/threadSolved', {id: threadId}, function (req, res) {
+            })
             storeConnection(newConnection)
             console.log("we will handle your connection")
           } else if (userIdOfThread == replyerId) {
