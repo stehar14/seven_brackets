@@ -1,32 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Life Overflow Forum</title>
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <!-- Custom -->
-    <link href="main.css" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <!-- Fonts -->
-  </head>
-  <body>
-    <div class="container-fluid">
-      <div class="container">
-        <div class="row">
-          <img id="forumlogo" class="img-responsive" src="/assets/images/logo2.png">
-        </div>
+
+<body>
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <a id="forumlogo" href="/"><img id="forumlogo" class="img-responsive" src="/assets/images/logo2.png"></a>
+
       </div>
+    </div>
       <section class="content">
         <div class="container">
           <div class="row">
-            <!-- Top pagination 
-              Need to write JS to paginate through database -->
+
+      <!-- Top pagination 
+              Need to write JS to paginate through database
             <div class="col-lg-8 col-xs-12 col-md-8">
               <div class="pull-left"><a href="#" class="prevnext">&#8678;</a></div>
               <div class="pull-left">
@@ -48,83 +34,86 @@
               </div>
               <div class="pull-left"><a href="#" class="prevnext last">&#8680;</a></div>
               <div class="clearfix"></div>
-            </div>
-            <!-- New post button
+            </div> -->
+          <!-- New post button
               Need to code modal html, css, and js -->
-            <div class="col-lg-4 col-md-4 col-xs-12 text-center">
-              <button id="newpost" class="btn" data-toggle="modal" data-target="#newpostform">Submit a new post</button>
-            </div>
-          </div>
+          
         </div>
-        <!-- Forum
-          Need to code JS to dynamically  -->           
-        <div class="container">
-          <div class="row">
-            <div id="postarea" class="col-lg-8 col-md-8">
-              <!-- POST -->
-              {{#each threads}}
-              {{#unless solved}}
-              <div class="post">
-                <div class="postcontent pull-left">
-                  <div class="userinfo pull-left">
-                    <div class="avatar">
-                      {{#with User}}
-                      <!-- INSERT FACEBOOK IMG--> <img class="threadavatar" src="{{img_url}}" alt="" />
-                      {{/with}}
-                    </div>
-                    <div class="icons">
-                      <div class="star-ratings-css">
-                        <!-- INSERT USER.RATING --> 
-                        <div style="width: 84%; color: #FFC107;"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-                      </div>
+      </div>
+      <!-- Forum
+          Need to code JS to dynamically  -->
+      <div class="container">
+        <div class="row">
+          <div id="postarea" class="col-lg-8 col-md-8">
+            <!-- POST -->
+            {{#each threads}} {{#unless solved}}
+            <div class="post">
+              <div class="postcontent pull-left">
+                <div class="userinfo pull-left">
+                  <div class="avatar">
+                    {{#with User}}
+                    <!-- INSERT FACEBOOK IMG--><img class="threadavatar" src="{{img_url}}" alt="" /> {{/with}}
+                  </div>
+
+                  <div class="icons">
+                    <div class="star-ratings-css">
+                      <!-- INSERT USER.RATING -->
+                      <div style="width: 84%; color: #FFC107;"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+
                     </div>
                   </div>
-                  <div class="posttext pull-left">
-                    <div class="posttextcontent pull-left">
-                      <!-- INSERT THREAD.Category--> 
-                      <h2><a href="#">{{CategoryId}}</a></h2>
-                      <!-- INSERT THREAD.Body--> 
-                      <p id="thread{{id}}-body">{{body}}</p>
-                    </div>
-                    <div class="buttons pull-right">
-                      <!--NEED TO ADD UNIQUE data-target--> <button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right expand" data-toggle="collapse" data-target="#thread{{id}}"><i class="fa fa-expand"></i></button>
-                      <!-- NEED ONCLICK function to post reply--><button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right reply"   data-toggle = "modal" data-threadId="{{id}}" data-target = "#newreplyform"><i class="fa fa-mail-reply"></i></button>
-                      <!-- NEED ONCLICK function to update thread--> <button id="update-thread" type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-threadId="{{id}}" data-toggle="modal" data-target="#edit-post" data-userId="{{#with User}}{{this.fbtoken}}{{/with}}" data-threadId="{{id}}"><i class="fa fa-edit"></i></button>
-                      <!-- NEED ONCLICK function to delete thread--> <button id="delete-thread" type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right delete-thread" data-toggle="modal" data-target="#delete-post" data-userId="{{#with User}}{{this.fbtoken}}{{/with}}" data-threadId="{{id}}"><i class="fa fa-times-circle-o"></i></button>
-                    </div>
-                  </div>
-                  <div class="clearfix"></div>
                 </div>
-                <div class="postinfo pull-left">
-                  <div class="comments">
-                    <div class="commentbg">
-                      <!-- Insert reply count for thread--> 560
-                      <div class="mark"></div>
-                    </div>
+                <div class="posttext pull-left">
+                  <div class="posttextcontent pull-left">
+                    <!-- INSERT THREAD.Category-->
+                    <h2><a href="/threads/category/{{CategoryId}}" class="category-name" data-userId="{{CategoryId}}"></a></h2>
+                    <!-- INSERT THREAD.Body-->
+                    <p id="thread{{id}}-body">{{body}}</p>
                   </div>
-                  <!-- Insert view count for thread--> 
-                  <div class="views"><i class="fa fa-eye"></i> 1,568</div>
-                  <!-- Insert thread create--> 
-                  <div class="time"><i class="fa fa-clock-o"></i> 24 min</div>
-                  
+                  <div class="buttons pull-right">
+                    <!--NEED TO ADD UNIQUE data-target--><button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right expand" data-toggle="collapse" data-target="#thread{{id}}"><span data-toggle="tooltip" data-placement="top" title="See replies"><i class="fa fa-expand"></i></span></button>
+                    <!-- NEED ONCLICK function to post reply--><button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right reply" data-toggle="modal" data-threadId="{{id}}" data-target="#newreplyform"><span data-toggle="tooltip" data-placement="top" title="Reply"><i class="fa fa-mail-reply"></i></span></button>
+                    <!-- NEED ONCLICK function to update thread--><button style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right update-thread" data-threadId="{{id}}" data-toggle="modal" data-target="#edit-post" data-userId="{{#with User}}{{this.fbtoken}}{{/with}}" data-threadId="{{id}}"><span data-toggle="tooltip" data-placement="top" title="Edit thread"><i class="fa fa-edit"></i></span></button>
+                    <!-- NEED ONCLICK function to delete thread--><button type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right delete-thread" data-toggle="modal" data-target="#delete-post" data-userId="{{#with User}}{{this.fbtoken}}{{/with}}" data-threadId="{{id}}"><span data-toggle="tooltip" data-placement="top" title="Delete thread"><i class="fa fa-times-circle-o"></i></span></button>
+                  </div>
+
                 </div>
                 <div class="clearfix"></div>
-                <!-- Needs id matching expand button--><div id="thread{{id}}" class="collapse">
+              </div>
+              <div class="postinfo pull-left">
+                <div class="comments">
+                  <div class="commentbg">
+                    <p style="font-weight: bold; font-size: 1.5em;" class="reply-count" data-threadId="{{id}}"></p>
+                    <div class="mark"></div>
+                  </div>
+                </div>
+                
+                <!-- Insert view count for thread-->
+                {{!-- <div class="views"><i class="fa fa-eye"></i> 1,568</div> --}}
+                <!-- Insert thread create-->
+                {{!-- <div class="time"><i class="fa fa-clock-o"></i> 24 min</div> --}}
+              </div>
+              <div class="clearfix"></div>
+              <!-- Needs id matching expand button-->
+              <div id="thread{{id}}" class="collapse">
                 <!-- Comments -->
                 {{#each Replies}}
                 <div class="commentcontent pull-left">
                   <div class="userinfo pull-left">
                     <div class="avatar">
-                     <img class='reply-img threadavatar' data-userImgId = '{{this.UserId}}' src="" alt="" />
+
+                      <img class='reply-img threadavatar' data-userImgId='{{this.UserId}}' src="" alt="" />
+
                     </div>
                     <div class="icons">
-                      <!-- insert user.rating-->                          
+                      <!-- insert user.rating-->
                       <div class="star-ratings-css">
                         <div style="width: 84%; color: #FFC107;"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
                       </div>
                     </div>
                   </div>
                   <div class="commenttext pull-left">
+SSSSSS
                     <!--Need onclick function to edit reply-->            <button id="editReply" type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-toggle="modal" data-target="#edit-reply" data-userId="{{UserId}}"   data-replyId="{{id}}"><i class="fa fa-edit"></i></button>
                     <button id="deleteReply" type="button" style="border-radius: 100%; height: 2.5em; width: 2.5em; background-color:#17a2b8; color:#bbdef0;" class="pull-right" data-toggle="modal" data-target="#delete-reply" data-userId="{{UserId}}"   data-replyId="{{id}}"><i class="fa fa-times-circle-o"></i></button>
                     <!--Need onclick function to delete reply-->        
@@ -139,35 +128,40 @@
                   
                 </div>
                 <div class = "btn connect-button" data-originthreadid = "{{this.ThreadId}}" data-userreplyid = "{{this.UserId}}"> Connect </div>
+                <div class="clearfix"></div>
                 {{/each}}
                 <div class = "clearfix"></div>
+
               </div>
             </div>
-            {{/unless}}
-            {{/each}}
+            {{/unless}} {{/each}}
           </div>
           <!-- /POST -->
           <div class="col-lg-4 col-md-4">
+            <div class="sidebarblock text-center">
+              <button id="newpost" class="btn" data-toggle="modal" data-target="#newpostform">Submit a new post</button>
+            </div>
             <!--Categories -->
             <div class="sidebarblock">
-              <h3>Categories</h3>
+              <h3><strong>Categories</strong></h3>
               <div class="divline"></div>
               <div class="blocktxt">
                 <ul id="categories">
-                  <!-- All                 -->            
-                  <li><a href="#">All <span class="badge pull-right">168</span></a></li>
-                  <!--    of               -->            
-                  <li><a href="#">Financial Advice <span class="badge pull-right">20</span></a></li>
-                  <!--    these        -->                
-                  <li><a href="#">Family Advice <span class="badge pull-right">10</span></a></li>
-                  <!--    need     -->                    
-                  <li><a href="#">Relationship Advice <span class="badge pull-right">50</span></a></li>
-                  <!--    to   -->                        
-                  <li><a href="#">Fitness Advice <span class="badge pull-right">36</span></a></li>
-                  <!--    affect -->                      
-                  <li><a href="#">Education Resources <span class="badge pull-right">41</span></a></li>
-                  <!--    threads shown-->                
-                  <li><a href="#">Mental Health Resources <span class="badge pull-right">11</span></a></li>
+<
+                  <li><a href="/threads">All <span class="badge pull-right">168</span></a></li>
+                  <!--    of               -->
+                  <li><a href="/threads/category/1">Financial Advice <span class="badge pull-right">20</span></a></li>
+                  <!--    these        -->
+                  <li><a href="/threads/category/2">Family Advice <span class="badge pull-right">10</span></a></li>
+                  <!--    need     -->
+                  <li><a href="/threads/category/3">Relationship Advice <span class="badge pull-right">50</span></a></li>
+                  <!--    to   -->
+                  <li><a href="/threads/category/4">Fitness Advice <span class="badge pull-right">36</span></a></li>
+                  <!--    affect -->
+                  <li><a href="/threads/category/5">Education Resources <span class="badge pull-right">41</span></a></li>
+                  <!--    threads shown-->
+                  <li><a href="/threads/category/6">Mental Health Resources <span class="badge pull-right">11</span></a></li>
+
                 </ul>
               </div>
             </div>
@@ -214,6 +208,7 @@
           </div>
         </div>
     </div>
+    <!-- Bottom pagination
     <div class="container">
     <div class="row">
     <div class="col-lg-8 col-xs-12">
@@ -240,23 +235,24 @@
     </div>
     </div>
     </div>
+    -->
     </section>
-    </div>
-    <!-- New Thread Modal -->
-    <div class="modal fade" id="newpostform" tabindex="-1" role="form" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title"></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  </div>
+  <!-- New Thread Modal -->
+  <div class="modal fade" id="newpostform" tabindex="-1" role="form" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <label for="inputcategory">Category</label>
-                <select id="inputcategory" class="form-control">
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="inputcategory">Category</label>
+              <select id="inputcategory" class="form-control">
                   <option selected>Choose...</option>
                   <option>Financial</option>
                   <option>Family</option>
@@ -265,67 +261,71 @@
                   <option>Education</option>
                   <option>Mental Health</option>
                 </select>
-              </div>
-              <div class="form-group">
-                <label for="inputpost">Post</label>
-                <textarea class="form-control" id="inputpost" rows="10"></textarea>
-                <small>
+            </div>
+            <div class="form-group">
+              <label for="inputpost">Post</label>
+              <textarea class="form-control" id="inputpost" rows="10"></textarea>
+              <small>
                   <p>Explain your issue or question as clearly as possible.</p>
                 </small>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <!-- post thread to db--><button id="new-thread-submit" type="submit" class="modalbtn btn btn-primary">Ask for Help</button>
-          </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <!-- post thread to db--><button id="new-thread-submit" type="submit" class="modalbtn btn btn-primary" data-dismiss="modal">Ask for Help</button>
         </div>
       </div>
     </div>
-    <!-- Reply Modal -->
-    <div class="modal fade" id="newreplyform" tabindex="-1" role="form" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Respond to Thread</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  </div>
+  <!-- Reply Modal -->
+  <div class="modal fade" id="newreplyform" tabindex="-1" role="form" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Respond to Thread</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <label for="inputreply">Post</label>
-                <textarea class="form-control" id="inputreply" rows="10"></textarea>
-                <small>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="inputreply">Post</label>
+              <textarea class="form-control" id="inputreply" rows="10"></textarea>
+              <small>
                   <p>Provide a clear, respectful reply to the user seeking help.</p>
                 </small>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <!-- post reply to db--><button type="submit" id="offerhelp"  data-threadId="#{{id}}"class="modalbtn btn btn-primary">Offer Help</button>
-          </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <!-- post reply to db--><button type="submit" id="offerhelp" data-threadId="#{{id}}" class="modalbtn btn btn-primary" data-dismiss="modal">Offer Help</button>
         </div>
       </div>
     </div>
-    <!-- edit reply modal -->
-    <div class="modal fade" id="edit-reply" tabindex="-1" role="form" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Edit Reply</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+
+  </div>
+  <!-- edit reply modal -->
+  <div class="modal fade" id="edit-reply" tabindex="-1" role="form" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Reply</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
             <span aria-hidden="true">&times;</span>
             </button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <label for="inputreply">Post</label>
-                <textarea class="form-control" id="edit-reply-text" rows="10"></textarea>
-                <small>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="inputreply">Post</label>
+              <textarea class="form-control" id="edit-reply-text" rows="10"></textarea>
+              <small>
                   <p>Make sure to edit your reply carefully and still remain respectful.</p>
                 </small>
+
               </div>
             </form>
           </div>
@@ -343,85 +343,95 @@
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Delete Reply</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <h3 id="delete-reply-h3"></h3>
-          </div>
-          <div class="modal-footer">
-            <!-- edit to db--><button id="delete-reply-confirm" type="submit" class="btn btn-primary">Delete</button>
-            <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"> Close </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--Delete Thread Modal -->
-    <div class="modal fade" id="delete-post" tabindex="-1" role="form" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Delete Post</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <p id="delete-h3"></p>
-          </div>
-          <div class="modal-footer">
-            <!-- post thread to db--><button id="delete-thread-confirm"type="submit" class="btn btn-primary" data-dismiss="modal">Delete</button>
-            <button type="submit" class="btn btn-primary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--edit thread modal-->
-    <div class="modal fade" id="edit-post" tabindex="-1" role="form" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Update Post</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <textarea id='update-thread-text' class="form-control" rows="3"></textarea>
-          </div>
-          <div class="modal-footer">
-            <!-- post thread to db--><button id="update-thread-confirm"type="submit" class="btn btn-primary" data-dismiss="modal">Update</button>
-            <button type="submit" class="btn btn-primary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
-  <script type = "text/javascript" src ="./assets/js/jquery.min.js"></script>
-  <script type = "text/javascript" src ="./assets/js/reply.js"></script>
-  <script type = "text/javascript" src ="./assets/js/threads.js"></script>
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+          <h3 id="delete-reply-h3"></h3>
+        </div>
+        <div class="modal-footer">
+          <!-- edit to db--><button id="delete-reply-confirm" type="submit" class="btn btn-primary" data-dismiss="modal">Delete</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"> Close </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Delete Thread Modal -->
+  <div class="modal fade" id="delete-post" tabindex="-1" role="form" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete Post</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+          <p id="delete-h3"></p>
+        </div>
+        <div class="modal-footer">
+          <!-- post thread to db--><button id="delete-thread-confirm" type="submit" class="btn btn-primary" data-dismiss="modal">Delete</button>
+          <button type="submit" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--edit thread modal-->
+  <div class="modal fade" id="edit-post" tabindex="-1" role="form" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Post</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <textarea id='update-thread-text' class="form-control" rows="3"></textarea>
+        </div>
+        <div class="modal-footer">
+          <!-- post thread to db--><button id="update-thread-confirm" type="submit" class="btn btn-primary" data-dismiss="modal">Update</button>
+          <button type="submit" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/js/threads.js"></script>
   <script>
-    jqueryStuffs()
-     window.fbAsyncInit = function() {
-          FB.init({
-            appId      : '1791323147839783',
-            cookie     : true,  // enable cookies to allow the server to access 
-                                // the session
-            xfbml      : true,  // parse social plugins on this page
-            version    : 'v2.8' // use graph api version 2.8
-          });
-        };
-    
-        // Load the SDK asynchronously
-        (function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "https://connect.facebook.net/en_US/sdk.js";
-          fjs.parentNode.insertBefore(js, fjs);
-         
-        }(document, 'script', 'facebook-jssdk'));
-    
+  window.onload = function() {
+      // Opens modal when loading from 'get help' button on profile page
+    $(window).on("load", function(){
+      var url = window.location.href;
+      console.log(url);
+      if(url.indexOf('?threads/modal') != -1 || url.indexOf('/threads/modal') != -1) {
+        $('#newpostform').modal('show'); 
+      }
+    });
+    $(window).on("load", function() {
+      $('[data-toggle="tooltip"]').tooltip(); 
+    });
+window.fbAsyncInit = function() {
+  FB.init({
+    appId: '1791323147839783',
+    cookie: true, // enable cookies to allow the server to access 
+    // the session
+    xfbml: true, // parse social plugins on this page
+    version: 'v2.8' // use graph api version 2.8
+  });
+};
+
+// Load the SDK asynchronously
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://connect.facebook.net/en_US/sdk.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
     
     
         var ajaxUserData;
@@ -697,7 +707,11 @@
         )
     }
 
-
+  }
   </script>
 
-  </body>
+
+ 
+
+
+

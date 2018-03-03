@@ -12,7 +12,9 @@ var app = express();
 var db = require("./models");
 
 // Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static("public"));
+app.use(express.static('public'));
+//app.use('/assets', express.static('public/assets'))
+//app.use('/assets/images', express.static('public/assets/images'))
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -32,11 +34,6 @@ require("./controllers/thread_routes.js")(app);
 require("./controllers/reply_routes.js")(app);
 require("./controllers/ally_routes.js")(app);
 require("./controllers/html_routes.js")(app, path)
-
-//var threads = require('./public/assets/js/threads.js')
-
-
-
 
 db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
