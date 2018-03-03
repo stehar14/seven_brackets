@@ -32,6 +32,7 @@ app.set("view engine", "handlebars");
 require("./controllers/user_routes.js")(app);
 require("./controllers/thread_routes.js")(app);
 require("./controllers/reply_routes.js")(app);
+require("./controllers/ally_routes.js")(app);
 require("./controllers/html_routes.js")(app, path)
 
 db.sequelize.sync({ force: false }).then(function() {

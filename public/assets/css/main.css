@@ -47,6 +47,10 @@
   padding-bottom: 20px;
   margin-top: 30px;
 }
+
+#facebookbutton2{
+  padding-bottom: 20px;
+}
 /*-----------------------------------------------------------------*/
 /* ANIMATIONS */
 /* RAINY */
@@ -453,10 +457,18 @@ a:hover {
 .prevnext.last {
   margin-left: 20px;
 }
+
 #newpost {
   background-color: #FFC107;
-  margin-top: 12px;
-  margin-left:-10px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px; 
+  margin-right: 15px; 
+}
+
+.postbutton {
+  display: flex;
+  justify-content: space-around;
 }
 /*-----------------------------------------------------------------*/
 /*--- Sidebar ---*/
@@ -499,9 +511,9 @@ ul#categories li a {
   line-height: 30px;
 }
 ul#categories .badge {
-  background-color: #bdc3c7;
+  background-color: #fcc107;
   font-size: 12px;
-  color: #ffffff;
+  color: #595959;
   font-family: 'Open Sans Bold', sans-serif;
   margin-top: 7px;
 }
@@ -546,7 +558,6 @@ button i {
   margin-left: 15%;
   border-bottom: 1px solid white;
   border-left: solid 1px #f1f1f1;
-  border-right: solid 1px #f1f1f1;
 }
 .post .userinfo {
   width: 15%;
@@ -558,18 +569,18 @@ button i {
   padding-right: 30px;
   padding-top: 20px;
   padding-bottom: 15px;
-  color: #989c9e;
+  color: #595959;
   font-size: 14px;
   font-family: 'Open Sans Light', sans-serif;   
   line-height: 25px;
 }
 
 .commenttext {
-  width: 70%;
+  width: 85%;
   padding-right: 30px;
   padding-top: 20px;
   padding-bottom: 15px;
-  color: #989c9e;
+  color: #595959;
   font-size: 14px;
   font-family: 'Open Sans Light', sans-serif;   
   line-height: 25px;
@@ -578,25 +589,43 @@ button i {
 .commentinfo {
   width: 15%;
   border-left: solid 1px #f1f1f1;
-  border-top: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f1f1f1;
 }
 
 .commentinfo {
   border-bottom: solid 1px #f1f1f1;
+  border-top: solid 1px #f1f1f1;
 }
-
 
 .post .avatar,
 .threadavatar {
   width: 50px;
-  margin-left: 5px;
+  margin-left: 4px;
+  margin-top: 5px;
 }
+
+.reply-img {
+  margin-top: 0px;  
+}
+
 .post .icons {
-  width: 48px;
+  width: 85%;
   border-top: solid 1px #f1f1f1;
   margin-top: 20px;
   padding-top: 7px;
 }
+
+.commentcontent .icons {
+  width: 64px;
+  border-top: solid 1px #f1f1f1;
+  margin-top: 20px;
+  padding-top: 7px;
+}
+
+.commentcontent .userinfo {
+  padding: 20px 15px 5px 5px;
+}
+
 .post h2 {
   color: #363838;
   font-size: 18px;
@@ -613,7 +642,7 @@ button i {
   background-color: #FFC107;
   border-radius: 2px;
   display: inline-block;
-  padding: 12px 17px;
+  padding: 10px 17px 0 17px;
   color: #595959;
   font-size: 14px;
   font-family: 'Open Sans Bold', sans-serif; 
@@ -625,7 +654,7 @@ button i {
   background-color: #FFC107;
   position: absolute;
   bottom: 0;
-  left: 43%;
+  left: 47%;
   margin-bottom: -5px;
   transform:rotate(45deg);
   -ms-transform:rotate(45deg); /* IE 9 */

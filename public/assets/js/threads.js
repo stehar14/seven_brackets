@@ -170,7 +170,6 @@ function jqueryStuffs() {
       })
     });
 
-
     // Event listener for connection accept
     $('#accept-connection').on("click", function(event){
       event.preventDefault();

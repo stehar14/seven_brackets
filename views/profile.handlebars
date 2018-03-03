@@ -72,7 +72,9 @@ function goHelp() {
 
 function getAllies(response) {  
   var user = response.authResponse.userID;
-  app.get('/api/allAllies')
+  $.get('/getAllies', function(data) {
+    console.log(data)
+  })
 }
 </script>
 
@@ -93,10 +95,8 @@ function getAllies(response) {
   </div>
 
   <div id="connections">
-    {{#each Ally}}
       <h3 id="thread-category"></h3>
       <h5 id="ally-name"></h5>
-    {{/each}}
   </div>
 
   <div id="profilebuttons">
@@ -113,5 +113,6 @@ function getAllies(response) {
 
   </div>
 
+<div id="facebookbutton2" class="fb-login-button" data-width="250" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
 
 </div>
