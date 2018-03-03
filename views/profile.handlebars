@@ -74,6 +74,7 @@ function getAllies(response) {
   var user = response.authResponse.userID;
   console.log(user, " user")
   
+<<<<<<< HEAD
   $.get('/getAllies/'+ user, function(data) {
     console.log(data)
     data.forEach(ally => {
@@ -81,6 +82,75 @@ function getAllies(response) {
     })
   })
 }
+=======
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1791323147839783',
+      cookie     : true,  // enable cookies to allow the server to access 
+                          // the session
+      xfbml      : true,  // parse social plugins on this page
+      version    : 'v2.8' // use graph api version 2.8
+    });
+
+
+    FB.getLoginStatus(function(response) {
+      getImg();
+      name();
+    });
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // gets image and then renders the FB on the page
+    function getImg() {
+      FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id'}, function(response) {
+
+        $.get("/api/getImg/"+ response.id, function(data){
+
+          document.getElementById("profilePic").setAttribute("src", data);
+        })
+      });
+    }
+    
+    function name() {
+      FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id'}, function(response) {
+
+        $.get("/api/checkUser/"+ response.id, function(data){
+            console.log(data);
+            var date = data.createdAt;
+            var format = "";
+            	for (var i = 0; i < 10; i++) {
+				var num = date.charAt(i);
+				format = format + num;
+				}
+			var final = format.split("-");
+			console.log(final);
+          document.getElementById('userName').innerHTML = data.userName;
+          document.getElementById('date').innerHTML = "Joined Community: " + final[1].toString() + "-" + final[2].toString() + "-" + final[0].toString();
+        })
+      });
+    }
+
+    function getHelp() {
+    	$.get("/threads/modal", function(data){
+       window.location.replace("/threads/modal");
+    	})
+    }
+
+    function goHelp() {
+      $.get("/threads", function(data){
+       window.location.replace("/threads");
+      })
+    }
+>>>>>>> master
 </script>
 
 
@@ -99,10 +169,14 @@ function getAllies(response) {
     <h2 id="date">Join Date: </h2>
   </div>
 
+<<<<<<< HEAD
   <div id="connections">
       <h3 id="thread-category"></h3>
       <h5 id="ally-name"></h5>
   </div>
+=======
+
+>>>>>>> master
 
   <div id="profilebuttons">
     <button id="buttonsize" type="button" class="btn lg btn-warning" style="background-color: transparent" onclick="goHelp()">
@@ -117,7 +191,14 @@ function getAllies(response) {
     </div>
 
   </div>
+    <div id="connections">
+        {{#each Ally}}
+        <h3 id="thread-category"></h3>
+        <h5 id="ally-name"></h5>
+        {{/each}}
+    </div>
 
 <div id="facebookbutton2" class="fb-login-button" data-width="250" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
 
 </div>
+
