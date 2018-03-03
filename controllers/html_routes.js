@@ -33,7 +33,7 @@ module.exports = function(app, path) {
       })
       .then(function (dbThread) {
         // checkCategory(dbThread)
-        res.render('forum', {threads: dbThread})
+        res.render('forum', {threads: dbThread, user_id: id})
       })
     // } else {
     //   res.sendFile(path.join(__dirname + '/../public/waiting.html'));
@@ -46,7 +46,7 @@ module.exports = function(app, path) {
 
     // }
   })
-  app.get('/threads/modal', function(req, res){
+  app.get('/threads/modal/:id', function(req, res){
     console.log('/threads/modal get request received')
     // if(req.body.connected){
       db.Thread.findAll({
@@ -54,7 +54,7 @@ module.exports = function(app, path) {
       })
       .then(function (dbThread) {
         // checkCategory(dbThread)
-        res.render('forum', {threads: dbThread})
+        res.render('forum', {threads: dbThread, user_id: id})
       })
 
     });
