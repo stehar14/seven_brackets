@@ -3,41 +3,8 @@
 Crowd sourced advice / help forum connecting people in need with people
 who want to help.
 
-## Sections
+Life Overflow's website utilizes a number of technologies including a MySQL database accessed and manipulated using Sequelize, Facebook enabled authentication, and web sockets which enable private chat among those users who form "connections" through the forum (feature not yet finished).
 
-1. Database - 
-  1. Sections (ID, name)
-  2. Threads (ID, category, body, solved(boolean), userID(assoc. to userID))
-  3. Comments (ID, thread ID (assoc. to thread ID), body, userID(assoc. to userID))
-  4. Users (ID, name, rating, pic url?)
-2. Authentication (Jeff)
-3. Frontend Design (bootstrap) - (Ben, Steve)
-4. Page Stucture 
-  1. Login
-  2. Account page 
-    1. Pic
-    2. Stats
-    3. List of posts (with option to remove)
-    4. Two link buttons
-  3. Forum
-    1. Categories
-  4. New post
-5. MVC (handle bars)
-6. Chat Box (after thought)
+Life Overflow strives to create a community of genuine individuals reaching out to provide or receive assistance across all walks of life. We are committed to providing an online meeting place where individuals can feel at ease seeking assistance for any of the problems that they feel they need help in facing. Life Overflow seeks to make the sign up and posting process as quick, sleek, and streamlined as possible. Having Facebook enabled log in required of all of our users accomplishes two goals. It allows us to access the small amount of information we need to make their profile (name and profile picture), while simultaneously providing another layer of protection against trolls or disingenous potential users.
 
-
-## Worked needed to be done
-1. Forum
-  - Finish jquery buttons
-  - Change fb image size
-  - Get userid to be stored in button
-  - Categories?
-2. Profile
-  - Date format
-  - Buttons
-  - Modal 
-3. Routes
-  - Add modal checker for profile buttons
-  - 
-
-## Responsibilities
+Please feel free to visit our site at lifeoverflow.us and sign up for a free account to start helping others and receiving help for anyhting that may trouble you.
