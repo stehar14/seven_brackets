@@ -45,7 +45,7 @@ postThread: function (threadObject) {
 function jqueryStuffs() {
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '1791323147839783',
+      appId      : '2286711464907294',
       cookie     : true,  // enable cookies to allow the server to access 
                           // the session
       xfbml      : true,  // parse social plugins on this page
@@ -110,7 +110,7 @@ function jqueryStuffs() {
           body : $('#inputpost').val(),
           solved : 0,
           UserId : res.id,
-          CategoryId: $('#inputcategory')[0].selectedIndex
+          CategoryId: $('#inputcategory').selectedIndex
         }
       // Calling post ajax method 
       threadApi.postThread(newThread)
