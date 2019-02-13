@@ -99,7 +99,7 @@ function getInfo() {
         // if doesnt exist create new user in db then redirect to profile page
         else{
        
-             $.post("/api/newUser", {userName: res.name, fbtoken: fbID, img_url: "http://graph.facebook.com/" + fbID + "/picture?type=normal"})
+             $.post("/api/newUser", {userName: res.name, fbtoken: fbID, img_url: "https://graph.facebook.com/" + fbID + "/picture?type=normal"})
         //       $.get("/profile", data, function(temp){
         // })
               window.location.replace("/profile/" + fbID );        

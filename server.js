@@ -13,8 +13,8 @@ var db = require("./models");
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static('public'));
-//app.use('/assets', express.static('public/assets'))
-//app.use('/assets/images', express.static('public/assets/images'))
+app.use('/assets', express.static('public/assets'))
+app.use('/assets/images', express.static('public/assets/images'))
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
