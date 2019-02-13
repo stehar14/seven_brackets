@@ -1,7 +1,8 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var method = require('method-override');
-var path = require('path')
+var path = require('path');
+var favicon = require('serve-favicon');
 
 // Set port for server = 8585
 var PORT = process.env.PORT || 3000;
@@ -13,9 +14,9 @@ var db = require("./models");
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static('public'));
-app.use('/assets', express.static('public/assets'))
-app.use('/assets/images', express.static('public/assets/images'))
-
+//app.use('/assets', express.static('public/assets'))
+//app.use('/assets/images', express.static('public/assets/images'))
+app.use(favicon(path.join(__dirname, '..', 'public/assets/images', 'favicon.png')));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
