@@ -4,7 +4,7 @@ var method = require('method-override');
 var path = require('path')
 
 // Set port for server = 8585
-var PORT =  3006;
+var PORT = process.env.PORT || 3000;
 
 var app = express();
 
