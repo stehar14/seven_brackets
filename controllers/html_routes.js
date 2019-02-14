@@ -15,13 +15,14 @@ module.exports = function(app, path) {
   app.get('/threads/:userID/category/:id', function (req, res) {
     console.log('/api/threads/' + req.params.id + ' get request received')
     var category_id= req.params.id;
+    
     db.Thread.findAll({
       include : [db.User, db.Reply],
       where: {
         CategoryId: category_id
       }
     }).then(function (dbThread) {
-      res.render('forum', {threads: dbThread})
+      res.render('forum', {threads: dbThread, user_id : req.params.userID })
       // res.render? for the profile page?
     })
   })
