@@ -26,28 +26,10 @@
 <body>
   {{{ body }}}
   <script>
-    
+    var fbID
 function getInfo() {
     FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id'}, function(res) {
-        var fbID = res.id;
-        $.get("/api/checkUser/" + fbID, function(data){
-         // if user exist then redirect to profile page
-         
-        if (data) {
-            
-        // $.get("/profile", function(temp){
-        // })
-        window.location.replace("/profile/"+ fbID);
-            }
-        // if doesnt exist create new user in db then redirect to profile page
-        else{
-       
-             $.post("/api/newUser", {userName: res.name, fbtoken: fbID, img_url: "https://graph.facebook.com/" + fbID + "/picture?type=normal"})
-        //       $.get("/profile", data, function(temp){
-        // })
-              window.location.replace("/profile/" + fbID );        
-            }
-        })
+        fbID = res.id;    
     });
 }
   // This is called with the results from from FB.getLoginStatus().
