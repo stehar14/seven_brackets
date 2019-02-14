@@ -12,7 +12,7 @@ module.exports = function(app, path) {
     res.render('profile', {user_token: req.params.id})
   })
   
-  app.get('/threads/category/:id', function (req, res) {
+  app.get('/threads/:userID/category/:id', function (req, res) {
     console.log('/api/threads/' + req.params.id + ' get request received')
     var category_id= req.params.id;
     db.Thread.findAll({
@@ -62,7 +62,7 @@ module.exports = function(app, path) {
     app.get('/threads', function(req, res){
       console.log('/threads get request received')
       // if(req.body.connected){
-          res.render('profile')
+          res.sendFile(path.join(__dirname + '/../public/home.html'));
         
   
       });
@@ -70,9 +70,12 @@ module.exports = function(app, path) {
       app.get('/threads/modal/', function(req, res){
         console.log('/threads/modal get request received')
         
-            res.render('profile')
+            res.sendFile(path.join(__dirname + '/../public/home.html'));
           
     
+        });
+        app.get('/threads/category/:id', function (req, res) {
+          res.sendFile(path.join(__dirname + '/../public/home.html'));;
         });
   
   app.get("/api/showReplies", function(req,res){
