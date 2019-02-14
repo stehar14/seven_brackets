@@ -59,7 +59,21 @@ module.exports = function(app, path) {
 
     });
  
+    app.get('/threads', function(req, res){
+      console.log('/threads get request received')
+      // if(req.body.connected){
+          res.render('profile')
+        
   
+      });
+
+      app.get('/threads/modal/', function(req, res){
+        console.log('/threads/modal get request received')
+        
+            res.render('profile')
+          
+    
+        });
   
   app.get("/api/showReplies", function(req,res){
     db.Reply.findAll({
