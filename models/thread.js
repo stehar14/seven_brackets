@@ -18,6 +18,10 @@ module.exports = function(sequelize, DataTypes) {
         allowNull : false,
         defaultValue : false
       },
+      CategoryId: {
+        type: DataTypes.DECIMAL,
+        allowNull: false
+      }
     })
     
    Thread.associate = function(models) {

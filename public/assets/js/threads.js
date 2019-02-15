@@ -106,11 +106,13 @@ function jqueryStuffs() {
       $.get("/api/checkUser/" + usr_token, function(res) {
         current_user = res.id;
         // Building thread object
+        console.log("LOOK HERE \n")
+        console.log($("#inputcategory")[0].selectedIndex)
         newThread = {
           body : $('#inputpost').val(),
           solved : 0,
           UserId : res.id,
-          CategoryId: $('#inputcategory').selectedIndex
+          CategoryId: $('#inputcategory')[0].selectedIndex
         }
       // Calling post ajax method 
       threadApi.postThread(newThread)

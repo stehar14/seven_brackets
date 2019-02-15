@@ -522,22 +522,7 @@ window.fbAsyncInit = function() {
             if (!bodyInput) {
               return;
             }
-            var catInput = $("#inputcategory").val();
-             if (catInput == "Financial") {
-               catId = 1;
-             } else if (catInput == "Family") {
-               catId = 2;
-             } else if (catInput == "Relationship") {
-               catId = 3;
-             } else if (catInput == "Fitness"){
-               catId = 4;
-             } else if (catInput == "Education") {
-               catId = 5;
-             } else if (catInput == "Mental Health") {
-               catId = 6;
-             } else {
-               return;
-             }
+            
             // Constructing a newReply object to hand to the database
             var newReply = {
               body: bodyInput,
