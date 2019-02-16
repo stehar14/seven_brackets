@@ -1,13 +1,11 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-var method = require('method-override');
 var path = require('path');
 
 // Set port for server = 8585
 var PORT = process.env.PORT || 3000;
 
 var app = express();
-
 
 var db = require("./models");
 
@@ -40,4 +38,3 @@ db.sequelize.sync({ force: false }).then(function() {
     console.log("App listening on PORT " + PORT);
   });
 });
-
