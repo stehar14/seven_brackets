@@ -468,10 +468,12 @@
       $('.conbut').on('click', function(event){
         threadId = $(this).attr('data-originthreadid')
         replyerId = $(this).attr('data-userreplyid')
+        console.log(threadId, replyerId);
         FB.getLoginStatus(function(response) {
           usr_token = response.authResponse.userID;
           ajaxUserData = getPosterByThreadId(threadId, function(cb) {
             userObj = cb;
+            console.log(userObj)
             var userIdOfThread = userObj[0].UserId
             var posterId = userObj[0].User.fbtoken
             var newConnection = {
