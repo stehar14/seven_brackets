@@ -484,11 +484,11 @@
               $.post('/api/threadSolved', {id: threadId}, function (req, res) {
               })
               storeConnection(newConnection)
-              console.log("we will handle your connection")
+              $("#exampleModalLabel").text("We will handle your connection")
             } else if (userIdOfThread == replyerId) {
-              console.log("You can't connect to yourself")
+              $("#exampleModalLabel").text("You can't connect to yourself")
             } else {
-              console.log('this is not your connection to make')
+              $("#exampleModalLabel").text('This is not your connection to make')
             }
           })
         })
