@@ -414,7 +414,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
-          <h5 class="modal-title" id="exampleModalLabel">Connection Made!</h5>
+          <h5 class="modal-title" id="connectionModalLabel">Connection Made!</h5>
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -484,11 +484,11 @@
               $.post('/api/threadSolved', {id: threadId}, function (req, res) {
               })
               storeConnection(newConnection)
-              $("#exampleModalLabel").text("We will handle your connection")
+              $("#connectionModalLabel").text("We will handle your connection")
             } else if (userIdOfThread == replyerId) {
-              $("#exampleModalLabel").text("You can't connect to yourself")
+              $("#connectionModalLabel").text("You can't connect to yourself")
             } else {
-              $("#exampleModalLabel").text('This is not your connection to make')
+              $("#connectionModalLabel").text('This is not your connection to make')
             }
           })
         })
